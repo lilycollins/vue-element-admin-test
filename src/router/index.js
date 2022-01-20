@@ -64,6 +64,12 @@ export const constantRoutes = [
         name: 'message',
         component: () => import('@/views/dashboard/component/message'),
         hidden: true
+      },
+      {
+        path: 'todo',
+        name: 'todo',
+        component: () => import('@/views/dashboard/component/todo'),
+        hidden: true
       }
     ]
   },

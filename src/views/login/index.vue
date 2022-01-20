@@ -59,30 +59,16 @@
         <div class="tips">
           <span style="margin-right:18px;" @click="forgetPass">忘记密码</span>
         </div>
-
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          Or connect with
-        </el-button>
       </div>
     </el-form>
-
-    <el-dialog title="Or connect with" :visible.sync="showDialog">
-      Can not be simulated on local, so please combine you own business simulation! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
   </div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
-import SocialSign from './components/SocialSignin'
 
 export default {
   name: 'Login',
-  components: { SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
@@ -174,7 +160,7 @@ export default {
       })
     },
     forgetPass() {
-      this.$router.push({ name: 'editPassword' })
+      this.$router.push({ path: '/auth-redirect' })
     }
     // getOtherQuery(query) {
     //   return Object.keys(query).reduce((acc, cur) => {

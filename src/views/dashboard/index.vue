@@ -6,7 +6,7 @@
     </div>
     <div class="top-header">
       <div v-for="(item, index) in agencyData" :key="index">
-        <div style="display: flex">
+        <div style="display: flex" @click="todoData">
           <img :src="item.src" alt="">
           <h4>{{ item.title }}</h4>
         </div>
@@ -97,6 +97,9 @@ export default {
   methods: {
     toDetail() {
       this.$router.push({ name: 'message' })
+    },
+    todoData() {
+      this.$router.push({ name: 'todo' })
     }
   }
 }

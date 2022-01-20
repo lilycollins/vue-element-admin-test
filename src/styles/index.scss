@@ -189,3 +189,13 @@ aside {
 .multiselect--active {
   z-index: 1000 !important;
 }
+
+.sub-title-head {
+  display: flex;
+  .l-box {
+    width: 3px; 
+    height: 18px; 
+    background: #1890ff;
+    margin: 0 12px 24px 0;
+  }
+}
