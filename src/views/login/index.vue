@@ -56,6 +56,9 @@
           <span style="margin-right:18px;">Username : editor</span>
           <span>Password : any</span>
         </div>
+        <div class="tips">
+          <span style="margin-right:18px;" @click="forgetPass">忘记密码</span>
+        </div>
 
         <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
           Or connect with
@@ -117,8 +120,8 @@ export default {
       handler: function(route) {
         const query = route.query
         if (query) {
-          this.redirect = query.redirect
-          this.otherQuery = this.getOtherQuery(query)
+          // this.redirect = query.redirect
+          // this.otherQuery = this.getOtherQuery(query)
         }
       },
       immediate: true
@@ -170,31 +173,16 @@ export default {
         }
       })
     },
-    getOtherQuery(query) {
-      return Object.keys(query).reduce((acc, cur) => {
-        if (cur !== 'redirect') {
-          acc[cur] = query[cur]
-        }
-        return acc
-      }, {})
+    forgetPass() {
+      this.$router.push({ name: 'editPassword' })
     }
-    // afterQRScan() {
-    //   if (e.key === 'x-admin-oauth-code') {
-    //     const code = getQueryObject(e.newValue)
-    //     const codeMap = {
-    //       wechat: 'code',
-    //       tencent: 'code'
+    // getOtherQuery(query) {
+    //   return Object.keys(query).reduce((acc, cur) => {
+    //     if (cur !== 'redirect') {
+    //       acc[cur] = query[cur]
     //     }
-    //     const type = codeMap[this.auth_type]
-    //     const codeName = code[type]
-    //     if (codeName) {
-    //       this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
-    //         this.$router.push({ path: this.redirect || '/' })
-    //       })
-    //     } else {
-    //       alert('第三方登录失败')
-    //     }
-    //   }
+    //     return acc
+    //   }, {})
     // }
   }
 }
