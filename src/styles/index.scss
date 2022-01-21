@@ -190,6 +190,25 @@ aside {
   z-index: 1000 !important;
 }
 
+.main-content {
+  padding: 24px;
+  .tag-warp {
+    display:flex;
+    justify-content:flex-end; 
+    margin-bottom: 16px
+  }
+  .form-item{
+    .el-input--medium .el-input__inner {
+      width: 350px;
+    }
+    .el-date-editor.el-input, .el-date-editor.el-input__inner{
+      width: 350px;
+    }
+  }  
+  .createPost-main-container {
+    padding: 10px 0!important;
+  }
+}
 .sub-title-head {
   display: flex;
   .l-box {
@@ -198,4 +217,11 @@ aside {
     background: #1890ff;
     margin: 0 12px 24px 0;
   }
+}
+.check-box {
+  width: 70%; 
+  min-height: 200px; 
+  border: 1px solid #DCDFE6;
+  padding:12px;
+  border-radius: 4px;
 }

@@ -90,16 +90,34 @@ export const constantRoutes = [
         meta: { title: '组织管理' }
       },
       {
+        path: 'addChange/:type',
+        name: 'addChange',
+        component: () => import('@/views/user/component/organComp'),
+        hidden: true
+      },
+      {
         path: 'role',
         component: () => import('@/views/user/role.vue'),
         name: 'role',
         meta: { title: '角色管理' }
       },
       {
+        path: 'roleChange/:type',
+        name: 'roleChange',
+        component: () => import('@/views/user/component/roleComp'),
+        hidden: true
+      },
+      {
         path: 'userInfo',
         component: () => import('@/views/user/userInfo.vue'),
         name: 'userInfo',
         meta: { title: '用户信息' }
+      },
+      {
+        path: 'userChange/:type',
+        name: 'userChange',
+        component: () => import('@/views/user/component/userComp'),
+        hidden: true
       }
     ]
   },
@@ -133,10 +151,22 @@ export const constantRoutes = [
         meta: { title: '消防设备巡检计划' }
       },
       {
+        path: 'checkPlan/:type',
+        name: 'checkPlan',
+        component: () => import('@/views/fire/component/checkComp'),
+        hidden: true
+      },
+      {
         path: 'deviceProtect',
         component: () => import('@/views/fire/deviceProtect.vue'),
         name: 'deviceProtect',
         meta: { title: '消防设置维保计划' }
+      },
+      {
+        path: 'checkProtect/:type',
+        name: 'checkProtect',
+        component: () => import('@/views/fire/component/protectComp'),
+        hidden: true
       },
       {
         path: 'history',
@@ -149,6 +179,12 @@ export const constantRoutes = [
         component: () => import('@/views/fire/security.vue'),
         name: 'fireSecurity',
         meta: { title: '消防安全信息发布' }
+      },
+      {
+        path: 'pubMessage/:type',
+        name: 'pubMessage',
+        component: () => import('@/views/fire/component/pubMessage'),
+        hidden: true
       }
     ]
   },
@@ -311,137 +347,137 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-//   {
-//     path: '/permission',
-//     component: Layout,
-//     redirect: '/permission/page',
-//     alwaysShow: true, // will always show the root menu
-//     name: 'Permission',
-//     meta: {
-//       title: 'Permission',
-//       icon: 'lock',
-//       roles: ['admin', 'editor'] // you can set roles in root nav
-//     },
-//     children: [
-//       {
-//         path: 'page',
-//         component: () => import('@/views/permission/page'),
-//         name: 'PagePermission',
-//         meta: {
-//           title: 'Page Permission',
-//           roles: ['admin'] // or you can only set roles in sub nav
-//         }
-//       },
-//       {
-//         path: 'directive',
-//         component: () => import('@/views/permission/directive'),
-//         name: 'DirectivePermission',
-//         meta: {
-//           title: 'Directive Permission'
-//           // if do not set roles, means: this page does not require permission
-//         }
-//       },
-//       {
-//         path: 'role',
-//         component: () => import('@/views/permission/role'),
-//         name: 'RolePermission',
-//         meta: {
-//           title: 'Role Permission',
-//           roles: ['admin']
-//         }
-//       }
-//     ]
-//   },
+  {
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/page',
+    alwaysShow: true, // will always show the root menu
+    name: 'Permission',
+    meta: {
+      title: 'Permission',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'page',
+        component: () => import('@/views/permission/page'),
+        name: 'PagePermission',
+        meta: {
+          title: 'Page Permission',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'directive',
+        component: () => import('@/views/permission/directive'),
+        name: 'DirectivePermission',
+        meta: {
+          title: 'Directive Permission'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/permission/role'),
+        name: 'RolePermission',
+        meta: {
+          title: 'Role Permission',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
 
-  //   {
-  //     path: '/icon',
-  //     component: Layout,
-  //     children: [
-  //       {
-  //         path: 'index',
-  //         component: () => import('@/views/icons/index'),
-  //         name: 'Icons',
-  //         meta: { title: 'Icons', icon: 'icon', noCache: true }
-  //       }
-  //     ]
-  //   },
+  {
+    path: '/icon',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/icons/index'),
+        name: 'Icons',
+        meta: { title: 'Icons', icon: 'icon', noCache: true }
+      }
+    ]
+  },
 
-  //   /** when your routing map is too long, you can split it into small modules **/
-  //   // componentsRouter,
-  //   // chartsRouter,
-  //   // nestedRouter,
-  //   // tableRouter,
+  /** when your routing map is too long, you can split it into small modules **/
+  // componentsRouter,
+  // chartsRouter,
+  // nestedRouter,
+  // tableRouter,
 
-  //   {
-  //     path: '/example',
-  //     component: Layout,
-  //     redirect: '/example/list',
-  //     name: 'Example',
-  //     meta: {
-  //       title: 'Example',
-  //       icon: 'el-icon-s-help'
-  //     },
-  //     children: [
-  //       {
-  //         path: 'create',
-  //         component: () => import('@/views/example/create'),
-  //         name: 'CreateArticle',
-  //         meta: { title: 'Create Article', icon: 'edit' }
-  //       },
-  //       {
-  //         path: 'edit/:id(\\d+)',
-  //         component: () => import('@/views/example/edit'),
-  //         name: 'EditArticle',
-  //         meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
-  //         hidden: true
-  //       },
-  //       {
-  //         path: 'list',
-  //         component: () => import('@/views/example/list'),
-  //         name: 'ArticleList',
-  //         meta: { title: 'Article List', icon: 'list' }
-  //       }
-  //     ]
-  //   },
+  {
+    path: '/example',
+    component: Layout,
+    redirect: '/example/list',
+    name: 'Example',
+    meta: {
+      title: 'Example',
+      icon: 'el-icon-s-help'
+    },
+    children: [
+      {
+        path: 'create',
+        component: () => import('@/views/example/create'),
+        name: 'CreateArticle',
+        meta: { title: 'Create Article', icon: 'edit' }
+      },
+      {
+        path: 'edit/:id(\\d+)',
+        component: () => import('@/views/example/edit'),
+        name: 'EditArticle',
+        meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
+        hidden: true
+      },
+      {
+        path: 'list',
+        component: () => import('@/views/example/list'),
+        name: 'ArticleList',
+        meta: { title: 'Article List', icon: 'list' }
+      }
+    ]
+  },
 
-  //   {
-  //     path: '/tab',
-  //     component: Layout,
-  //     children: [
-  //       {
-  //         path: 'index',
-  //         component: () => import('@/views/tab/index'),
-  //         name: 'Tab',
-  //         meta: { title: 'Tab', icon: 'tab' }
-  //       }
-  //     ]
-  //   },
+  {
+    path: '/tab',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/tab/index'),
+        name: 'Tab',
+        meta: { title: 'Tab', icon: 'tab' }
+      }
+    ]
+  },
 
-//   {
-//     path: '/error',
-//     component: Layout,
-//     redirect: 'noRedirect',
-//     name: 'ErrorPages',
-//     meta: {
-//       title: 'Error Pages',
-//       icon: '404'
-//     },
-//     children: [
-//       {
-//         path: '401',
-//         component: () => import('@/views/error-page/401'),
-//         name: 'Page401',
-//         meta: { title: '401', noCache: true }
-//       },
-//       {
-//         path: '404',
-//         component: () => import('@/views/error-page/404'),
-//         name: 'Page404',
-//         meta: { title: '404', noCache: true }
-//       }
-//     ]
-//   },
-//   { path: '*', redirect: '/404', hidden: true }
+  {
+    path: '/error',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'ErrorPages',
+    meta: {
+      title: 'Error Pages',
+      icon: '404'
+    },
+    children: [
+      {
+        path: '401',
+        component: () => import('@/views/error-page/401'),
+        name: 'Page401',
+        meta: { title: '401', noCache: true }
+      },
+      {
+        path: '404',
+        component: () => import('@/views/error-page/404'),
+        name: 'Page404',
+        meta: { title: '404', noCache: true }
+      }
+    ]
+  },
+  { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({

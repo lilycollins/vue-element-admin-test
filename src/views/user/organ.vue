@@ -1,13 +1,13 @@
 <template>
   <div>
     <div v-show="showParent">
-      <el-button type="primary" size="medium" style="width: 110px; margin: 24px">创建组织</el-button>
+      <el-button type="primary" size="medium" style="width: 110px; margin: 24px" @click="addOrgan">创建组织</el-button>
       <div style="margin: 30px 50px" @click="toggleShow">
         <img :src="src" style="height: 100%">
       </div>
     </div>
     <div v-show="!showParent">
-      <el-button type="primary" size="medium" style="width: 110px; margin: 24px">编辑组织</el-button>
+      <el-button type="primary" size="medium" style="width: 110px; margin: 24px" @click="editOrgan">编辑组织</el-button>
       <div style="margin: 30px 50px">
         <img :src="src2" style="height: 100%">
       </div>
@@ -19,7 +19,6 @@
 <script>
 
 export default {
-  name: 'Dashboard',
   data() {
     return {
       showParent: true,
@@ -30,6 +29,17 @@ export default {
   methods: {
     toggleShow() {
       this.showParent = !this.showParent
+    },
+    addOrgan() {
+      this.$router.push({ name: 'addChange', params: {
+        type: 'add'
+      }})
+    },
+    editOrgan() {
+      this.$router.push({ name: 'addChange', params: {
+        type: 'edit'
+      }}
+      )
     }
   }
 }
