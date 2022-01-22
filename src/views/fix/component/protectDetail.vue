@@ -1,7 +1,10 @@
 <template>
   <div class="element-main">
-    <div style="width: 90%;margin: 20px auto">
-      <div class="sub-title-head"> <div class="l-box" />保修详情</div>
+    <div style="width: 90%; margin: 20px auto">
+      <div class="sub-title-head">
+        <div class="l-box" />
+        保修详情
+      </div>
       <h4>基本信息</h4>
       <el-row>
         <el-col :span="8">
@@ -20,11 +23,7 @@
           </el-table>
         </el-col>
         <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
+          <el-table style="width: 100%" :data="getValues" :show-header="false">
             <el-table-column
               v-for="(item, index) in getHeaders"
               :key="index"
@@ -33,11 +32,7 @@
           </el-table>
         </el-col>
         <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
+          <el-table style="width: 100%" :data="getValues" :show-header="false">
             <el-table-column
               v-for="(item, index) in getHeaders"
               :key="index"
@@ -53,14 +48,22 @@
           style="width: 80%"
           type="textarea"
           readonly
-          :autosize="{ minRows: 10, maxRows: 14}"
+          :autosize="{ minRows: 10, maxRows: 14 }"
           placeholder="请输入内容"
         />
       </div>
       <div style="padding-top: 35px">
         <p>附件上传</p>
-        <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
-        <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
+        <img
+          src="../../../assets/img/default.svg"
+          style="width: 200px; padding: 12px"
+          alt=""
+        >
+        <img
+          src="../../../assets/img/default.svg"
+          style="width: 200px; padding: 12px"
+          alt=""
+        >
       </div>
       <h4>保修情况</h4>
       <el-row>
@@ -80,11 +83,7 @@
           </el-table>
         </el-col>
         <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
+          <el-table style="width: 100%" :data="getValues" :show-header="false">
             <el-table-column
               v-for="(item, index) in getHeaders"
               :key="index"
@@ -93,11 +92,7 @@
           </el-table>
         </el-col>
         <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
+          <el-table style="width: 100%" :data="getValues" :show-header="false">
             <el-table-column
               v-for="(item, index) in getHeaders"
               :key="index"
@@ -113,19 +108,28 @@
           style="width: 80%"
           type="textarea"
           readonly
-          :autosize="{ minRows: 10, maxRows: 14}"
+          :autosize="{ minRows: 10, maxRows: 14 }"
           placeholder="请输入内容"
         />
       </div>
       <div style="padding-top: 35px">
         <p>附件上传</p>
-        <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
-        <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
+        <img
+          src="../../../assets/img/default.svg"
+          style="width: 200px; padding: 12px"
+          alt=""
+        >
+        <img
+          src="../../../assets/img/default.svg"
+          style="width: 200px; padding: 12px"
+          alt=""
+        >
       </div>
 
       <h4>维修点评</h4>
       <div class="fix-div">
-        <p style="padding-right: 100px">保修完成度</p><p>{{ a1 }}</p>
+        <p style="padding-right: 100px">保修完成度</p>
+        <p>{{ a1 }}</p>
       </div>
       <div class="fix-div">
         <p>评分</p>
@@ -138,16 +142,14 @@
           style="width: 80%"
           type="textarea"
           readonly
-          :autosize="{ minRows: 10, maxRows: 14}"
+          :autosize="{ minRows: 10, maxRows: 14 }"
           placeholder="请输入内容"
         />
       </div>
       <div style="padding-top: 35px">
         <el-button @click="back">返回</el-button>
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -206,11 +208,11 @@ export default {
 
 <style lang="scss" scoped>
 .m50 {
-    margin: 50px;
+  margin: 50px;
 }
 .fix-div {
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

@@ -1,0 +1,257 @@
+<template>
+  <div class="main-content">
+    <div class="sub-title-head">
+      <div class="l-box" />
+      维修事件
+    </div>
+    <div style="display: flex; justify-content: space-between">
+      <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <el-form-item label="">
+          <el-select v-model="formInline.type" placeholder="全部部门">
+            <el-option key="1" label="巡检" value="1" />
+            <el-option key="2" label="维保" value="2" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="">
+          <el-date-picker
+            v-model="formInline.time"
+            type="datetimerange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+          />
+        </el-form-item>
+        <el-form-item label="">
+          <el-input
+            v-model="formInline.user"
+            prefix-icon="el-icon-search"
+            placeholder="搜索保修单号"
+          />
+        </el-form-item>
+        <el-form-item>
+          <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+    <div class="tag-warp">
+      <el-button plain>刷新</el-button>
+    </div>
+
+    <!-- 表格 -->
+    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <!-- 分页 -->
+    <pagination
+      v-show="total >= 0"
+      :total="total"
+      :page.sync="form.pageIndex"
+      :limit.sync="form.pageSize"
+      @pagination="getList"
+    />
+    <el-dialog
+      title="保修详情"
+      :visible.sync="centerDialogVisible"
+      width="800px"
+      center
+    >
+      <div style="display: flex; justify-content: center; flex-wrap: wrap">
+        <div class="table-item">
+          维修单号 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item" />
+        <div class="table-item">
+          申请部门 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          申请人 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          保修主题 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          保修类型 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          保修设备名称 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          保修时间 <span>{{ dialogForm.fixNo }}</span>
+        </div>
+      </div>
+      <el-form
+        ref="ruleForm"
+        :model="dialogForm"
+        label-width="180px"
+        class="form-item"
+      >
+        <el-form-item
+          label="保修情况描述"
+          prop="fixNo"
+          style="padding-top: 24px"
+        >
+          <el-input
+            v-model="dialogForm.fixNo"
+            style="width: 80%"
+            type="textarea"
+            readonly
+            :autosize="{ minRows: 10, maxRows: 14 }"
+          />
+        </el-form-item>
+        <el-form-item label="附件上传" prop="img">
+          <img
+            src="../../assets/img/default.svg"
+            style="width: 200px; padding: 12px"
+            alt=""
+          >
+          <img
+            src="../../assets/img/default.svg"
+            style="width: 200px; padding: 12px"
+            alt=""
+          >\
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="centerDialogVisible = false"
+        >确 定</el-button>
+      </span>
+    </el-dialog>
+  </div>
+</template>
+<script>
+import myTable from '@/components/Table'
+import pagination from '@/components/Pagination'
+const field = [
+  {
+    type: 0,
+    label: '保修单号',
+    key: 'a2'
+  },
+  {
+    type: 0,
+    label: '保修部门',
+    key: 'a3',
+    showOverflow: true
+  },
+  {
+    type: 0,
+    label: '保修人',
+    key: 'a4'
+  },
+  {
+    type: 0,
+    label: '保修主题',
+    key: 'a4'
+  },
+  {
+    type: 0,
+    label: '保修类型',
+    key: 'a4'
+  },
+  {
+    type: 0,
+    label: '保修设备名称',
+    key: 'a4'
+  },
+  {
+    type: 0,
+    label: '状态',
+    key: 'a4'
+  },
+  {
+    type: 0,
+    label: '保修事件',
+    key: 'a4'
+  }
+]
+export default {
+  components: {
+    myTable,
+    pagination
+  },
+  data() {
+    return {
+      form: {
+        pageIndex: 1,
+        pageSize: 20
+      },
+      formInline: {
+        user: '',
+        time: ''
+      },
+      tabPosition: 'check',
+      tb: {
+        fields: field,
+        data: [],
+        index: true,
+        selectionBtn: true,
+        height: null,
+        operationName: '操作',
+        operationWidth: '180',
+        OperationBtn: [
+          {
+            type: 'text',
+            key: '1',
+            name: '详情'
+          }
+        ]
+      },
+      total: 0,
+      selected: [],
+      centerDialogVisible: false,
+      dialogForm: {
+        fixNo: ''
+      },
+      listObj: {},
+      fileList: []
+    }
+  },
+  created() {
+    this.getList()
+  },
+  mounted() {
+    this.tb.height = document.body.clientHeight - 240
+  },
+  methods: {
+    getList() {
+      this.tb.data = [
+        {
+          a1: '主任',
+          a2: '办公室主任',
+          a3: '启用',
+          a4: '2021-01-02  12:12'
+        },
+        {
+          a1: '职员',
+          a2: '办公室主任',
+          a3: '禁用',
+          a4: '2021-01-02  12:12'
+        }
+      ]
+      this.total = 2
+    },
+    handleSizeChange(val) {
+      this.form.pageSize = val
+      this.getList()
+    },
+    handleCurrentChange(val) {
+      this.form.pageIndex = val
+      this.getList()
+    },
+    onSubmit() {
+      this.form.pageIndex = 1
+      this.getList()
+    },
+    tbSelect(select) {
+      this.selected = []
+      select.forEach((ele) => {
+        this.selected.push(ele.id)
+      })
+    },
+    editRow({ row }, btn, index) {
+      this.centerDialogVisible = true
+    }
+  }
+}
+</script>

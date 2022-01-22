@@ -1,6 +1,9 @@
 <template>
   <div class="main-content">
-    <div class="sub-title-head"> <div class="l-box" />保修事件</div>
+    <div class="sub-title-head">
+      <div class="l-box" />
+      保修事件
+    </div>
     <div style="display: flex; justify-content: space-between">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
@@ -19,7 +22,11 @@
           />
         </el-form-item>
         <el-form-item label="">
-          <el-input v-model="formInline.user" prefix-icon="el-icon-search" placeholder="搜索维保人" />
+          <el-input
+            v-model="formInline.user"
+            prefix-icon="el-icon-search"
+            placeholder="搜索维保人"
+          />
         </el-form-item>
         <el-form-item>
           <el-button plain @click="onSubmit">查询</el-button>
@@ -34,8 +41,15 @@
     <!-- 表格 -->
     <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
-    <pagination v-show="total>=0" :total="total" :page.sync="form.pageIndex" :limit.sync="form.pageSize" @pagination="getList" />
-  </div></template>
+    <pagination
+      v-show="total >= 0"
+      :total="total"
+      :page.sync="form.pageIndex"
+      :limit.sync="form.pageSize"
+      @pagination="getList"
+    />
+  </div>
+</template>
 <script>
 import myTable from '@/components/Table'
 import pagination from '@/components/Pagination'
@@ -153,9 +167,11 @@ export default {
       }
     },
     addIt() {
-      this.$router.push({ name: 'addProtect', params: {
-        type: 'add'
-      }})
+      this.$router.push({
+        name: 'addProtect', params: {
+          type: 'add'
+        }
+      })
     }
   }
 }
