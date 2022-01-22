@@ -108,7 +108,7 @@ export default {
 .common-title {
   padding: 0 12px 0 12px;
   p{
-    color: #1890ff;
+    color: #1472FF;
     font-size: 20px;
     font-weight: bold
   }

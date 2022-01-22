@@ -1,66 +1,71 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
+    <img src="http://wechatapppro-1252524126.file.myqcloud.com/appAKLWLitn7978/image/khwyrhmg0bshiiavgi9w.png" class="logo">
+    <div class="login-background-img" />
+    <div class="login-background-content">
+      <div class="login-backGround-img-content"><img src="https://wechatapppro-1252524126.file.myqcloud.com/appPYtT9SmK6848/image/b_u_5b2225aa46488_oGKN7IvA/kvm7z8fw03tt.png" class="login-backGround-img-logo"></div>
+      <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
-      <div class="title-container">
-        <h3 class="title">Login Form</h3>
-      </div>
+        <div class="title-container">
+          <h3 class="title">登陆XXX管理系统</h3>
+        </div>
 
-      <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
-        <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          tabindex="1"
-          autocomplete="on"
-        />
-      </el-form-item>
-
-      <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
-        <el-form-item prop="password">
+        <el-form-item prop="username">
           <span class="svg-container">
-            <svg-icon icon-class="password" />
+            <svg-icon icon-class="user" />
           </span>
           <el-input
-            :key="passwordType"
-            ref="password"
-            v-model="loginForm.password"
-            :type="passwordType"
-            placeholder="Password"
-            name="password"
-            tabindex="2"
+            ref="username"
+            v-model="loginForm.username"
+            placeholder="Username"
+            name="username"
+            type="text"
+            tabindex="1"
             autocomplete="on"
-            @keyup.native="checkCapslock"
-            @blur="capsTooltip = false"
-            @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
-            <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
-          </span>
         </el-form-item>
-      </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">login</el-button>
+        <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
+          <el-form-item prop="password">
+            <span class="svg-container">
+              <svg-icon icon-class="password" />
+            </span>
+            <el-input
+              :key="passwordType"
+              ref="password"
+              v-model="loginForm.password"
+              :type="passwordType"
+              placeholder="Password"
+              name="password"
+              tabindex="2"
+              autocomplete="on"
+              @keyup.native="checkCapslock"
+              @blur="capsTooltip = false"
+              @keyup.enter.native="handleLogin"
+            />
+            <span class="show-pwd" @click="showPwd">
+              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
+            </span>
+          </el-form-item>
+        </el-tooltip>
 
-      <div style="position:relative">
-        <div class="tips">
-          <span>Username : admin</span>
-          <span>Password : any</span>
+        <el-button class="login-btn" :loading="loading" type="primary" style="width:100%;margin:50px 0 20px 0" @click.native.prevent="handleLogin">登录</el-button>
+
+        <div style="position:relative">
+          <!-- <div class="tips">
+            <span>Username : admin</span>
+            <span>Password : any</span>
+          </div>
+          <div class="tips">
+            <span style="margin-right:18px;">Username : editor</span>
+            <span>Password : any</span>
+          </div> -->
+          <div class="tips">
+            <span class="forget-span" style="margin-right:18px;" @click="forgetPass">忘记密码</span>
+          </div>
         </div>
-        <div class="tips">
-          <span style="margin-right:18px;">Username : editor</span>
-          <span>Password : any</span>
-        </div>
-        <div class="tips">
-          <span style="margin-right:18px;" @click="forgetPass">忘记密码</span>
-        </div>
-      </div>
-    </el-form>
+      </el-form>
+    </div>
   </div>
 </template>
 
@@ -190,6 +195,44 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
+  .logo {
+    position: absolute;
+    top: 3%;
+    left: 2%;
+    z-index: 1;
+    width: 120px;
+    cursor: pointer;
+  }
+  .login-background-img {
+    background-image: url(../../assets/img/loginbg.png);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    min-height: 730px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .login-background-content {
+    width: 100%;
+    height: 496px;
+    display: flex;
+    margin-top: 10%;
+    justify-content: center;
+    .login-backGround-img-content {
+      z-index: 8;
+      width: 680px;
+      height: 680px;
+      margin-right: 88px;
+      transform: translate(0px, -58px);
+      .login-backGround-img-logo {
+        width: 680px;
+        height: 680px;
+      }
+  }
+  }
   .el-input {
     display: inline-block;
     height: 47px;
@@ -201,7 +244,7 @@ $cursor: #fff;
       -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
+      color: #666;
       height: 47px;
       caret-color: $cursor;
 
@@ -213,10 +256,10 @@ $cursor: #fff;
   }
 
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #dcdfe6;
+    background: #fff;
     border-radius: 5px;
-    color: #454545;
+    color: #333;
   }
 }
 </style>
@@ -233,23 +276,44 @@ $light_gray:#eee;
   overflow: hidden;
 
   .login-form {
+    width: 408px;
+    min-width: 408px;
+    height: 100%;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    padding: 64px 40px 40px 40px;
+    background: #fff;
     position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
+    box-shadow: 0px 8px 24px 0px rgb(42 94 173 / 6%);
+    .login-btn {
+      font-size: 16px;
+      line-height: 24px;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+      outline: none;
+      width: 328px;
+      height: 40px;
+      border-radius: 4px;
+      opacity: 1;
+      border: 0;
+      background: #1472FF;
+    }
   }
 
   .tips {
     font-size: 14px;
-    color: #fff;
+    color: #999;
     margin-bottom: 10px;
-
+    text-align: center;
     span {
       &:first-of-type {
         margin-right: 16px;
       }
+    }
+    .forget-span {
+      color: #1472FF;
     }
   }
 
@@ -265,11 +329,11 @@ $light_gray:#eee;
     position: relative;
 
     .title {
-      font-size: 26px;
-      color: $light_gray;
+      font-size: 20px;
+      color: black;
       margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
+      text-align: left;
+      font-weight: 600;
     }
   }
 

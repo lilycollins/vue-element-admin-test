@@ -29,11 +29,12 @@
       </el-form-item>
       <el-form-item label="维保内容定制" prop="checkedCities2">
         <div class="check-box">
-          <el-checkbox v-model="checkAll2" :indeterminate="isIndeterminate2" @change="handleCheckAllChange2">全选</el-checkbox>
-          <div style="margin: 15px 0;" />
-          <el-checkbox-group v-model="ruleForm.checkedCities2" @change="handleCheckedCitiesChange2">
-            <el-checkbox v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox>
-          </el-checkbox-group>
+          <div v-for="(value, name) of filterObj" :key="name" style="margin: 15px 0;">
+            <h4>{{ name }}</h4>
+            <el-checkbox-group v-model="ruleForm.checkedCities2">
+              <el-checkbox v-for="item in value" :key="item" :label="item">{{ item }}</el-checkbox>
+            </el-checkbox-group>
+          </div>
         </div>
       </el-form-item>
       <el-form-item>
@@ -45,7 +46,13 @@
 
 </template>
 <script>
-const cityOptions = ['主任', '职员', '秘书', '接待']
+const cityOptions = ['name1', 'name2', 'name3', 'name4']
+const subOptions = {
+  'name1': ['sub1', 'sub2', 'sub3'],
+  'name2': ['sub1-', 'sub2-', 'sub3-'],
+  'name3': ['sub+1', 'sub2+', 'sub3+'],
+  'name4': ['sub1.', 'sub2.', 'sub3.']
+}
 export default {
   data() {
     return {
@@ -54,7 +61,6 @@ export default {
         name: '',
         checkedCities: [],
         checkedCities2: [],
-        checkedCities3: [],
         a2: '',
         a3: '',
         a4: '',
@@ -74,6 +80,8 @@ export default {
       checkAll2: false,
       checkAll3: false,
       cities: cityOptions,
+      subOptions: subOptions,
+      filterObj: {},
       isIndeterminate: false,
       isIndeterminate2: false,
       isIndeterminate3: false,
@@ -102,9 +110,12 @@ export default {
         a3: '张三',
         a4: '15412451245',
         a5: '2022-01-01 10:00',
-        checkedCities: ['职员', '秘书'],
-        checkedCities2: ['职员'],
-        checkedCities3: ['秘书']
+        checkedCities: ['name1', 'name3'],
+        checkedCities2: ['name1', 'name3']
+      }
+      this.filterObj = {
+        'name1': ['sub1', 'sub2', 'sub3'],
+        'name2': ['sub1-', 'sub2-', 'sub3-']
       }
     }
   },
@@ -132,28 +143,16 @@ export default {
       this.ruleForm.checkedCities = val ? cityOptions : []
       this.isIndeterminate = false
     },
-    handleCheckAllChange2(val) {
-      this.ruleForm.checkedCities2 = val ? cityOptions : []
-      this.isIndeterminate2 = false
-    },
-    handleCheckAllChange3(val) {
-      this.ruleForm.checkedCities3 = val ? cityOptions : []
-      this.isIndeterminate3 = false
-    },
     handleCheckedCitiesChange(value) {
+      this.filterObj = {}
+      value.forEach(val => {
+        if (Object.keys(this.subOptions).includes(val)) {
+          this.filterObj[val] = this.subOptions[val]
+        }
+      })
       const checkedCount = value.length
       this.checkAll = checkedCount === this.cities.length
       this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length
-    },
-    handleCheckedCitiesChange2(value) {
-      const checkedCount = value.length
-      this.checkAll2 = checkedCount === this.cities.length
-      this.isIndeterminate2 = checkedCount > 0 && checkedCount < this.cities.length
-    },
-    handleCheckedCitiesChange3(value) {
-      const checkedCount = value.length
-      this.checkAll3 = checkedCount === this.cities.length
-      this.isIndeterminate3 = checkedCount > 0 && checkedCount < this.cities.length
     }
   }
 }
