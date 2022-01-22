@@ -205,6 +205,24 @@ export const constantRoutes = [
         meta: { title: '保修事件' }
       },
       {
+        path: 'addProtect/:type',
+        name: 'addProtect',
+        component: () => import('@/views/fix/component/addProtect'),
+        hidden: true
+      },
+      {
+        path: 'protectDetail',
+        name: 'protectDetail',
+        component: () => import('@/views/fix/component/protectDetail'),
+        hidden: true
+      },
+      {
+        path: 'protectScore',
+        name: 'protectScore',
+        component: () => import('@/views/fix/component/protectScore'),
+        hidden: true
+      },
+      {
         path: 'fixThing',
         component: () => import('@/views/fix/fixThing.vue'),
         name: 'fixThing',

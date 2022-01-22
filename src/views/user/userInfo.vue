@@ -53,7 +53,7 @@ const field = [{
   label: '角色',
   key: 'a4'
 }, {
-  id: 4,
+  id: 5,
   type: 0,
   label: '年龄',
   key: 'a4'
