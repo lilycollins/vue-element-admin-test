@@ -53,7 +53,7 @@
       width="800px"
       center
     >
-      <div style="display: flex; justify-content: center; flex-wrap: wrap">
+      <div class="like-table-item">
         <div class="table-item">
           维修单号 <span>{{ dialogForm.fixNo }}</span>
         </div>
@@ -80,7 +80,7 @@
       <el-form
         ref="ruleForm"
         :model="dialogForm"
-        label-width="180px"
+        label-width="110px"
         class="form-item"
       >
         <el-form-item
@@ -106,7 +106,7 @@
             src="../../assets/img/default.svg"
             style="width: 200px; padding: 12px"
             alt=""
-          >\
+          >
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">

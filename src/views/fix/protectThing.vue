@@ -29,7 +29,7 @@
           />
         </el-form-item>
         <el-form-item>
-          <el-button plain @click="onSubmit">查询</el-button>
+          <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
     </div>

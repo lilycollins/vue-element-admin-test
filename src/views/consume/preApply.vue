@@ -175,15 +175,19 @@ export default {
     },
     editRow({ row }, btn, index) {
       if (btn.key === '1') {
-        this.$router.push({ name: 'protectDetail' })
+        this.$router.push({
+          name: 'preAdd', params: {
+            type: 'edit'
+          }
+        })
       }
       if (btn.key === '2') {
-        this.$router.push({ name: 'protectScore' })
+        this.$router.push({ name: 'preDetail' })
       }
     },
     addIt() {
       this.$router.push({
-        name: 'addProtect', params: {
+        name: 'preAdd', params: {
           type: 'add'
         }
       })

@@ -201,13 +201,18 @@ aside {
     .createPost-main-container {
         padding: 10px 0!important;
     }
-    .table-item {
-        width: 300px;
-        padding: 12px;
-        font-size: 14px;
-        color: #999;
-        .span {
-            color: #333;
+    .like-table-item {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .table-item {
+            width: 50%;
+            padding: 12px;
+            font-size: 14px;
+            color: #999;
+            .span {
+                color: #333;
+            }
         }
     }
 }
