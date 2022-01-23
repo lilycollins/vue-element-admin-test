@@ -80,6 +80,7 @@
 </template>
 <script>
 import echarts from 'echarts'
+
 export default {
   data() {
     return {
@@ -138,8 +139,13 @@ export default {
             ['12月', 72.4, 53.9]
           ]
         },
+        color: [
+          '#5470c6',
+          '#91cc75'
+        ],
         xAxis: { type: 'category' },
         yAxis: {},
+
         // Declare several bar series, each will be mapped
         // to a column of dataset.source by default.
         series: [{ type: 'bar' }, { type: 'bar' }]
@@ -155,20 +161,34 @@ export default {
       // 指定图表的配置项和数据
       var option = {
         tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b}: {c} ({d}%)'
+          trigger: 'item'
         },
+        color: [
+          '#5470c6',
+          '#91cc75',
+          '#fac858',
+          '#ee6666',
+          '#73c0de',
+          '#3ba272',
+          '#fc8452',
+          '#9a60b4',
+          '#ea7ccc'
+        ],
         legend: {
-          orient: 'vertical',
-          left: 10,
-          data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+          top: '5%',
+          left: 'center'
         },
         series: [
           {
-            name: '访问来源',
+            name: 'Access From',
             type: 'pie',
-            radius: ['50%', '70%'],
+            radius: ['40%', '70%'],
             avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
             label: {
               show: false,
               position: 'center'
@@ -176,7 +196,7 @@ export default {
             emphasis: {
               label: {
                 show: true,
-                fontSize: '30',
+                fontSize: '40',
                 fontWeight: 'bold'
               }
             },
@@ -184,11 +204,11 @@ export default {
               show: false
             },
             data: [
-              { value: 335, name: '直接访问' },
-              { value: 310, name: '邮件营销' },
-              { value: 234, name: '联盟广告' },
-              { value: 135, name: '视频广告' },
-              { value: 1548, name: '搜索引擎' }
+              { value: 1048, name: 'Search Engine' },
+              { value: 735, name: 'Direct' },
+              { value: 580, name: 'Email' },
+              { value: 484, name: 'Union Ads' },
+              { value: 300, name: 'Video Ads' }
             ]
           }
         ]
@@ -203,13 +223,14 @@ export default {
 
       // 指定图表的配置项和数据
       var option = {
-        color: ['#3398DB'],
+        color: ['#5470c6'],
         tooltip: {
           trigger: 'axis',
           axisPointer: { // 坐标轴指示器，坐标轴触发有效
             type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
           }
         },
+        barWidth: 3,
         grid: {
           left: '3%',
           right: '4%',
@@ -234,7 +255,7 @@ export default {
           {
             name: '直接访问',
             type: 'bar',
-            barWidth: '60%',
+            barWidth: '20%',
             data: [10, 52, 200, 334, 390, 330, 220]
           }
         ]
