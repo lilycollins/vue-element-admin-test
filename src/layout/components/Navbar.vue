@@ -1,11 +1,16 @@
 <template>
   <div class="navbar">
-    <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <hamburger
+      id="hamburger-container"
+      :is-active="sidebar.opened"
+      class="hamburger-container"
+      @toggleClick="toggleSideBar"
+    />
 
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
+      <template v-if="device !== 'mobile'">
         <search id="header-search" class="right-menu-item" />
 
         <error-log class="errLog-container right-menu-item hover-effect" />
@@ -15,24 +20,68 @@
         <!-- <el-tooltip content="Global Size" effect="dark" placement="bottom">
           <size-select id="size-select" class="right-menu-item hover-effect" />
         </el-tooltip> -->
-
       </template>
 
-      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
+      <el-dropdown
+        class="avatar-container right-menu-item hover-effect"
+        trigger="click"
+      >
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item @click.native="editPassword">
-            <span style="display:block;">修改密码</span>
+            <span style="display: block">修改密码</span>
           </el-dropdown-item>
           <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">注销</span>
+            <span style="display: block">注销</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+    <el-dialog
+      title="修改密码"
+      :visible.sync="centerDialogVisible"
+      :modal-append-to-body="false"
+      :append-to-body="true"
+      width="500px"
+      center
+    >
+      <el-form ref="form2" :model="form2" label-width="10px" size="large">
+        <el-form-item label="">
+          <el-input
+            v-model="form2.password"
+            type="password"
+            prefix-icon="el-icon-lock"
+            placeholder="请输入原登录密码"
+          />
+        </el-form-item>
+        <el-form-item label="">
+          <el-input
+            v-model="form2.newpassword"
+            type="newpassword"
+            prefix-icon="el-icon-lock"
+            placeholder="请输入新登录密码"
+          />
+        </el-form-item>
+        <el-form-item label="">
+          <el-input
+            v-model="form2.checkpassword"
+            type="password"
+            prefix-icon="el-icon-lock"
+            placeholder="请再次输入登录密码"
+          />
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="centerDialogVisible = false"
+        >确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -54,6 +103,16 @@ export default {
     // SizeSelect,
     Search
   },
+  data() {
+    return {
+      centerDialogVisible: false,
+      form2: {
+        password: '',
+        newpassword: '',
+        checkpassword: ''
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -70,7 +129,7 @@ export default {
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     },
     editPassword() {
-      alert('修改密码')
+      this.centerDialogVisible = true
     }
   }
 }
@@ -82,18 +141,18 @@ export default {
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {
     line-height: 46px;
     height: 100%;
     float: left;
     cursor: pointer;
-    transition: background .3s;
-    -webkit-tap-highlight-color:transparent;
+    transition: background 0.3s;
+    -webkit-tap-highlight-color: transparent;
 
     &:hover {
-      background: rgba(0, 0, 0, .025)
+      background: rgba(0, 0, 0, 0.025);
     }
   }
 
@@ -125,10 +184,10 @@ export default {
 
       &.hover-effect {
         cursor: pointer;
-        transition: background .3s;
+        transition: background 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, .025)
+          background: rgba(0, 0, 0, 0.025);
         }
       }
     }

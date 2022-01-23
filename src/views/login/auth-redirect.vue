@@ -41,12 +41,43 @@
             </el-form-item>
           </el-form>
         </div>
+        <div v-if="active === 2" class="forget-form">
+          <el-form ref="form2" :model="form2" label-width="10px" size="large">
+            <el-form-item label="">
+              <el-input
+                v-model="form2.password"
+                type="password"
+                prefix-icon="el-icon-lock"
+                placeholder="请设置登录6-12位密码"
+              />
+            </el-form-item>
+            <el-form-item label="">
+              <el-input
+                v-model="form2.checkpassword"
+                type="password"
+                prefix-icon="el-icon-lock"
+                placeholder="请再次设置登录密码"
+              />
+            </el-form-item>
+          </el-form>
+        </div>
+        <div v-if="active === 3" class="forget-form">
+          <h3>您已重置新登录密码，请返回登录！</h3>
+        </div>
         <el-button
+          v-show="active < 3"
           type="primary"
           class="next-btn"
           size="large"
           @click="next"
         >下一步</el-button>
+        <el-button
+          v-show="active === 3"
+          type="primary"
+          class="next-btn"
+          size="large"
+          @click="back"
+        >登录</el-button>
       </el-row>
     </div>
   </div>
@@ -61,6 +92,10 @@ export default {
         name: '',
         email: '',
         code: ''
+      },
+      form2: {
+        password: '',
+        checkpassword: ''
       }
     }
   },
@@ -83,6 +118,7 @@ export default {
   width: 400px;
   text-align: center;
   margin: 60px auto;
+  min-height: 100px;
 }
 .next-btn {
   width: 120px;
