@@ -82,6 +82,7 @@
             tabindex="1"
             autocomplete="on"
           />
+
         </el-form-item>
         <el-button
           class="login-btn"
@@ -89,7 +90,8 @@
           type="primary"
           style="width: 100%; margin: 30px 0 20px 0"
           @click.native.prevent="handleLogin"
-        >登录</el-button>
+        >登录
+        </el-button>
 
         <div style="position: relative">
           <!-- <div class="tips">
@@ -115,6 +117,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
+// import { verificationCode } from '@/components/VerificationCode/index'
 
 export default {
   name: 'Login',
@@ -148,7 +151,12 @@ export default {
       loading: false,
       showDialog: false,
       redirect: undefined,
-      otherQuery: {}
+      otherQuery: {},
+      code: '',
+      // 随机抽取四位数
+      identifyCodes: '1234567890abcdef',
+      identifyCode: '',
+      checked: false
     }
   },
   watch: {
@@ -167,6 +175,8 @@ export default {
     // window.addEventListener('storage', this.afterQRScan)
   },
   mounted() {
+    this.identifyCode = ''
+    this.makeCode(this.identifyCodes, 4)
     if (this.loginForm.username === '') {
       this.$refs.username.focus()
     } else if (this.loginForm.password === '') {
@@ -177,6 +187,23 @@ export default {
     // window.removeEventListener('storage', this.afterQRScan)
   },
   methods: {
+    // 验证码处理
+    randomNum(min, max) {
+      return Math.floor(Math.random() * (max - min) + min)
+    },
+    // 刷新验证码
+    refreshCode() {
+      this.identifyCode = ''
+      this.makeCode(this.identifyCodes, 4)
+    },
+    makeCode(o, l) {
+      for (let i = 0; i < l; i++) {
+        this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+          ]
+      }
+      console.log(this.identifyCode)
+    },
     checkCapslock(e) {
       const { key } = e
       this.capsTooltip = key && key.length === 1 && (key >= 'A' && key <= 'Z')
@@ -248,6 +275,7 @@ $cursor: #fff;
     width: 80px;
     cursor: pointer;
   }
+
   .login-background-img {
     background-image: url(../../assets/img/loginbg.png);
     -webkit-background-size: cover;
@@ -260,12 +288,14 @@ $cursor: #fff;
     top: 0;
     left: 0;
   }
+
   .login-backGround-img-header {
     width: 100%;
     height: 110px;
     background: #1472ff;
     position: relative;
     z-index: 100;
+
     .login-title {
       color: #fff;
       padding: 20px 300px;
@@ -274,6 +304,7 @@ $cursor: #fff;
       font-size: 18px;
     }
   }
+
   .login-background-content {
     width: 100%;
     height: 496px;
@@ -287,12 +318,14 @@ $cursor: #fff;
       height: 680px;
       margin-right: 88px;
       transform: translate(0px, -58px);
+
       .login-backGround-img-logo {
         width: 680px;
         height: 680px;
       }
     }
   }
+
   .el-input {
     display: inline-block;
     height: 47px;
@@ -345,6 +378,7 @@ $light_gray: #eee;
     background: #fff;
     position: relative;
     box-shadow: 0px 8px 24px 0px rgb(42 94 173 / 6%);
+
     .login-btn {
       font-size: 16px;
       line-height: 24px;
@@ -367,11 +401,13 @@ $light_gray: #eee;
     color: #999;
     margin-bottom: 10px;
     text-align: center;
+
     span {
       &:first-of-type {
         margin-right: 16px;
       }
     }
+
     .forget-span {
       color: #1472ff;
     }
