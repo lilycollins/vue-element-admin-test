@@ -239,3 +239,12 @@ aside {
     border-color: #1472FF;
     color: #1472FF;
 }
+
+.el-step__icon-inner {
+    font-size: 35px!important;
+}
+
+.el-step__head.is-process,
+.el-step__title.is-process {
+    color: #c0c4cc;
+}

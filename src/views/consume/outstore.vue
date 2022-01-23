@@ -30,7 +30,7 @@
     </div>
     <div class="tag-warp">
       <el-button plain>刷新</el-button>
-      <el-button type="primary" @click="addIt">创建入库单</el-button>
+      <el-button type="primary" @click="addIt">创建出库单</el-button>
     </div>
 
     <!-- 表格 -->
@@ -154,17 +154,12 @@ export default {
     },
     editRow({ row }, btn, index) {
       if (btn.key === '1') {
-        this.$router.push({ name: 'protectDetail' })
-      }
-      if (btn.key === '2') {
-        this.$router.push({ name: 'protectScore' })
+        this.$router.push({ name: 'outstoreDetail' })
       }
     },
     addIt() {
       this.$router.push({
-        name: 'addProtect', params: {
-          type: 'add'
-        }
+        name: 'outstoreChange'
       })
     }
   }

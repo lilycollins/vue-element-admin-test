@@ -182,7 +182,21 @@ export default {
         })
       }
       if (btn.key === '2') {
-        this.$router.push({ name: 'preDetail' })
+        this.$router.push({
+          name: 'preDetail', params: {
+            type: 'detail'
+          }
+        })
+      }
+      if (btn.key === '3') {
+        this.deleteIt()
+      }
+      if (btn.key === '4') {
+        this.$router.push({
+          name: 'preDetail', params: {
+            type: 'check'
+          }
+        })
       }
     },
     addIt() {

@@ -1,37 +1,26 @@
 <template>
-  <div class="main-content">
-    <div>
+  <div class="element-main">
+    <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
-        {{ type === "add" ? "耗材预申请 - 创建申请" : "耗材预申请 - 编辑申请" }}
+        耗材入库 - 创建出库单
       </div>
-      <el-form
-        ref="ruleForm"
-        :model="ruleForm"
-        :rules="rules"
-        label-width="100px"
-        class="form-item"
-      >
-        <el-form-item label="申请单号" prop="name">
-          <el-input v-model="ruleForm.name" />
-        </el-form-item>
-        <el-form-item label="选择日期" prop="a1">
-          <el-date-picker
-            v-model="ruleForm.a1"
-            type="date"
-            placeholder="选择日期"
-          />
-        </el-form-item>
-        <el-form-item label="申请理由" prop="a2">
-          <el-input
-            v-model="ruleForm.a2"
-            style="width: 80%"
-            type="textarea"
-            :autosize="{ minRows: 10, maxRows: 14 }"
-            placeholder=""
-          />
-        </el-form-item>
-      </el-form>
+      <div>
+        <p>出库单号</p>
+        <el-input
+          v-model="textarea"
+          style="width: 350px"
+          placeholder="请输入修正单号"
+        />
+        <p>备注</p>
+        <el-input
+          v-model="textarea"
+          style="width: 80%"
+          type="textarea"
+          :autosize="{ minRows: 10, maxRows: 14 }"
+          placeholder="请输入备注"
+        />
+      </div>
       <div class="tag-warp" style="margin: 45px 0 25px 0">
         <el-button type="primary" @click="chooseIt">选择耗材</el-button>
         <el-button
@@ -48,6 +37,9 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55" />
+        <el-table-column prop="name" label="申请单号" />
+        <el-table-column prop="name" label="申请部门" />
+        <el-table-column prop="name" label="申请人" />
         <el-table-column label="耗材图片">
           <template slot-scope="scope">
             <div slot="reference" class="name-wrapper">
@@ -59,8 +51,8 @@
         <el-table-column prop="address" label="耗材名称" />
         <el-table-column prop="address" label="耗材类型" />
         <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="上次盘点数量" />
-        <el-table-column prop="address" label="修正数量" />
+        <el-table-column prop="address" label="当前库存" />
+        <el-table-column prop="address" label="出库数量" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -150,15 +142,6 @@
 export default {
   data() {
     return {
-      type: this.$route.params.type,
-      ruleForm: {
-        name: '',
-        a2: '',
-        a1: ''
-      },
-      rules: {
-        a1: [{ required: true, message: '不能为空', trigger: 'blur' }]
-      },
       headers: [
         {
           prop: 'date',
@@ -408,15 +391,6 @@ export default {
       return this.headers.map(item => {
         return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
       })
-    }
-  },
-  created() {
-    if (this.type === 'edit') {
-      this.ruleForm = {
-        name: '01',
-        a1: '2022-01-12',
-        a2: '已用完，需要申请'
-      }
     }
   },
   methods: {

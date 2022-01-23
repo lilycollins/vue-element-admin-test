@@ -3,35 +3,34 @@
     <div>
       <div class="sub-title-head">
         <div class="l-box" />
-        {{ type === "add" ? "耗材预申请 - 创建申请" : "耗材预申请 - 编辑申请" }}
+        {{ type === "add" ? "供应商管理 - 创建申请" : "供应商管理 - 编辑申请" }}
       </div>
+      <h4>基本信息</h4>
       <el-form
         ref="ruleForm"
         :model="ruleForm"
         :rules="rules"
-        label-width="100px"
+        :inline="true"
+        label-width="160px"
         class="form-item"
       >
-        <el-form-item label="申请单号" prop="name">
+        <el-form-item label="供应商编号" prop="name">
           <el-input v-model="ruleForm.name" />
         </el-form-item>
-        <el-form-item label="选择日期" prop="a1">
-          <el-date-picker
-            v-model="ruleForm.a1"
-            type="date"
-            placeholder="选择日期"
-          />
+        <el-form-item label="供应商名称" prop="a1">
+          <el-input v-model="ruleForm.a1" />
         </el-form-item>
-        <el-form-item label="申请理由" prop="a2">
-          <el-input
-            v-model="ruleForm.a2"
-            style="width: 80%"
-            type="textarea"
-            :autosize="{ minRows: 10, maxRows: 14 }"
-            placeholder=""
-          />
+        <el-form-item label="联系人" prop="a2">
+          <el-input v-model="ruleForm.a2" />
+        </el-form-item>
+        <el-form-item label="联系电话" prop="a3">
+          <el-input v-model="ruleForm.a3" />
+        </el-form-item>
+        <el-form-item label="供应商范围" prop="a4">
+          <el-input v-model="ruleForm.a4" />
         </el-form-item>
       </el-form>
+      <h4>产品信息</h4>
       <div class="tag-warp" style="margin: 45px 0 25px 0">
         <el-button type="primary" @click="chooseIt">选择耗材</el-button>
         <el-button
@@ -59,8 +58,8 @@
         <el-table-column prop="address" label="耗材名称" />
         <el-table-column prop="address" label="耗材类型" />
         <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="上次盘点数量" />
-        <el-table-column prop="address" label="修正数量" />
+        <el-table-column prop="address" label="当前库存" />
+        <el-table-column prop="address" label="采购单价" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -154,7 +153,9 @@ export default {
       ruleForm: {
         name: '',
         a2: '',
-        a1: ''
+        a1: '',
+        a3: '',
+        a4: ''
       },
       rules: {
         a1: [{ required: true, message: '不能为空', trigger: 'blur' }]
@@ -414,8 +415,10 @@ export default {
     if (this.type === 'edit') {
       this.ruleForm = {
         name: '01',
-        a1: '2022-01-12',
-        a2: '已用完，需要申请'
+        a1: '米宝供应商',
+        a2: '米宝',
+        a3: '15476765434',
+        a4: '办公用品、打印耗材'
       }
     }
   },

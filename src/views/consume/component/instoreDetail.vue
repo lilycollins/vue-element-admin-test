@@ -3,49 +3,23 @@
     <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
-        {{ type === "detail" ? "耗材预申请 - 预申请详情" : "耗材预申请 - 222" }}
+        耗材申请 - 入库单详情
       </div>
-
-      <h4>基本信息</h4>
       <div class="like-table-item">
         <div class="table-item">
-          申请单号 <span>{{ form.fixNo }}</span>
+          入库单号 <span>{{ form.fixNo }}</span>
         </div>
         <div class="table-item">
-          出库单号 <span>{{ form.fixNo }}</span>
+          入库人 <span>{{ form.fixNo }}</span>
         </div>
         <div class="table-item">
-          状态 <span>{{ form.fixNo }}</span>
+          入库时间 <span>{{ form.fixNo }}</span>
         </div>
         <div class="table-item">
-          申请部门 <span>{{ form.fixNo }}</span>
+          供应商 <span>{{ form.fixNo }}</span>
         </div>
         <div class="table-item">
-          申请人 <span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          申请时间<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          使用时间<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          申请理由<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          审核人<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          审核时间<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          审核建议<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          出库人<span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          出库时间<span>{{ form.fixNo }}</span>
+          备注 <span>{{ form.fixNo }}</span>
         </div>
       </div>
       <el-table
@@ -66,32 +40,13 @@
         <el-table-column prop="address" label="耗材名称" />
         <el-table-column prop="address" label="耗材类型" />
         <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="申请数量" />
-        <el-table-column prop="address" label="出库数量" />
+        <el-table-column prop="address" label="入库单价" />
+        <el-table-column prop="address" label="入库数量" />
+        <el-table-column prop="address" label="小记" />
       </el-table>
 
-      <h4>申请进度</h4>
-      <el-steps v-if="type === 'detail'" :active="2" style="padding: 55x 0">
-        <el-step title="提交申请" icon="el-icon-success" />
-        <el-step title="确认中" icon="el-icon-success" />
-        <el-step title="采购出库" icon="el-icon-success" />
-        <el-step title="发放" icon="el-icon-success" />
-      </el-steps>
-      <el-steps v-else :active="6" style="padding: 55x 0">
-        <el-step title="提交申请" icon="el-icon-success" />
-        <el-step title="确认中" icon="el-icon-success" />
-        <el-step title="审核中" icon="el-icon-success" />
-        <el-step title="审核通过" icon="el-icon-success" />
-        <el-step title="采购出库中" icon="el-icon-success" />
-        <el-step title="发放" icon="el-icon-success" />
-      </el-steps>
       <div style="padding-top: 35px">
         <el-button @click="back">返回</el-button>
-        <el-button
-          v-if="type === 'check'"
-          type="primary"
-          @click="back"
-        >确定签收</el-button>
       </div>
     </div>
   </div>
@@ -101,7 +56,6 @@
 export default {
   data() {
     return {
-      type: this.$route.params.type,
       headers: [
         {
           prop: 'date',

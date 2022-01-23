@@ -19,7 +19,7 @@
       </el-form>
       <div class="tag-warp">
         <el-button plain>刷新</el-button>
-        <el-button type="primary" @click="addIt">创建用户</el-button>
+        <el-button type="primary" @click="addIt">创建</el-button>
         <el-button
           type="danger"
           :disabled="selected.length == 0"
@@ -144,16 +144,15 @@ export default {
       })
     },
     editRow({ row }, btn, index) {
-      if (btn.key === '1') {
-        this.$router.push({ name: 'protectDetail' })
-      }
-      if (btn.key === '2') {
-        this.$router.push({ name: 'protectScore' })
-      }
+      this.$router.push({
+        name: 'supplyChange', params: {
+          type: 'edit'
+        }
+      })
     },
     addIt() {
       this.$router.push({
-        name: 'addProtect', params: {
+        name: 'supplyChange', params: {
           type: 'add'
         }
       })

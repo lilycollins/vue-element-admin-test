@@ -3,10 +3,8 @@
     <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
-        {{ type === "detail" ? "耗材预申请 - 预申请详情" : "耗材预申请 - 222" }}
+        耗材申请 - 申请单详情
       </div>
-
-      <h4>基本信息</h4>
       <div class="like-table-item">
         <div class="table-item">
           申请单号 <span>{{ form.fixNo }}</span>
@@ -47,6 +45,12 @@
         <div class="table-item">
           出库时间<span>{{ form.fixNo }}</span>
         </div>
+        <div class="table-item">
+          签收人<span>{{ form.fixNo }}</span>
+        </div>
+        <div class="table-item">
+          签收时间<span>{{ form.fixNo }}</span>
+        </div>
       </div>
       <el-table
         ref="multipleTable"
@@ -67,31 +71,16 @@
         <el-table-column prop="address" label="耗材类型" />
         <el-table-column prop="address" label="单位" />
         <el-table-column prop="address" label="申请数量" />
-        <el-table-column prop="address" label="出库数量" />
+        <el-table-column prop="address" label="当前库存" />
+        <el-table-column prop="address" label="供应商" />
+        <el-table-column prop="address" label="采购单价" />
+        <el-table-column prop="address" label="小记" />
       </el-table>
 
-      <h4>申请进度</h4>
-      <el-steps v-if="type === 'detail'" :active="2" style="padding: 55x 0">
-        <el-step title="提交申请" icon="el-icon-success" />
-        <el-step title="确认中" icon="el-icon-success" />
-        <el-step title="采购出库" icon="el-icon-success" />
-        <el-step title="发放" icon="el-icon-success" />
-      </el-steps>
-      <el-steps v-else :active="6" style="padding: 55x 0">
-        <el-step title="提交申请" icon="el-icon-success" />
-        <el-step title="确认中" icon="el-icon-success" />
-        <el-step title="审核中" icon="el-icon-success" />
-        <el-step title="审核通过" icon="el-icon-success" />
-        <el-step title="采购出库中" icon="el-icon-success" />
-        <el-step title="发放" icon="el-icon-success" />
-      </el-steps>
       <div style="padding-top: 35px">
         <el-button @click="back">返回</el-button>
-        <el-button
-          v-if="type === 'check'"
-          type="primary"
-          @click="back"
-        >确定签收</el-button>
+        <el-button type="primary" @click="back">确认申请</el-button>
+        <el-button type="danger" @click="back">上级审核</el-button>
       </div>
     </div>
   </div>
@@ -101,7 +90,6 @@
 export default {
   data() {
     return {
-      type: this.$route.params.type,
       headers: [
         {
           prop: 'date',

@@ -1,7 +1,16 @@
 <template>
   <div class="main-content">
-    <div class="sub-title-head"> <div class="l-box" />{{ type === 'add' ? '用户信息 - 创建用户' : '用户信息 - 编辑用户' }}</div>
-    <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="100px" class="form-item">
+    <div class="sub-title-head">
+      <div class="l-box" />
+      {{ type === "add" ? "用户信息 - 创建用户" : "用户信息 - 编辑用户" }}
+    </div>
+    <el-form
+      ref="ruleForm"
+      :model="ruleForm"
+      :rules="rules"
+      label-width="100px"
+      class="form-item"
+    >
       <el-form-item label="用户编号" prop="name">
         <el-input v-model="ruleForm.name" />
       </el-form-item>
@@ -46,12 +55,14 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">确定</el-button>
+        <el-button
+          type="primary"
+          @click="submitForm('ruleForm')"
+        >确定</el-button>
         <el-button @click="resetForm('ruleForm')">取消</el-button>
       </el-form-item>
     </el-form>
   </div>
-
 </template>
 <script>
 const cityOptions = ['主任', '职员', '秘书', '接待']
@@ -120,7 +131,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-        //   alert('submit!')
+          //   alert('submit!')
           this.$message.success('提交成功')
           this.$router.go(-1)
         } else {
@@ -148,5 +159,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>
