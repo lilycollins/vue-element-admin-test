@@ -1,9 +1,9 @@
 <template>
   <div class="login-container">
-    <img
-      src="http://wechatapppro-1252524126.file.myqcloud.com/appAKLWLitn7978/image/khwyrhmg0bshiiavgi9w.png"
-      class="logo"
-    >
+    <div class="login-backGround-img-header">
+      <img src="../../assets/img/logo.png" class="logo">
+      <span class="login-title">智慧机关管理平台</span>
+    </div>
     <div class="login-background-img" />
     <div class="login-background-content">
       <div class="login-backGround-img-content">
@@ -21,7 +21,7 @@
         label-position="left"
       >
         <div class="title-container">
-          <h3 class="title">登陆XXX管理系统</h3>
+          <h3 class="title">登录智慧机关管理平台</h3>
         </div>
 
         <el-form-item prop="username">
@@ -242,10 +242,10 @@ $cursor: #fff;
 .login-container {
   .logo {
     position: absolute;
-    top: 3%;
-    left: 2%;
+    top: 10px;
+    left: 210px;
     z-index: 1;
-    width: 120px;
+    width: 80px;
     cursor: pointer;
   }
   .login-background-img {
@@ -260,12 +260,27 @@ $cursor: #fff;
     top: 0;
     left: 0;
   }
+  .login-backGround-img-header {
+    width: 100%;
+    height: 110px;
+    background: #1472ff;
+    position: relative;
+    z-index: 100;
+    .login-title {
+      color: #fff;
+      padding: 20px 300px;
+      font-weight: 600;
+      line-height: 110px;
+      font-size: 18px;
+    }
+  }
   .login-background-content {
     width: 100%;
     height: 496px;
     display: flex;
-    margin-top: 10%;
+    margin-top: 6%;
     justify-content: center;
+
     .login-backGround-img-content {
       z-index: 8;
       width: 680px;

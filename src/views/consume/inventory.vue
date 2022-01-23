@@ -134,7 +134,7 @@ export default {
           },
           {
             type: 'text',
-            key: '2',
+            key: '3',
             name: '终止'
           }
         ]
@@ -184,10 +184,10 @@ export default {
     },
     editRow({ row }, btn, index) {
       if (btn.key === '1') {
-        this.$router.push({ name: 'protectDetail' })
+        this.$router.push({ name: 'inventoryDetail' })
       }
       if (btn.key === '2') {
-        this.$router.push({ name: 'protectScore' })
+        this.$router.push({ name: 'inventoryStart' })
       }
       if (btn.key === '3') {
         this.$alert('确定要终止吗？', '确认提示', {
@@ -199,9 +199,7 @@ export default {
     },
     addIt() {
       this.$router.push({
-        name: 'addProtect', params: {
-          type: 'add'
-        }
+        name: 'inventoryPlan'
       })
     }
   }

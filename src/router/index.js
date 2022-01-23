@@ -131,18 +131,18 @@ export const constantRoutes = [{
             }
         ]
     },
-    {
-        path: '/security',
-        component: Layout,
-        redirect: '/security/index',
-        children: [{
-            path: 'index',
-            component: () =>
-                import ('@/views/security/index'),
-            name: 'security',
-            meta: { title: '安防管理', icon: 'guide', noCache: true }
-        }]
-    },
+    // {
+    //     path: '/security',
+    //     component: Layout,
+    //     redirect: '/security/index',
+    //     children: [{
+    //         path: 'index',
+    //         component: () =>
+    //             import ('@/views/security/index'),
+    //         name: 'security',
+    //         meta: { title: '安防管理', icon: 'guide', noCache: true }
+    //     }]
+    // },
     {
         path: '/fire',
         component: Layout,
@@ -390,6 +390,26 @@ export const constantRoutes = [{
                     import ('@/views/consume/inventory.vue'),
                 name: 'inventory',
                 meta: { title: '耗材盘点' }
+            },
+            {
+                path: 'inventoryStart',
+                name: 'inventoryStart',
+                component: () =>
+                    import ('@/views/consume/component/inventoryStart'),
+                hidden: true
+            },
+            {
+                path: 'inventoryPlan',
+                name: 'inventoryPlan',
+                component: () =>
+                    import ('@/views/consume/component/inventoryPlan'),
+                hidden: true
+            }, {
+                path: 'inventoryDetail',
+                name: 'inventoryDetail',
+                component: () =>
+                    import ('@/views/consume/component/inventoryDetail'),
+                hidden: true
             },
             {
                 path: 'fixInventory',
