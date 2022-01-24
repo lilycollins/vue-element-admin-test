@@ -7,37 +7,34 @@
       </div>
       <div class="like-table-item">
         <div class="table-item">
-          盘点单号 <span>{{ form.fixNo }}</span>
+          盘点单号 <span>{{ form.a1 }}</span>
         </div>
         <div class="table-item">
-          发起人 <span>{{ form.fixNo }}</span>
+          发起人 <span>{{ form.a2 }}</span>
         </div>
         <div class="table-item">
-          发起时间 <span>{{ form.fixNo }}</span>
+          发起时间 <span>{{ form.a3 }}</span>
         </div>
         <div class="table-item">
-          执行时间 <span>{{ form.fixNo }}</span>
+          执行时间 <span>{{ form.a4 }}</span>
         </div>
         <div class="table-item">
-          盘点人 <span>{{ form.fixNo }}</span>
+          盘点人 <span>{{ form.a5 }}</span>
         </div>
         <div class="table-item">
-          盘点时间 <span>{{ form.fixNo }}</span>
+          盘点时间 <span>{{ form.a6 }}</span>
         </div>
         <div class="table-item">
-          耗材款数 <span>{{ form.fixNo }}</span>
+          耗材款数 <span>{{ form.a7 }}</span>
         </div>
         <div class="table-item">
-          盘点数量 <span>{{ form.fixNo }}</span>
+          盘点数量 <span>{{ form.a8 }}</span>
         </div>
         <div class="table-item">
-          盘点差异 <span>{{ form.fixNo }}</span>
+          盘点差异 <span>{{ form.a9 }}</span>
         </div>
-        <div class="table-item">
-          盘点人 <span>{{ form.fixNo }}</span>
-        </div>
-        <div class="table-item">
-          备注 <span>{{ form.fixNo }}</span>
+        <div class="table-item" style="margin-bottom: 35px">
+          备注 <span>{{ form.a10 }}</span>
         </div>
       </div>
       <el-table
@@ -54,13 +51,13 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材编号" />
-        <el-table-column prop="address" label="耗材名称" />
-        <el-table-column prop="address" label="耗材类型" />
-        <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="库存数量" />
-        <el-table-column prop="address" label="盘点数量" />
-        <el-table-column prop="address" label="盘点差异" />
+        <el-table-column prop="a1" label="耗材编号" />
+        <el-table-column prop="a2" label="耗材名称" />
+        <el-table-column prop="a3" label="耗材类型" />
+        <el-table-column prop="a4" label="单位" />
+        <el-table-column prop="a5" label="库存数量" />
+        <el-table-column prop="a6" label="盘点数量" />
+        <el-table-column prop="a7" label="盘点差异" />
       </el-table>
 
       <div style="padding-top: 35px">
@@ -93,15 +90,74 @@ export default {
         }
       ],
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
+        a7: '0',
+        img: require('../../../assets/img/default.svg')
+      }, {
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '15',
+        a7: '0',
+        img: require('../../../assets/img/default.svg')
+      }, {
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
+        a7: '+5',
+        img: require('../../../assets/img/default.svg')
+      }, {
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
+        a7: '-5',
+        img: require('../../../assets/img/default.svg')
+      },
+      {
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
+        a7: '0',
+        img: require('../../../assets/img/default.svg')
+      }, {
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
+        a7: '0',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
       selected: [],
       form: {
-        fixNo: ''
+        a1: 'P12345678',
+        a2: '库管1',
+        a3: '2022-01-01 10:00:00',
+        a4: '2022-01-01 10:00:00',
+        a5: '库管1',
+        a6: '2022-01-01 10:00:00',
+        a7: '100',
+        a8: '10000',
+        a9: '0',
+        a10: ''
       }
     }
   },

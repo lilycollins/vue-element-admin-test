@@ -44,12 +44,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材编号" />
-        <el-table-column prop="address" label="耗材名称" />
-        <el-table-column prop="address" label="耗材类型" />
-        <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="上次盘点数量" />
-        <el-table-column prop="address" label="修正数量" />
+        <el-table-column prop="a1" label="耗材编号" />
+        <el-table-column prop="a2" label="耗材名称" />
+        <el-table-column prop="a3" label="耗材类型" />
+        <el-table-column prop="a4" label="单位" />
+        <el-table-column prop="a5" label="上次盘点数量" />
+        <el-table-column prop="a6" label="修正数量" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -165,9 +165,12 @@ export default {
         }
       ],
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
@@ -381,25 +384,25 @@ export default {
         a4: '办公用品',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
         a3: '包',
         a4: '办公用品',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
         a3: '包',
         a4: '办公用品',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
         a3: '包',
         a4: '办公用品',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
         a3: '包',
         a4: '办公用品',
