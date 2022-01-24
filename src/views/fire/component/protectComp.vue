@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <div class="sub-title-head"> <div class="l-box" />{{ type === 'add' ? '消防设施维保计划 - 新建维保计划' : '消防设施维保计划 - 编辑维保计划' }}</div>
+    <div class="sub-title-head"> <div class="l-box" />{{ type === 'add' ? '消防设施维保计划 - 新建维保计划' : type ==='detail' ? '历史记录查询 - 维保计划详情' : '消防设施维保计划 - 编辑维保计划' }}</div>
     <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="130px" class="form-item">
       <el-form-item label="任务编号" prop="a2">
         <el-input v-model="ruleForm.a2" />
@@ -46,12 +46,14 @@
 
 </template>
 <script>
-const cityOptions = ['name1', 'name2', 'name3', 'name4']
+const cityOptions = ['火灾报警设备', '消防应急设备', '消防灭火设备', '消防控制设备', '消防水系统', '消防联动设备']
 const subOptions = {
-  'name1': ['sub1', 'sub2', 'sub3'],
-  'name2': ['sub1-', 'sub2-', 'sub3-'],
-  'name3': ['sub+1', 'sub2+', 'sub3+'],
-  'name4': ['sub1.', 'sub2.', 'sub3.']
+  '火灾报警设备': ['消防传感器', '前端报警控制器', '声光报警器', '楼层火灾报警盘'],
+  '消防应急设备': ['室内消防栓', '室外消防栓', '灭火器', '防火卷帘', '排烟风道阀'],
+  '消防灭火设备': ['喷淋头', '楼层水阀控制器'],
+  '消防控制设备': ['消防报警主机', '消防管理主机', '消防电源'],
+  '消防水系统': ['消防水泵及水阀装置', '消防水箱', '消防联动执行器'],
+  '消防联动设备': ['消防联动门禁', '消防广播']
 }
 export default {
   data() {
@@ -76,15 +78,11 @@ export default {
         a6: [{ required: true, message: '不能为空', trigger: 'change' }],
         a7: [{ required: true, message: '不能为空', trigger: 'change' }]
       },
-      checkAll: false,
-      checkAll2: false,
-      checkAll3: false,
+      checkAll: true,
       cities: cityOptions,
       subOptions: subOptions,
       filterObj: {},
       isIndeterminate: false,
-      isIndeterminate2: false,
-      isIndeterminate3: false,
       options: [{
         value: '选项1',
         label: '黄金糕'
@@ -104,18 +102,22 @@ export default {
     }
   },
   created() {
-    if (this.type === 'edit') {
+    if (['edit', 'detail'].includes(this.type)) {
       this.ruleForm = {
         a2: '20220101001',
         a3: '张三',
         a4: '15412451245',
         a5: '2022-01-01 10:00',
-        checkedCities: ['name1', 'name3'],
-        checkedCities2: ['name1', 'name3']
+        checkedCities: ['火灾报警设备', '消防应急设备', '消防灭火设备', '消防控制设备', '消防水系统', '消防联动设备'],
+        checkedCities2: ['火灾报警设备', '消防应急设备', '室外消防栓', '灭火器', '防火卷帘', '消防水箱', '消防广播']
       }
       this.filterObj = {
-        'name1': ['sub1', 'sub2', 'sub3'],
-        'name2': ['sub1-', 'sub2-', 'sub3-']
+        '火灾报警设备': ['消防传感器', '前端报警控制器', '声光报警器', '楼层火灾报警盘'],
+    '消防应急设备': ['室内消防栓', '室外消防栓', '灭火器', '防火卷帘', '排烟风道阀'],
+    '消防灭火设备': ['喷淋头', '楼层水阀控制器'],
+    '消防控制设备': ['消防报警主机', '消防管理主机', '消防电源'],
+    '消防水系统': ['消防水泵及水阀装置', '消防水箱', '消防联动执行器'],
+    '消防联动设备': ['消防联动门禁', '消防广播']
       }
     }
   },
@@ -142,6 +144,8 @@ export default {
     handleCheckAllChange(val) {
       this.ruleForm.checkedCities = val ? cityOptions : []
       this.isIndeterminate = false
+      const chooseSub = val ? cityOptions : []
+      this.handleCheckedCitiesChange(chooseSub)
     },
     handleCheckedCitiesChange(value) {
       this.filterObj = {}

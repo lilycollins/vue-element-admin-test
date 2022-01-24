@@ -56,7 +56,15 @@ const field = [{
   id: 5,
   type: 0,
   label: '年龄',
-  key: 'a4'
+  key: 'a5'
+}, {
+  type: 0,
+  label: '手机号码',
+  key: 'a6'
+}, {
+  type: 0,
+  label: '邮箱',
+  key: 'a7'
 }]
 export default {
   components: {
@@ -102,17 +110,31 @@ export default {
     getList() {
     //   request({ url: 'root_authorization', method: 'get', params: { ...this.form }}).then((data) => {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        'a1': 'A12345678',
+        'a2': '米小宝',
+        'a3': '事业部',
+        'a4': '职员',
+        'a5': '30',
+        'a6': '13800138000',
+        'a7': '123456@163.com'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        'a1': 'A12345678',
+        'a2': '库管1',
+        'a3': '综合部',
+        'a4': '库管',
+        'a5': '30',
+        'a6': '13800138000',
+        'a7': '123456@163.com'
+      }, {
+        'a1': 'A12345678',
+        'a2': '领导1',
+        'a3': '综合部',
+        'a4': '主任',
+        'a5': '30',
+        'a6': '13800138000',
+        'a7': '123456@163.com'
       }]
-      this.total = 2
+      this.total = 3
     //     this.tb.data.forEach((e) => {
     //       e.auth_method_str = auth_method[e.auth_method]
     //     })

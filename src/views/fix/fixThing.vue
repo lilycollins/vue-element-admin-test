@@ -8,8 +8,9 @@
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部部门">
-            <el-option key="1" label="巡检" value="1" />
-            <el-option key="2" label="维保" value="2" />
+            <el-option key="1" label="行政部" value="1" />
+            <el-option key="2" label="安保部" value="2" />
+            <el-option key="3" label="管理部" value="3" />
           </el-select>
         </el-form-item>
         <el-form-item label="">
@@ -55,26 +56,26 @@
     >
       <div class="like-table-item">
         <div class="table-item">
-          维修单号 <span>{{ dialogForm.fixNo }}</span>
+          维修单号 <span>{{ dialogForm.a1 }}</span>
         </div>
         <div class="table-item" />
         <div class="table-item">
-          申请部门 <span>{{ dialogForm.fixNo }}</span>
+          申请部门 <span>{{ dialogForm.a2 }}</span>
         </div>
         <div class="table-item">
-          申请人 <span>{{ dialogForm.fixNo }}</span>
+          申请人 <span>{{ dialogForm.a3 }}</span>
         </div>
         <div class="table-item">
-          保修主题 <span>{{ dialogForm.fixNo }}</span>
+          保修主题 <span>{{ dialogForm.a4 }}</span>
         </div>
         <div class="table-item">
-          保修类型 <span>{{ dialogForm.fixNo }}</span>
+          保修类型 <span>{{ dialogForm.a5 }}</span>
         </div>
         <div class="table-item">
-          保修设备名称 <span>{{ dialogForm.fixNo }}</span>
+          保修设备名称 <span>{{ dialogForm.a6 }}</span>
         </div>
         <div class="table-item">
-          保修时间 <span>{{ dialogForm.fixNo }}</span>
+          保修时间 <span>{{ dialogForm.a7 }}</span>
         </div>
       </div>
       <el-form
@@ -114,7 +115,7 @@
         <el-button
           type="primary"
           @click="centerDialogVisible = false"
-        >确 定</el-button>
+        >维修接单</el-button>
       </span>
     </el-dialog>
   </div>
@@ -126,18 +127,18 @@ const field = [
   {
     type: 0,
     label: '保修单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     type: 0,
     label: '保修部门',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
     label: '保修人',
-    key: 'a4'
+    key: 'a3'
   },
   {
     type: 0,
@@ -147,22 +148,22 @@ const field = [
   {
     type: 0,
     label: '保修类型',
-    key: 'a4'
+    key: 'a5'
   },
   {
     type: 0,
     label: '保修设备名称',
-    key: 'a4'
+    key: 'a6'
   },
   {
     type: 0,
     label: '状态',
-    key: 'a4'
+    key: 'a7'
   },
   {
     type: 0,
-    label: '保修事件',
-    key: 'a4'
+    label: '保修时间',
+    key: 'a8'
   }
 ]
 export default {
@@ -201,7 +202,13 @@ export default {
       selected: [],
       centerDialogVisible: false,
       dialogForm: {
-        fixNo: ''
+        a1: '123456789',
+        a2: '行政部',
+        a3: '米小宝',
+        a4: '质量保修',
+        a5: '设备保修',
+        a6: 'MI001',
+        a7: '2022-01-01 10:00'
       },
       listObj: {},
       fileList: []
@@ -217,19 +224,36 @@ export default {
     getList() {
       this.tb.data = [
         {
-          a1: '主任',
-          a2: '办公室主任',
-          a3: '启用',
-          a4: '2021-01-02  12:12'
+          a1: '123456789',
+          a2: '行政部',
+          a3: '米小宝',
+          a4: '质量保修',
+          a5: '设备保修',
+          a6: 'MI001',
+          a7: '待接单',
+          a8: '2022-01-01 10:00'
         },
         {
-          a1: '职员',
-          a2: '办公室主任',
-          a3: '禁用',
-          a4: '2021-01-02  12:12'
+          a1: '123456789',
+          a2: '行政部',
+          a3: '米小宝',
+          a4: '质量保修',
+          a5: '设备保修',
+          a6: 'MI002',
+          a7: '待接单',
+          a8: '2022-01-01 10:00'
+        }, {
+          a1: '123456789',
+          a2: '行政部',
+          a3: '米小宝',
+          a4: '质量保修',
+          a5: '设备保修',
+          a6: 'MI003',
+          a7: '待接单',
+          a8: '2022-01-01 10:00'
         }
       ]
-      this.total = 2
+      this.total = 3
     },
     handleSizeChange(val) {
       this.form.pageSize = val

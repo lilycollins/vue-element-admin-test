@@ -52,7 +52,7 @@ export default {
       this.ruleForm = {
         name: '事业1部',
         desc: '事务部',
-        checkedCities: ['主任']
+        checkedCities: []
       }
     }
   },

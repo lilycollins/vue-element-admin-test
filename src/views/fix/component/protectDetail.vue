@@ -1,46 +1,31 @@
 <template>
-  <div class="element-main">
+  <div class="element-main main-content">
     <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
         保修详情
       </div>
       <h4>基本信息</h4>
-      <el-row>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            fit
-            highlight-current-row
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-      </el-row>
+      <div class="like-table-item">
+        <div class="table-item">
+          维修单号 <span>{{ form.a1 }}</span>
+        </div>
+        <div class="table-item">
+          申请时间    <span>{{ form.a2 }}</span>
+        </div>
+        <div class="table-item">
+          接单时间 <span>{{ form.a3 }}</span>
+        </div>
+        <div class="table-item">
+          保修主题 <span>{{ form.a4 }}</span>
+        </div>
+        <div class="table-item">
+          保修类型 <span>{{ form.a5 }}</span>
+        </div>
+        <div class="table-item">
+          保修设备名称 <span>{{ form.a6 }}</span>
+        </div>
+      </div>
       <div style="padding-top: 35px">
         <p>保修情况描述</p>
         <el-input
@@ -66,41 +51,26 @@
         >
       </div>
       <h4>保修情况</h4>
-      <el-row>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            fit
-            highlight-current-row
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-      </el-row>
+      <div class="like-table-item">
+        <div class="table-item">
+          接单部门 <span>{{ form.a7 }}</span>
+        </div>
+        <div class="table-item">
+          接单人    <span>{{ form.a8 }}</span>
+        </div>
+        <div class="table-item">
+          联系电话 <span>{{ form.a9 }}</span>
+        </div>
+        <div class="table-item">
+          维修结果 <span>{{ form.a10 }}</span>
+        </div>
+        <div class="table-item">
+          接单时间 <span>{{ form.a11 }}</span>
+        </div>
+        <div class="table-item">
+          维修时间 <span>{{ form.a12 }}</span>
+        </div>
+      </div>
       <div style="padding-top: 35px">
         <p>维修情况描述</p>
         <el-input
@@ -157,45 +127,25 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        }
-      ],
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          people: ''
-        }
-      ],
-      tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
-        img: require('../../../assets/img/default.svg')
-      }],
+      form: {
+        a1: '123456789',
+        a2: '2022-01-01 10:00',
+        a3: '2022-01-01 10:00',
+        a4: '质量保修',
+        a5: '设备保修',
+        a6: 'MI001',
+        a7: '综合部',
+        a8: '维修人1',
+        a9: '13800138000',
+        a10: '已修复',
+        a11: '2022-01-01 10:00',
+        a12: '2022-01-01 10:00'
+      },
       textarea: '暂无',
       textarea2: '已完成',
       a1: '维修完成',
       score: 5,
       iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3']
-    }
-  },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
     }
   },
   methods: {

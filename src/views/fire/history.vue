@@ -43,50 +43,72 @@ const field = [
     id: 2,
     type: 0,
     label: '巡检名称',
-    key: 'a2'
+    key: 'a1'
   },
   {
     id: 3,
     type: 0,
     label: '巡检内容制定',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '设备类型',
-    key: 'a4'
+    key: 'a3'
   }, {
     id: 5,
     type: 0,
-    label: '所属建筑',
+    label: '巡检任务编号',
     key: 'a4'
+  }, {
+    type: 0,
+    label: '所属建筑',
+    key: 'a5'
+  }, {
+    type: 0,
+    label: '巡检人',
+    key: 'a6'
+  }, {
+    type: 0,
+    label: '巡检人联系电话',
+    key: 'a7'
+  }, {
+    type: 0,
+    label: '巡检开始时间',
+    key: 'a8'
+  }, {
+    type: 0,
+    label: '巡检结束时间',
+    key: 'a9'
   }]
 const field2 = [
   {
     id: 2,
     type: 0,
     label: '维保名称',
-    key: 'a2'
+    key: 'a10'
   },
   {
     id: 3,
     type: 0,
     label: '维保内容制定',
-    key: 'a3',
+    key: 'a11',
     showOverflow: true
   },
   {
-    id: 4,
     type: 0,
     label: '维保人',
-    key: 'a4'
+    key: 'a12'
   }, {
-    id: 5,
     type: 0,
     label: '维保联系电话',
-    key: 'a4'
+    key: 'a13'
+  }, {
+    type: 0,
+    label: '维保时间',
+    key: 'a14'
   }]
 export default {
   components: {
@@ -116,7 +138,7 @@ export default {
           {
             type: 'text',
             key: '1',
-            name: '编辑'
+            name: '详情'
           }
         ]
       },
@@ -137,15 +159,35 @@ export default {
     getList() {
     //   request({ url: 'root_authorization', method: 'get', params: { ...this.form }}).then((data) => {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: '日常巡检',
+        a2: '消防广播检查、消防水箱检查、消防配...',
+        a3: '消防应急、消防警示设备、消防...',
+        a4: '100001',
+        a5: '大楼整体、外围',
+        a6: '张旭',
+        a7: '1234567890',
+        a8: '2021-10-28 10:00',
+        a9: '2021-10-28 10:00',
+        a10: '火灾报警设备、消防应急设备',
+        a11: '火灾报警设备：消防传感器、前端报警控制器；消防应急设备：室外消防栓、灭火器、防火卷帘、排烟风道阀',
+        a12: '张旭',
+        a13: '1234567890',
+        a14: '2021-10-28 10:00'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: '日常巡检',
+        a2: '消防广播检查、消防水箱检查、消防配...',
+        a3: '消防应急、消防警示设备、消防...',
+        a4: '100002',
+        a5: '大楼整体、外围、控制室',
+        a6: '李魁',
+        a7: '1234567890',
+        a8: '2021-10-28 10:00',
+        a9: '2021-10-28 10:00',
+        a10: '消防灭火设备、消防控制设备',
+        a11: '消防灭火设备：喷淋头、楼层水阀控制器；消防控制设备：消防报警主机、消防管理主机、消防电源',
+        a12: '李魁',
+        a13: '1234567890',
+        a14: '2021-10-28 10:00'
       }]
       this.total = 2
     //     this.tb.data.forEach((e) => {
@@ -172,20 +214,10 @@ export default {
       })
     },
     editRow({ row }, btn, index) {
-      if (btn.key === '1') {
-        if (this.tabPosition === 'check') {
-          this.$router.push({ name: 'checkPlan', params: {
-            type: 'edit'
+      const routerName = this.tabPosition === 'check' ? 'checkPlan' : 'checkProtect'
+          this.$router.push({ name: routerName, params: {
+            type: 'detail'
           }})
-        } else {
-          this.$router.push({ name: 'checkProtect', params: {
-            type: 'edit'
-          }})
-        }
-        // this.$router.push({ name: 'historyChange', params: {
-        //   type: this.tabPosition === 'check' ? 'check' : 'protect'
-        // }})
-      }
     }
   }
 }

@@ -31,7 +31,7 @@
             :data="data"
             show-checkbox
             node-key="id"
-            :default-expanded-keys="[2, 3]"
+            default-expand-all="true"
             :default-checked-keys="checkedArr"
             :props="defaultProps"
           />
@@ -66,37 +66,209 @@ export default {
       checkedArr: [],
       data: [{
         id: 1,
-        label: '一级 1',
+        label: '用户管理',
         children: [{
           id: 4,
-          label: '二级 1-1',
+          label: '用户信息',
           children: [{
             id: 9,
-            label: '三级 1-1-1'
+            label: '创建用户'
           }, {
             id: 10,
-            label: '三级 1-1-2'
+            label: '编辑用户'
+          },
+          {
+            id: 15,
+            label: '查看用户'
+          }]
+        },
+        {
+          id: 40,
+          label: '组织管理',
+          children: [{
+            id: 90,
+            label: '创建组织'
+          }, {
+            id: 100,
+            label: '编辑组织'
+          },
+          {
+            id: 101,
+            label: '查看组织'
+          }]
+        }, {
+          id: 64,
+          label: '角色管理',
+          children: [{
+            id: 956,
+            label: '创建角色'
+          }, {
+            id: 10773,
+            label: '编辑角色'
+          },
+          {
+            id: 106346,
+            label: '查看角色'
           }]
         }]
       }, {
         id: 2,
-        label: '一级 2',
+        label: '消防管理',
         children: [{
-          id: 5,
-          label: '二级 2-1'
+          id: 445,
+          label: '消防设备巡检计划',
+          children: [{
+            id: 29,
+            label: '创建巡检计划'
+          }, {
+            id: 14340,
+            label: '编辑巡检计划'
+          },
+          {
+            id: 14350,
+            label: '查看巡检计划'
+          }]
+        },
+        {
+          id: 4035,
+          label: '消防设施维保计划',
+          children: [{
+            id: 940,
+            label: '创建维保计划'
+          }, {
+            id: 10520,
+            label: '编辑维保计划'
+          },
+          {
+            id: 13401,
+            label: '查看维保计划'
+          }]
         }, {
-          id: 6,
-          label: '二级 2-2'
+          id: 6234,
+          label: '历史记录查询',
+          children: []
+        }, {
+          id: 623784,
+          label: '消防安全信息发布',
+          children: []
         }]
       }, {
         id: 3,
-        label: '一级 3',
+        label: '保修管理',
         children: [{
-          id: 7,
-          label: '二级 3-1'
+          id: 57,
+          label: '保修事件'
         }, {
-          id: 8,
-          label: '二级 3-2'
+          id: 81204,
+          label: '维修事件'
+        }, {
+          id: 814,
+          label: '维修工单'
+        }]
+      }, {
+        id: 4,
+        label: '耗材管理',
+        children: [{
+          id: 5247,
+          label: ' 耗材预申请'
+        }, {
+          id: 84,
+          label: '耗材领用记录'
+        }, {
+          id: 8354,
+          label: ' 耗材类型',
+          children: [{
+            id: 9415640,
+            label: '创建耗材类型'
+          }, {
+            id: 15420,
+            label: '编辑耗材类型'
+          },
+          {
+            id: 1340451,
+            label: '查看耗材类型'
+          }]
+
+        }, {
+          id: 835154,
+          label: ' 耗材耗材信息',
+          children: [{
+            id: 115640,
+            label: '创建耗材信息'
+          }, {
+            id: 78510,
+            label: '编辑耗材信息'
+          },
+          {
+            id: 11451,
+            label: '查看耗材信息'
+          }]
+        }, {
+          id: 7654,
+          label: ' 供应商管理',
+          children: [{
+            id: 12540,
+            label: '创建供应商'
+          }, {
+            id: 785890,
+            label: '编辑供应商'
+          },
+          {
+            id: 154551,
+            label: '查看供应商'
+          }]
+        }, {
+          id: 8544,
+          label: '耗材申请'
+        }, {
+          id: 8545144,
+          label: '耗材库存查询'
+        }, {
+          id: 70654,
+          label: ' 耗材入库',
+          children: [{
+            id: 120540,
+            label: '入库'
+          }, {
+            id: 155890,
+            label: '查看入库单'
+          }]
+        }, {
+          id: 75844,
+          label: ' 耗材出库',
+          children: [{
+            id: 65540,
+            label: '出库'
+          }, {
+            id: 48490,
+            label: '查看出库单'
+          }]
+        }, {
+          id: 21244,
+          label: ' 耗材盘点',
+          children: [{
+            id: 21540,
+            label: '创建盘点计划'
+          }, {
+            id: 482090,
+            label: '盘点'
+          }, {
+            id: 42580,
+            label: '查看盘点单'
+          }]
+        }, {
+          id: 2154,
+          label: '  盘点修正',
+          children: [{
+            id: 951540,
+            label: '  创建盘点修正'
+          }, {
+            id: 481090,
+            label: '查看修正单'
+          }]
+        }, {
+          id: 854104,
+          label: '耗材申请审核'
         }]
       }],
       defaultProps: {
@@ -112,7 +284,7 @@ export default {
         desc: true,
         desc2: ''
       }
-      this.checkedArr = [5]
+      this.checkedArr = [3, 10, 90, 15420]
     }
   },
   methods: {

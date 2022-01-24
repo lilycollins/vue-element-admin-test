@@ -36,18 +36,24 @@
       </el-form-item>
       <el-form-item label="部门" prop="a6">
         <el-select v-model="ruleForm.a6" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          />
+          <el-option-group
+            v-for="group in options"
+            :key="group.label"
+            :label="group.label"
+          >
+            <el-option
+              v-for="item in group.options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-option-group>
         </el-select>
       </el-form-item>
       <el-form-item label="角色" prop="a7">
         <el-select v-model="ruleForm.a7" placeholder="请选择">
           <el-option
-            v-for="item in options"
+            v-for="item in options2"
             :key="item.value"
             :label="item.label"
             :value="item.value"
@@ -92,35 +98,51 @@ export default {
       checkAll: false,
       cities: cityOptions,
       isIndeterminate: false,
-      options: [{
-        value: '选项1',
-        label: '黄金糕'
-      }, {
-        value: '选项2',
-        label: '双皮奶'
-      }, {
-        value: '选项3',
-        label: '蚵仔煎'
-      }, {
-        value: '选项4',
+      options2: [{
+        value: '1',
         label: '职员'
       }, {
-        value: '选项5',
-        label: '事业部'
-      }]
+        value: '2',
+        label: '主任'
+      }, {
+        value: '3',
+        label: '科长'
+      }, {
+        value: '4',
+        label: '库管'
+      }],
+       options: [{
+          label: '综合部',
+          options: [{
+            value: 'Shanghai',
+            label: '安保部'
+          }, {
+            value: 'Beijing',
+            label: '安保1科'
+          }]
+        }, {
+          label: ' ',
+          options: [{
+            value: 'Chengdu',
+            label: '事业部'
+          }, {
+            value: 'Shenzhen',
+            label: '技术部'
+          }]
+        }]
     }
   },
   created() {
     if (this.type === 'edit') {
       this.ruleForm = {
-        name: '01',
+        name: 'A123456789',
         a1: true,
-        a2: '张三',
-        a3: '12',
+        a2: '米小宝',
+        a3: '30',
         a4: '441241199001124512',
-        a5: '673535677@hh.com',
-        a6: '选项5',
-        a7: '选项4'
+        a5: '673535677@163.com',
+        a6: 'Chengdu',
+        a7: '1'
       }
     }
   },

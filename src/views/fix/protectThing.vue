@@ -8,8 +8,12 @@
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部状态">
-            <el-option key="1" label="巡检" value="1" />
-            <el-option key="2" label="维保" value="2" />
+            <el-option key="1" label="保修派单" value="1" />
+            <el-option key="2" label="保维接单" value="2" />
+            <el-option key="3" label="进行维修" value="3" />
+            <el-option key="4" label="维修结果" value="4" />
+            <el-option key="5" label="维修点评" value="5" />
+            <el-option key="6" label="已完成" value="6" />
           </el-select>
         </el-form-item>
         <el-form-item label="">
@@ -58,25 +62,33 @@ const field = [
     id: 2,
     type: 0,
     label: '保修单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     id: 3,
     type: 0,
     label: '保修主题',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '保修类型',
-    key: 'a4'
+    key: 'a3'
   }, {
     id: 5,
     type: 0,
     label: '保修设备名称',
     key: 'a4'
+  }, {
+    type: 0,
+    label: '保修情况描述',
+    key: 'a5'
+  }, {
+    type: 0,
+    label: '状态',
+    key: 'a6'
   }]
 export default {
   components: {
@@ -128,17 +140,56 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '设备保修',
+        a4: 'MI001',
+        a5: '突然坏了',
+        a6: '保修派单'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI001',
+        a5: '系统崩盘',
+        a6: '保修接单'
+      }, {
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI003',
+        a5: '系统崩盘',
+        a6: '进行维修'
+      }, {
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI001',
+        a5: '系统崩盘',
+        a6: '已修复'
+      }, {
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI001',
+        a5: '突然坏了',
+        a6: '待解决'
+      }, {
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI001',
+        a5: '系统崩盘',
+        a6: '未修复'
+      }, {
+        a1: '123456789',
+        a2: '质量保修',
+        a3: '系统保修',
+        a4: 'MI001',
+        a5: '突然坏了',
+        a6: '已完成'
       }]
-      this.total = 2
+      this.total = 7
     },
     handleSizeChange(val) {
       this.form.pageSize = val

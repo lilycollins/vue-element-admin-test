@@ -1,52 +1,37 @@
 <template>
-  <div class="element-main">
+  <div class="element-main main-content">
     <el-button style="margin: 12px" size="small" type="plain" @click="back">返回</el-button>
     <div style="width: 90%;margin: 20px auto">
       <div class="sub-title-head"> <div class="l-box" />耗材申请审核  - 审核</div>
-      <el-row>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            fit
-            highlight-current-row
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-      </el-row>
-
+      <div class="like-table-item">
+        <div class="table-item">
+          申请单号 <span>{{ form.a1 }}</span>
+        </div>
+        <div class="table-item">
+          状态    <span>{{ form.a2 }}</span>
+        </div>
+        <div class="table-item">
+          申请部门 <span>{{ form.a3 }}</span>
+        </div>
+        <div class="table-item">
+          申请人 <span>{{ form.a4 }}</span>
+        </div>
+        <div class="table-item">
+          申请时间 <span>{{ form.a5 }}</span>
+        </div>
+        <div class="table-item">
+          使用时间 <span>{{ form.a6 }}</span>
+        </div>
+        <div class="table-item">
+          申请理由 <span>{{ form.a7 }}</span>
+        </div>
+        <div class="table-item">
+          审核人 <span>{{ form.a8 }}</span>
+        </div>
+        <div class="table-item">
+          审核时间 <span>{{ form.a9 }}</span>
+        </div>
+      </div>
       <el-table
         :data="tableData2"
         border
@@ -62,39 +47,39 @@
           </template>
         </el-table-column>
         <el-table-column
-          prop="name"
+          prop="a1"
           label="耗材编号"
         />
         <el-table-column
-          prop="address"
+          prop="a2"
           label="耗材名称"
         />
         <el-table-column
-          prop="address"
+          prop="a3"
           label="耗材类型"
         />
         <el-table-column
-          prop="address"
+          prop="a4"
           label="单位"
         />
         <el-table-column
-          prop="address"
+          prop="a5"
           label="申请数量"
         />
         <el-table-column
-          prop="address"
+          prop="a6"
           label="当前库存"
         />
         <el-table-column
-          prop="address"
+          prop="a7"
           label="供应商"
         />
         <el-table-column
-          prop="address"
+          prop="a8"
           label="预计采购单价"
         />
         <el-table-column
-          prop="address"
+          prop="a9"
           label="小计"
         />
       </el-table>
@@ -123,49 +108,31 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
-      tableData: [
-        {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          people: ''
-        }
-      ],
+      form: {
+        a1: '123456',
+        a2: '审核中',
+        a3: '行政部',
+        a4: '米小宝',
+        a5: '2022-01-01 10:00:00',
+        a6: '2020-05-06',
+        a7: '已用完，需申请',
+        a8: '',
+        a9: '',
+        a10: ''
+      },
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a1: '123456795452',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '0',
+        a7: '米宝供应商',
+        a8: '10.00',
+        a9: '100.00',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: ''
-    }
-  },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
     }
   },
   methods: {

@@ -210,8 +210,9 @@ aside {
             padding: 12px;
             font-size: 14px;
             color: #999;
-            .span {
+            span {
                 color: #333;
+                padding-left: 100px;
             }
         }
     }
@@ -233,6 +234,8 @@ aside {
     border: 1px solid #DCDFE6;
     padding: 12px;
     border-radius: 4px;
+    overflow: auto;
+    max-height: 450px;
 }
 
 .search-btn {

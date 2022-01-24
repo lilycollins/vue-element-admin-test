@@ -19,7 +19,7 @@
           />
         </el-form-item>
         <el-form-item label="">
-          <el-input v-model="formInline.user" prefix-icon="el-icon-search" placeholder="搜索执行人" />
+          <el-input v-model="formInline.user" prefix-icon="el-icon-search" placeholder="搜索" />
         </el-form-item>
         <el-form-item>
           <el-button plain @click="onSubmit">查询</el-button>
@@ -44,25 +44,25 @@ const field = [
   {
     id: 2,
     type: 0,
-    label: '巡检名称',
-    key: 'a2'
+    label: '信息主题',
+    key: 'a1'
   },
   {
     id: 3,
     type: 0,
-    label: '巡检内容制定',
-    key: 'a3',
+    label: '信息类别',
+    key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
-    label: '设备类型',
-    key: 'a4'
+    label: '状态',
+    key: 'a3'
   }, {
     id: 5,
     type: 0,
-    label: '所属建筑',
+    label: '发布时间',
     key: 'a4'
   }]
 export default {
@@ -115,15 +115,15 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        'a1': '全国消防安全检查',
+        'a2': '巡检',
+        'a3': '未发布',
+        'a4': '2021-10-28 10:00'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        'a1': '全国消防安全检查',
+        'a2': '巡检',
+        'a3': '已发布',
+        'a4': '2021-10-28 10:00'
       }]
       this.total = 2
     },
