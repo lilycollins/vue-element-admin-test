@@ -22,15 +22,9 @@ export const constantRoutes = [{
     },
     {
         path: '/login',
+        name: 'login',
         component: () =>
             import ('@/views/login/index'),
-        hidden: true
-    },
-    {
-        path: '/editPassword',
-        component: () =>
-            import ('@/views/dashboard/editPassword'),
-        name: 'editPassword',
         hidden: true
     },
     {
