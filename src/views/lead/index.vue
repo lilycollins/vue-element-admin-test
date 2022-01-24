@@ -10,7 +10,7 @@ export default {
     return {
       loading: false,
       iframeHeight: 0,
-      src: 'https://w0rp03.axshare.com/#id=omh7lr&p=%E9%A6%96%E9%A1%B5&g=1',
+      src: 'https://w0rp03.axshare.com',
       selectedAnchor: ''
     }
   },
@@ -34,10 +34,10 @@ export default {
       }, 3000)
     }
   }
-  }
+}
 </script>
 <style lang="scss">
-$blue: #048AFA;
+$blue: #048afa;
 .ld-frame {
   position: absolute;
   top: 0;

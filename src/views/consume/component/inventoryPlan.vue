@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       inventoryNo: '',
-      time: '2022-01-01',
+      time: '',
       textarea: ''
     }
   },

@@ -204,11 +204,11 @@ export default {
               show: false
             },
             data: [
-              { value: 1048, name: 'Search Engine' },
-              { value: 735, name: 'Direct' },
-              { value: 580, name: 'Email' },
-              { value: 484, name: 'Union Ads' },
-              { value: 300, name: 'Video Ads' }
+              { value: 1048, name: '耗材1' },
+              { value: 735, name: '耗材2' },
+              { value: 580, name: '耗材3' },
+              { value: 484, name: '耗材4' },
+              { value: 300, name: '耗材5' }
             ]
           }
         ]
@@ -240,7 +240,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['事业1部', '综合部', '行政部', '技术部', '事业2部', '事业3部', '财政部'],
             axisTick: {
               alignWithLabel: true
             }

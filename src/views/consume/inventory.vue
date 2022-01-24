@@ -8,8 +8,9 @@
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部状态">
-            <el-option key="1" label="巡检" value="1" />
-            <el-option key="2" label="维保" value="2" />
+            <el-option key="1" label="待执行" value="1" />
+            <el-option key="2" label="执行中" value="2" />
+            <el-option key="3" label="已结束" value="3" />
           </el-select>
         </el-form-item>
         <el-form-item label="">
@@ -58,20 +59,20 @@ const field = [
     id: 2,
     type: 0,
     label: '盘点单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     id: 3,
     type: 0,
     label: '计划执行时间',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '发起人',
-    key: 'a4'
+    key: 'a3'
   }, {
     type: 0,
     label: '状态',
@@ -79,23 +80,23 @@ const field = [
   }, {
     type: 0,
     label: '盘点耗材款数',
-    key: 'a4'
+    key: 'a5'
   }, {
     type: 0,
     label: '盘点数量',
-    key: 'a4'
+    key: 'a6'
   }, {
     type: 0,
     label: '差异数量',
-    key: 'a4'
+    key: 'a7'
   }, {
     type: 0,
     label: '发起时间',
-    key: 'a4'
+    key: 'a8'
   }, {
     type: 0,
     label: '盘点时间',
-    key: 'a4'
+    key: 'a9'
   }]
 export default {
   components: {
@@ -152,17 +153,37 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: 'O12345678',
+        a2: '2022-01-01 10:00',
+        a3: '库管1',
+        a4: '待执行',
+        a5: '',
+        a6: '',
+        a7: '',
+        a8: '2022-01-01 10:00',
+        a9: ''
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: 'O12345678',
+        a2: '2022-01-01 10:00',
+        a3: '库管1',
+        a4: '执行中',
+        a5: '',
+        a6: '',
+        a7: '',
+        a8: '2022-01-01 10:00',
+        a9: ''
+      }, {
+        a1: 'O12345678',
+        a2: '2022-01-01 10:00',
+        a3: '库管1',
+        a4: '已结束',
+        a5: '100',
+        a6: '10000',
+        a7: '0',
+        a8: '2022-01-01 10:00',
+        a9: '2022-01-01 10:00'
       }]
-      this.total = 2
+      this.total = 3
     },
     handleSizeChange(val) {
       this.form.pageSize = val

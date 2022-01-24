@@ -52,26 +52,26 @@ const field = [
   {
     type: 0,
     label: '修正单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     type: 0,
     label: '修正人',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
     label: '修正耗材款数',
-    key: 'a4'
+    key: 'a3'
   }, {
     type: 0,
     label: '修正数量',
     key: 'a4'
   }, {
     type: 0,
-    label: '休整时间',
-    key: 'a4'
+    label: '修正时间',
+    key: 'a5'
   }]
 export default {
   components: {
@@ -118,17 +118,25 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        'a1': 'J12345678',
+        'a2': '库管1',
+        'a3': '',
+        'a4': '',
+        'a5': '2021-01-02  12:12'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        'a1': 'J12345678',
+        'a2': '库管1',
+        'a3': '',
+        'a4': '',
+        'a5': '2021-01-02  12:12'
+      }, {
+        'a1': 'J12345678',
+        'a2': '库管1',
+        'a3': '100',
+        'a4': '10000',
+        'a5': '2021-01-02  12:12'
       }]
-      this.total = 2
+      this.total = 3
     },
     handleSizeChange(val) {
       this.form.pageSize = val
