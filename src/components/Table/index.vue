@@ -73,6 +73,10 @@
               {{ scope.row[scope.column.property] }}
             </span>
           </template>
+          <!-- 图片 -->
+          <template v-if="field.type == '7'">
+            <img style="width: 100px; padding: 0 3px" :src="scope.row[scope.column.property]" alt="">
+          </template>
         </template>
       </el-table-column>
       <!-- 操作按钮 -->

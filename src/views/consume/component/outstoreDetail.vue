@@ -7,16 +7,16 @@
       </div>
       <div class="like-table-item">
         <div class="table-item">
-          出库单号 <span>{{ form.fixNo }}</span>
+          出库单号 <span>{{ form.a1 }}</span>
         </div>
         <div class="table-item">
-          入库人 <span>{{ form.fixNo }}</span>
+          入库人 <span>{{ form.a2 }}</span>
         </div>
         <div class="table-item">
-          入库时间 <span>{{ form.fixNo }}</span>
+          入库时间 <span>{{ form.a3 }}</span>
         </div>
         <div class="table-item">
-          备注 <span>{{ form.fixNo }}</span>
+          备注 <span>{{ form.a4 }}</span>
         </div>
       </div>
       <el-table
@@ -26,9 +26,9 @@
         style="width: 100%; margin: 55px 0"
       >
         <el-table-column type="index" width="55" />
-        <el-table-column prop="name" label="申请单号" />
-        <el-table-column prop="name" label="申请部门" />
-        <el-table-column prop="name" label="申请人" />
+        <el-table-column prop="a1" label="申请单号" />
+        <el-table-column prop="a2" label="申请部门" />
+        <el-table-column prop="a3" label="申请人" />
         <el-table-column label="耗材图片">
           <template slot-scope="scope">
             <div slot="reference" class="name-wrapper">
@@ -36,11 +36,11 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材编号" />
-        <el-table-column prop="address" label="耗材名称" />
-        <el-table-column prop="address" label="耗材类型" />
-        <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="出库数量" />
+        <el-table-column prop="a4" label="耗材编号" />
+        <el-table-column prop="a5" label="耗材名称" />
+        <el-table-column prop="a6" label="耗材类型" />
+        <el-table-column prop="a7" label="单位" />
+        <el-table-column prop="a8" label="出库数量" />
       </el-table>
 
       <div style="padding-top: 35px">
@@ -54,34 +54,24 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a1: 'P12345678',
+        a2: '行政部',
+        a3: '米小宝',
+        a4: '1234567890123',
+        a5: '得力A4 70g打印纸',
+        a6: '办公用品',
+        a7: '包',
+        a8: '10',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
       selected: [],
       form: {
-        fixNo: ''
+        a1: 'P12345678',
+        a2: '库管1',
+        a3: '2022-01-01 10:00',
+        a4: ''
       }
     }
   },

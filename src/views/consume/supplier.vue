@@ -47,25 +47,25 @@ const field = [
   {
     id: 2,
     type: 0,
-    label: '保修单号',
-    key: 'a2'
+    label: '供应商编号',
+    key: 'a1'
   },
   {
     id: 3,
     type: 0,
-    label: '保修主题',
-    key: 'a3',
+    label: '供应商名称',
+    key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
-    label: '保修类型',
-    key: 'a4'
+    label: '状态',
+    key: 'a3'
   }, {
     id: 5,
     type: 0,
-    label: '保修设备名称',
+    label: '创建日期',
     key: 'a4'
   }]
 export default {
@@ -113,17 +113,22 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
+        'a1': '0001',
+        'a2': '自采供应商',
         'a3': '启用',
         'a4': '2021-01-02  12:12'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
+        'a1': '0002',
+        'a2': '米宝供应商',
+        'a3': '启用',
+        'a4': '2021-01-02  12:12'
+      }, {
+        'a1': '0001',
+        'a2': '小宝供应商',
         'a3': '禁用',
         'a4': '2021-01-02  12:12'
       }]
-      this.total = 2
+      this.total = 3
     },
     handleSizeChange(val) {
       this.form.pageSize = val

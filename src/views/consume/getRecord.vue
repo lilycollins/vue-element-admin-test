@@ -26,8 +26,8 @@
         </el-form-item>
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="请选择耗材类型">
-            <el-option key="1" label="巡检" value="1" />
-            <el-option key="2" label="维保" value="2" />
+            <el-option key="1" label="一级分类" value="1" />
+            <el-option key="2" label="二级分类" value="2" />
           </el-select>
         </el-form-item>
         <el-form-item label="">
@@ -66,22 +66,42 @@ const field = [
   {
     type: 0,
     label: '申请单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     type: 0,
     label: '出库单号',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
     label: '耗材编号',
-    key: 'a4'
+    key: 'a3'
   }, {
     type: 0,
     label: '耗材名称',
     key: 'a4'
+  }, {
+    type: 0,
+    label: '耗材类型',
+    key: 'a5'
+  }, {
+    type: 0,
+    label: '单位',
+    key: 'a6'
+  }, {
+    type: 0,
+    label: '数量',
+    key: 'a7'
+  }, {
+    type: 0,
+    label: '申请时间',
+    key: 'a8'
+  }, {
+    type: 0,
+    label: '领用时间',
+    key: 'a9'
   }]
 export default {
   components: {
@@ -119,17 +139,47 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: '12345678',
+        a2: 'W12345678',
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '10',
+        a8: '2022-01-01 10:00',
+        a9: '2022-01-01 10:00'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: '12345678',
+        a2: 'W12345678',
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '10',
+        a8: '2022-01-01 10:00',
+        a9: '2022-01-01 10:00'
+      }, {
+        a1: '12345678',
+        a2: 'W12345678',
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '10',
+        a8: '2022-01-01 10:00',
+        a9: '2022-01-01 10:00'
+      }, {
+        a1: '12345678',
+        a2: 'W12345678',
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '10',
+        a8: '2022-01-01 10:00',
+        a9: '2022-01-01 10:00'
       }]
-      this.total = 2
+      this.total = 4
     },
     handleSizeChange(val) {
       this.form.pageSize = val

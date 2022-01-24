@@ -104,12 +104,19 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55" />
-        <el-table-column label="耗材编号" width="120">
-          <template slot-scope="scope">{{ scope.row.date }}</template>
+        <el-table-column label="耗材图片">
+          <template slot-scope="scope">
+            <div slot="reference" class="name-wrapper">
+              <img :src="scope.row.img" style="width: 100px">
+            </div>
+          </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材名称" width="120" />
-        <el-table-column prop="name" label="单位" />
-        <el-table-column prop="name" label="耗材类型" />
+        <el-table-column label="耗材编号" width="120">
+          <template slot-scope="scope">{{ scope.row.a1 }}</template>
+        </el-table-column>
+        <el-table-column prop="a2" label="耗材名称" width="120" />
+        <el-table-column prop="a3" label="单位" />
+        <el-table-column prop="a4" label="耗材类型" />
       </el-table>
       <div style="text-align: right; padding: 15px 0">
         <el-pagination
@@ -174,7 +181,7 @@ export default {
         currentPage: 1,
         pageSize: 20
       },
-      total: 0,
+      total: 5,
       options: [{
         value: 'zhinan',
         label: '指南',
@@ -371,13 +378,35 @@ export default {
         }]
       }],
       tableData: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
       }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
       }],
       multipleSelection: [],
       radio: null

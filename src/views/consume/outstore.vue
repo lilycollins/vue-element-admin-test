@@ -52,18 +52,23 @@ const field = [
   {
     type: 0,
     label: '出库单号',
-    key: 'a2'
+    key: 'a1'
   },
   {
     type: 0,
+    label: '申请单号',
+    key: 'a7'
+  },
+  {
+    type: 7,
     label: '耗材图片',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
     label: '耗材编号',
-    key: 'a4'
+    key: 'a3'
   }, {
     type: 0,
     label: '耗材名称',
@@ -71,11 +76,23 @@ const field = [
   }, {
     type: 0,
     label: '耗材类型',
-    key: 'a4'
+    key: 'a5'
   }, {
     type: 0,
-    label: '单号',
-    key: 'a4'
+    label: '单位',
+    key: 'a6'
+  }, {
+    type: 0,
+    label: '出库数量',
+    key: 'a8'
+  }, {
+    type: 0,
+    label: '出库人',
+    key: 'a10'
+  }, {
+    type: 0,
+    label: '出库时间',
+    key: 'a11'
   }]
 export default {
   components: {
@@ -122,17 +139,43 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: 'P12345678',
+        a2: require('../../assets/img/default.svg'),
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '123458587',
+        a8: '100',
+        a9: '1000000.00',
+        a10: '库管1',
+        a11: '2022-01-01 10:00'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: 'P12345678',
+        a2: require('../../assets/img/default.svg'),
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '123458587',
+        a8: '100',
+        a9: '1000000.00',
+        a10: '库管1',
+        a11: '2022-01-01 10:00'
+      }, {
+        a1: 'P12345678',
+        a2: require('../../assets/img/default.svg'),
+        a3: '1234567890123',
+        a4: '得力A4 70g打印纸',
+        a5: '办公用品',
+        a6: '包',
+        a7: '123458587',
+        a8: '100',
+        a9: '1000000.00',
+        a10: '库管1',
+        a11: '2022-01-01 10:00'
       }]
-      this.total = 2
+      this.total = 3
     },
     handleSizeChange(val) {
       this.form.pageSize = val

@@ -3,9 +3,18 @@
     <div>
       <div class="sub-title-head">
         <div class="l-box" />
-        {{ type === "add" ? "供应商管理 - 创建申请" : "供应商管理 - 编辑申请" }}
+        {{ type === "add" ? "供应商管理 - 创建供应商" : "供应商管理 - 编辑供应商" }}
       </div>
       <h4>基本信息</h4>
+      <div style="float: right; margin: -100px 50px 0 0">
+        <span style="padding-right: 12px">是否启用</span>
+        <el-switch
+          v-model="isUse"
+          active-color="#13ce66"
+          active-text=""
+          inactive-text=""
+        />
+      </div>
       <el-form
         ref="ruleForm"
         :model="ruleForm"
@@ -31,7 +40,7 @@
         </el-form-item>
       </el-form>
       <h4>产品信息</h4>
-      <div class="tag-warp" style="margin: 45px 0 25px 0">
+      <div class="tag-warp" style="margin: 25px 0 25px 0">
         <el-button type="primary" @click="chooseIt">选择耗材</el-button>
         <el-button
           type="danger"
@@ -54,12 +63,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材编号" />
-        <el-table-column prop="address" label="耗材名称" />
-        <el-table-column prop="address" label="耗材类型" />
-        <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="当前库存" />
-        <el-table-column prop="address" label="采购单价" />
+        <el-table-column prop="a1" label="耗材编号" />
+        <el-table-column prop="a2" label="耗材名称" />
+        <el-table-column prop="a3" label="耗材类型" />
+        <el-table-column prop="a4" label="单位" />
+        <el-table-column prop="a5" label="当前库存" />
+        <el-table-column prop="a6" label="采购单价" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -111,12 +120,19 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55" />
-        <el-table-column label="耗材编号" width="120">
-          <template slot-scope="scope">{{ scope.row.date }}</template>
+        <el-table-column label="耗材图片">
+          <template slot-scope="scope">
+            <div slot="reference" class="name-wrapper">
+              <img :src="scope.row.img" style="width: 100px">
+            </div>
+          </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材名称" width="120" />
-        <el-table-column prop="name" label="单位" />
-        <el-table-column prop="name" label="耗材类型" />
+        <el-table-column label="耗材编号" width="120">
+          <template slot-scope="scope">{{ scope.row.a1 }}</template>
+        </el-table-column>
+        <el-table-column prop="a2" label="耗材名称" width="120" />
+        <el-table-column prop="a3" label="单位" />
+        <el-table-column prop="a4" label="耗材类型" />
       </el-table>
       <div style="text-align: right; padding: 15px 0">
         <el-pagination
@@ -150,6 +166,7 @@ export default {
   data() {
     return {
       type: this.$route.params.type,
+      isUse: true,
       ruleForm: {
         name: '',
         a2: '',
@@ -179,9 +196,12 @@ export default {
         }
       ],
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
@@ -192,7 +212,7 @@ export default {
         currentPage: 1,
         pageSize: 20
       },
-      total: 0,
+      total: 5,
       options: [{
         value: 'zhinan',
         label: '指南',
@@ -389,13 +409,35 @@ export default {
         }]
       }],
       tableData: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
       }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
+      }, {
+       a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '包',
+        a4: '办公用品',
+        img: require('../../../assets/img/default.svg')
       }],
       multipleSelection: [],
       radio: null
