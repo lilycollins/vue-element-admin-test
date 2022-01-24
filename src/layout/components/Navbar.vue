@@ -6,9 +6,7 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar"
     />
-
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-
+    <div class="breadcrumb-container">欢迎进入智慧机关管理平台</div>
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
         <search id="header-search" class="right-menu-item" />
@@ -87,7 +85,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
+// import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
 import Screenfull from '@/components/Screenfull'
@@ -96,7 +94,7 @@ import Search from '@/components/HeaderSearch'
 
 export default {
   components: {
-    Breadcrumb,
+    // Breadcrumb,
     Hamburger,
     ErrorLog,
     Screenfull,
@@ -138,6 +136,7 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   height: 50px;
+  line-height: 50px;
   overflow: hidden;
   position: relative;
   background: #fff;

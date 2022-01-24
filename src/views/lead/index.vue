@@ -1,23 +1,58 @@
 <template>
-  <div>
-    <div style="width: 100%;margin: auto">
-      <img :src="src" style="width: 100%">
-    </div>
+  <div v-if="src" ref="Iframe" v-loading="loading" class="ld-frame">
+    <iframe class="iframe" :src="src" frameborder="0" :height="iframeHeight" />
   </div>
 </template>
 <script>
 
 export default {
-  name: 'Dashboard',
   data() {
     return {
-      src: require('../../assets/img/pg2.png')
+      loading: false,
+      iframeHeight: 0,
+      src: 'https://w0rp03.axshare.com/#id=omh7lr&p=%E9%A6%96%E9%A1%B5&g=1',
+      selectedAnchor: ''
+    }
+  },
+  mounted() {
+    this.iframeLoad()
+    this.$nextTick(() => {
+      this.iframeHeight = this.$refs.Iframe.offsetHeight
+    })
+  },
+  methods: {
+    iframeLoad() {
+      this.loading = true
+      const iframe = this.$refs.Iframe
+      if (iframe.attachEvent) { // IE
+        iframe.attachEvent('onload', () => { this.loading = false })
+      } else { // 非IE
+        iframe.onload = () => { this.loading = false }
+      }
+      setTimeout(() => {
+        this.loading = false
+      }, 3000)
     }
   }
-}
-
+  }
 </script>
-
-<style lang="scss" scoped>
-
+<style lang="scss">
+$blue: #048AFA;
+.ld-frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #fff;
+  .iframe {
+    min-width: 100%;
+    width: 0;
+    *width: 100%;
+    border-width: 0;
+  }
+}
 </style>

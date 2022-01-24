@@ -75,18 +75,18 @@
         </el-tooltip>
         <el-form-item prop="code">
           <span class="svg-container">
-            <svg-icon icon-class="user" />
+            <svg-icon icon-class="lock" />
           </span>
           <el-input
             ref="验证码"
             v-model="loginForm.code"
-            placeholder="code"
+            placeholder="验证码"
             name="code"
             type="text"
             tabindex="1"
             autocomplete="on"
           />
-
+          <verificationCode ref="verificationCode" :identify-code.sync="identifyCode" @refreshCode="refreshCode" />
         </el-form-item>
         <el-button
           class="login-btn"
@@ -121,10 +121,13 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-// import { verificationCode } from '@/components/VerificationCode/index'
+import verificationCode from './components/security.vue'
 
 export default {
   name: 'Login',
+  components: {
+    verificationCode
+  },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
@@ -142,8 +145,9 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111',
+        // username：admin/editor   password/验证码：随便
+        username: '',
+        password: '',
         code: ''
       },
       loginRules: {
@@ -199,6 +203,7 @@ export default {
     refreshCode() {
       this.identifyCode = ''
       this.makeCode(this.identifyCodes, 4)
+      this.$refs.verificationCode.drawPic()
     },
     makeCode(o, l) {
       for (let i = 0; i < l; i++) {
@@ -343,11 +348,11 @@ $cursor: #fff;
       padding: 12px 5px 12px 15px;
       color: #666;
       height: 47px;
-      caret-color: $cursor;
+      caret-color: #666;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+        box-shadow: 0 0 0px 1000px $cursor inset !important;
+        -webkit-text-fill-color: $bg !important;
       }
     }
   }

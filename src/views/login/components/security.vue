@@ -73,6 +73,9 @@ export default {
   },
   mounted() {
     this.drawPic()
+    document.querySelector('#s-canvas').onclick = () => {
+      this.$emit('refreshCode')
+    }
   },
   methods: {
     // 生成一个随机数
