@@ -4,9 +4,9 @@
       <div class="l-box" />
       耗材信息
     </div>
-    <div style="display: flex; justify-content: left">
+    <div style="display: flex; justify-content: space-between">
       <div class="tag-warp">
-        <el-button plain style="background: gold">刷新</el-button>
+        <el-button plain>刷新</el-button>
         <el-button type="primary" @click="addIt">创建</el-button>
         <el-button
           type="danger"
@@ -14,22 +14,25 @@
           @click="deleteIt"
         >删除
         </el-button>
+        <div style="margin-left: 10px">
+          <el-dropdown>
+            <el-button type="info" style="height: 41px">
+              全部供应商<i class="el-icon-arrow-down el-icon--right" />
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>米宝供应商</el-dropdown-item>
+              <el-dropdown-item>大宝供应商</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
       </div>
-      <div style="margin-left: 10px;">
-        <el-dropdown>
-          <el-button type="info" style="height: 41px;">
-            更多菜单<i class="el-icon-arrow-down el-icon--right" />
-          </el-button>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>黄金糕</el-dropdown-item>
-            <el-dropdown-item>狮子头</el-dropdown-item>
-            <el-dropdown-item>螺蛳粉</el-dropdown-item>
-            <el-dropdown-item>双皮奶</el-dropdown-item>
-            <el-dropdown-item>蚵仔煎</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
-      <el-form :inline="true" :model="formInline" class="demo-form-inline" style="margin-left: 10px;">
+
+      <el-form
+        :inline="true"
+        :model="formInline"
+        class="demo-form-inline"
+        style="margin-left: 10px"
+      >
         <el-form-item label="">
           <el-input
             v-model="formInline.user"
@@ -37,16 +40,30 @@
             placeholder="搜索供应商编号/名称"
           />
         </el-form-item>
-        <el-form-item style="margin-left: 10px;">
+        <el-form-item style="margin-left: 10px">
           <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
-
     </div>
 
-    <div style="display: flex;justify-content: space-between">
-      <div style="flex: 1;padding: 20px;">
-        <div style="height: 30px;background: #cccccc;text-align: center;line-height: 30px;">
+    <div style="display: flex; justify-content: space-between">
+      <div
+        style="
+          flex: 1;
+          border: 1px solid #dfe6ec;
+          height: 600px;
+          margin-right: 15px;
+        "
+      >
+        <div
+          style="
+            height: 30px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 30px;
+            min-width: 300px;
+          "
+        >
           耗材类型
         </div>
         <div>
@@ -60,11 +77,10 @@
               >
                 <el-submenu index="1">
                   <template slot="title">
-                    <div style="padding-left: 20px !important;">
-                      <i class="el-icon-location" />
-                      <span>导航一</span>
+                    <div style="padding-left: 20px !important">
+                      <!-- <i class="el-icon-location" /> -->
+                      <span>一级类型</span>
                     </div>
-
                   </template>
                   <el-menu-item-group>
                     <template slot="title">分组一</template>
@@ -80,24 +96,31 @@
                   </el-submenu>
                 </el-submenu>
                 <el-menu-item index="2">
-                  <i class="el-icon-menu" />
-                  <span slot="title">导航二</span>
+                  <!-- <i class="el-icon-menu" /> -->
+                  <span slot="title">二级类型</span>
                 </el-menu-item>
                 <el-menu-item index="3" disabled>
-                  <i class="el-icon-document" />
-                  <span slot="title">导航三</span>
+                  <!-- <i class="el-icon-document" /> -->
+                  <span slot="title">三级类型</span>
                 </el-menu-item>
                 <el-menu-item index="4">
-                  <i class="el-icon-setting" />
-                  <span slot="title">导航四</span>
+                  <!-- <i class="el-icon-setting" /> -->
+                  <span slot="title">四级类型</span>
                 </el-menu-item>
               </el-menu>
             </el-col>
           </el-row>
         </div>
       </div>
-      <div style="flex: 2;padding: 20px;">
-        <div style="height: 30px;background: #cccccc;text-align: center;line-height: 30px;">
+      <div style="flex: 3">
+        <div
+          style="
+            height: 30px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 30px;
+          "
+        >
           商品类型
         </div>
         <!-- 表格 -->
@@ -121,7 +144,7 @@ import pagination from '@/components/Pagination'
 const field = [
   {
     id: 2,
-    type: 0,
+    type: 7,
     label: '图片',
     key: 'a1'
   },
@@ -160,7 +183,8 @@ const field = [
   }, {
     id: 10,
     type: 0,
-    label: '创建日期',
+    label: '最后一次采购日期',
+    width: '140',
     key: 'a8'
   }]
 export default {
@@ -209,7 +233,7 @@ export default {
   methods: {
     getList() {
       this.tb.data = [{
-        'a1': '0001',
+        'a1': require('../../assets/img/default.svg'),
         'a2': '1234567890123',
         'a3': '得力A4 70g打印纸',
         'a4': '办公用品',
@@ -218,7 +242,7 @@ export default {
         'a7': '12个月',
         'a8': '2021-01-02  12:12'
       }, {
-        'a1': '0002',
+        'a1': require('../../assets/img/default.svg'),
         'a2': '1234567890123',
         'a3': '得力A4 70g打印纸',
         'a4': '办公用品',
@@ -227,7 +251,7 @@ export default {
         'a7': '12个月',
         'a8': '2021-01-02  12:12'
       }, {
-        'a1': '0003',
+        'a1': require('../../assets/img/default.svg'),
         'a2': '1234567890123',
         'a3': '得力A4 70g打印纸',
         'a4': '办公用品',
@@ -264,14 +288,14 @@ export default {
     },
     editRow({ row }, btn, index) {
       this.$router.push({
-        name: 'supplyChange', params: {
+        name: 'messageChange', params: {
           type: 'edit'
         }
       })
     },
     addIt() {
       this.$router.push({
-        name: 'supplyChange', params: {
+        name: 'messageChange', params: {
           type: 'add'
         }
       })

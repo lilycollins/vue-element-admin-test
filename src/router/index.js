@@ -302,6 +302,13 @@ export const constantRoutes = [{
                 meta: { title: '耗材信息' }
             },
             {
+                path: 'messageChange/:type',
+                name: 'messageChange',
+                component: () =>
+                    import ('@/views/consume/component/messageChange'),
+                hidden: true
+            },
+            {
                 path: 'supplier',
                 component: () =>
                     import ('@/views/consume/supplier.vue'),
