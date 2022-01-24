@@ -12,7 +12,7 @@
           class="login-backGround-img-logo"
         > -->
         <img
-          src="https://wechatapppro-1252524126.file.myqcloud.com/appPYtT9SmK6848/image/b_u_5b2225aa46488_oGKN7IvA/kvm7z8fw03tt.png"
+          :src="logImg"
           class="login-backGround-img-logo"
         >
       </div>
@@ -164,7 +164,8 @@ export default {
       // 随机抽取四位数
       identifyCodes: '1234567890abcdef',
       identifyCode: '',
-      checked: false
+      checked: false,
+      logImg: require('../../assets/img/s.svg')
     }
   },
   watch: {
