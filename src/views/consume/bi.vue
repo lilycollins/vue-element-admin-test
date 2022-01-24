@@ -65,18 +65,18 @@ const field = [
   {
     type: 0,
     label: '耗材分类',
-    key: 'a2'
+    key: 'a1'
   },
   {
     type: 0,
     label: '当前库存',
-    key: 'a3',
+    key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
     label: '申请数量',
-    key: 'a4'
+    key: 'a3'
   }, {
     type: 0,
     label: '入库数量',
@@ -84,176 +84,176 @@ const field = [
   }, {
     type: 0,
     label: '出库数量',
-    key: 'a4'
+    key: 'a5'
   }, {
     type: 0,
     label: '库存占比',
-    key: 'a4'
+    key: 'a6'
   }, {
     type: 0,
     label: '申请占比',
-    key: 'a4'
+    key: 'a7'
   }, {
     type: 0,
     label: '入库占比',
-    key: 'a4'
+    key: 'a8'
   }, {
     type: 0,
     label: '出库占比',
-    key: 'a4'
+    key: 'a9'
   }]
 const field2 = [
   {
     id: 2,
-    type: 0,
+    type: 7,
     label: '耗材图片',
-    key: 'a2'
+    key: 'img'
   },
   {
     id: 3,
     type: 0,
     label: '耗材编号',
-    key: 'a3',
+    key: 'a10',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '耗材名称',
-    key: 'a4'
+    key: 'a11'
   }, {
     id: 5,
     type: 0,
     label: '耗材类型',
-    key: 'a4'
+    key: 'a12'
   }, {
     type: 0,
     label: '单位',
-    key: 'a4'
+    key: 'a13'
   }, {
     type: 0,
     label: '当前库存',
-    key: 'a4'
+    key: 'a14'
   }, {
     type: 0,
     label: '申请数量',
-    key: 'a4'
+    key: 'a15'
   }, {
     type: 0,
     label: '入库数量',
-    key: 'a4'
+    key: 'a16'
   }, {
     type: 0,
     label: '出库数量',
-    key: 'a4'
+    key: 'a17'
   }, {
     type: 0,
     label: '库存占比',
-    key: 'a4'
+    key: 'a18'
   }, {
     type: 0,
     label: '申请占比',
-    key: 'a4'
+    key: 'a19'
   }, {
     type: 0,
     label: '入库占比',
-    key: 'a4'
+    key: 'a20'
   }, {
     type: 0,
     label: '入库数量',
-    key: 'a4'
+    key: 'a21'
   }, {
     type: 0,
     label: '出库占比',
-    key: 'a4'
+    key: 'a22'
   }]
 const field3 = [
   {
     id: 2,
     type: 0,
     label: '部门',
-    key: 'a2'
+    key: 'a23'
   },
   {
     id: 3,
     type: 0,
     label: '当前库存',
-    key: 'a3',
+    key: 'a24',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '申请数量',
-    key: 'a4'
+    key: 'a25'
   }, {
     type: 0,
     label: '入库数量',
-    key: 'a4'
+    key: 'a26'
   }, {
     type: 0,
     label: '出库数量',
-    key: 'a4'
+    key: 'a27'
   }, {
     type: 0,
     label: '库存占比',
-    key: 'a4'
+    key: 'a28'
   }, {
     type: 0,
     label: '申请占比',
-    key: 'a4'
+    key: 'a29'
   }, {
     type: 0,
     label: '入库占比',
-    key: 'a4'
+    key: 'a30'
   }, {
     type: 0,
     label: '出库占比',
-    key: 'a4'
+    key: 'a31'
   }]
 const field4 = [
   {
     id: 2,
     type: 0,
     label: '供应商',
-    key: 'a2'
+    key: 'a32'
   },
   {
     id: 3,
     type: 0,
     label: '当前库存',
-    key: 'a3',
+    key: 'a33',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
     label: '申请数量',
-    key: 'a4'
+    key: 'a34'
   }, {
     type: 0,
     label: '入库数量',
-    key: 'a4'
+    key: 'a35'
   }, {
     type: 0,
     label: '出库数量',
-    key: 'a4'
+    key: 'a36'
   }, {
     type: 0,
     label: '库存占比',
-    key: 'a4'
+    key: 'a37'
   }, {
     type: 0,
     label: '申请占比',
-    key: 'a4'
+    key: 'a38'
   }, {
     type: 0,
     label: '入库占比',
-    key: 'a4'
+    key: 'a39'
   }, {
     type: 0,
     label: '出库占比',
-    key: 'a4'
+    key: 'a40'
   }]
 export default {
   components: {
@@ -344,22 +344,142 @@ export default {
     getList() {
       //   request({ url: 'root_authorization', method: 'get', params: { ...this.form }}).then((data) => {
       this.tb.data = [{
-        'a1': '主任',
-        'a2': '办公室主任',
-        'a3': '启用',
-        'a4': '2021-01-02  12:12'
+        a1: '办公用品',
+        a2: '100',
+        a3: '150',
+        a4: '150',
+        a5: '500',
+        a6: '10%',
+        a7: '10%',
+        a8: '10%',
+        a9: '10%',
+
+        img: require('../../assets/img/default.svg'),
+        a10: '1234567890123',
+        a11: '得力A4 70g打印纸',
+        a12: '办公用品',
+        a13: '包',
+        a14: '100',
+        a15: '150',
+        a16: '150',
+        a17: '500',
+        a18: '10%',
+        a19: '10%',
+        a20: '10%',
+        a21: '10%',
+        a22: '10%',
+
+        a23: '事业1部',
+        a24: '100',
+        a25: '150',
+        a26: '150',
+        a27: '500',
+        a28: '10%',
+        a29: '10%',
+        a30: '10%',
+        a31: '10%',
+
+        a32: '米宝供应商',
+        a33: '100',
+        a34: '150',
+        a35: '150',
+        a36: '150',
+        a37: '10%',
+        a38: '10%',
+        a39: '10%',
+        a40: '10%'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: '办公用品',
+        a2: '100',
+        a3: '150',
+        a4: '150',
+        a5: '500',
+        a6: '10%',
+        a7: '10%',
+        a8: '10%',
+        a9: '10%',
+
+        img: require('../../assets/img/default.svg'),
+        a10: '1234567890123',
+        a11: '得力A4 70g打印纸',
+        a12: '办公用品',
+        a13: '包',
+        a14: '100',
+        a15: '150',
+        a16: '150',
+        a17: '500',
+        a18: '10%',
+        a19: '10%',
+        a20: '10%',
+        a21: '10%',
+        a22: '10%',
+
+        a23: '行政部',
+        a24: '100',
+        a25: '150',
+        a26: '150',
+        a27: '500',
+        a28: '10%',
+        a29: '10%',
+        a30: '10%',
+        a31: '10%',
+
+        a32: '米宝供应商',
+        a33: '100',
+        a34: '150',
+        a35: '150',
+        a36: '150',
+        a37: '10%',
+        a38: '10%',
+        a39: '10%',
+        a40: '10%'
       }, {
-        'a1': '职员',
-        'a2': '办公室主任',
-        'a3': '禁用',
-        'a4': '2021-01-02  12:12'
+        a1: '办公用品',
+        a2: '100',
+        a3: '150',
+        a4: '150',
+        a5: '500',
+        a6: '10%',
+        a7: '10%',
+        a8: '10%',
+        a9: '10%',
+
+        img: require('../../assets/img/default.svg'),
+        a10: '1234567890123',
+        a11: '得力A4 70g打印纸',
+        a12: '办公用品',
+        a13: '包',
+        a14: '100',
+        a15: '150',
+        a16: '150',
+        a17: '500',
+        a18: '10%',
+        a19: '10%',
+        a20: '10%',
+        a21: '10%',
+        a22: '10%',
+
+        a23: '综合部',
+        a24: '100',
+        a25: '150',
+        a26: '150',
+        a27: '500',
+        a28: '10%',
+        a29: '10%',
+        a30: '10%',
+        a31: '10%',
+
+        a32: '米宝供应商',
+        a33: '100',
+        a34: '150',
+        a35: '150',
+        a36: '150',
+        a37: '10%',
+        a38: '10%',
+        a39: '10%',
+        a40: '10%'
       }]
-      this.total = 2
+      this.total = 3
       //     this.tb.data.forEach((e) => {
       //       e.auth_method_str = auth_method[e.auth_method]
       //     })
