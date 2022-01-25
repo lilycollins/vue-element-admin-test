@@ -35,7 +35,7 @@
           <el-input
             ref="username"
             v-model="loginForm.username"
-            placeholder="Username"
+            placeholder="用户名"
             name="用户名"
             type="text"
             tabindex="1"

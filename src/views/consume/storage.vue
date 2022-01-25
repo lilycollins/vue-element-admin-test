@@ -154,12 +154,6 @@ const field = [
     type: 0,
     label: '供应商',
     key: 'a6'
-  }, {
-    id: 10,
-    type: 0,
-    label: '变动明细',
-    width: '140',
-    key: 'a8'
   }]
 export default {
   name: 'ConsumeInfo',
@@ -183,16 +177,16 @@ export default {
         data: [],
         index: true,
         selectionBtn: true,
-        height: null
-        // operationName: '操作',
-        // operationWidth: '180',
-        // OperationBtn: [
-        //   {
-        //     type: 'text',
-        //     key: '1',
-        //     name: '编辑'
-        //   }
-        // ]
+        height: null,
+        operationName: '变动明细',
+        operationWidth: '180',
+        OperationBtn: [
+          {
+            type: 'text',
+            key: '1',
+            name: '详情'
+          }
+        ]
       },
       total: 0,
       selected: []
@@ -262,9 +256,7 @@ export default {
     },
     editRow({ row }, btn, index) {
       this.$router.push({
-        name: 'supplyChange', params: {
-          type: 'edit'
-        }
+        name: 'storageDetail'
       })
     },
     addIt() {

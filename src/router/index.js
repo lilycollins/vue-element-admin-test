@@ -344,6 +344,13 @@ export const constantRoutes = [{
                 meta: { title: '耗材库存查询' }
             },
             {
+                path: 'storageDetail',
+                name: 'storageDetail',
+                component: () =>
+                    import ('@/views/consume/component/storageDetail'),
+                hidden: true
+            },
+            {
                 path: 'instore',
                 component: () =>
                     import ('@/views/consume/instore.vue'),

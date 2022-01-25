@@ -1,6 +1,6 @@
 <template>
   <div v-if="src" ref="Iframe" v-loading="loading" class="ld-frame">
-    <iframe class="iframe" :src="src" frameborder="0" :height="iframeHeight" />
+    <iframe id="iframe" class="iframe" :src="src" frameborder="0" :height="iframeHeight" />
   </div>
 </template>
 <script>
@@ -23,15 +23,12 @@ export default {
   methods: {
     iframeLoad() {
       this.loading = true
-      const iframe = this.$refs.Iframe
+      const iframe = document.querySelector('#iframe')
       if (iframe.attachEvent) { // IE
         iframe.attachEvent('onload', () => { this.loading = false })
       } else { // 非IE
         iframe.onload = () => { this.loading = false }
       }
-      setTimeout(() => {
-        this.loading = false
-      }, 3000)
     }
   }
   }
