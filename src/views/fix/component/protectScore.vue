@@ -4,23 +4,8 @@
       <div class="sub-title-head"> <div class="l-box" />维修点评</div>
       <h4>基本信息</h4>
       <div class="like-table-item">
-        <div class="table-item">
-          维修单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          申请时间    <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          接单时间 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          保修主题 <span>{{ form.a4 }}</span>
-        </div>
-        <div class="table-item">
-          保修类型 <span>{{ form.a5 }}</span>
-        </div>
-        <div class="table-item">
-          保修设备名称 <span>{{ form.a6 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <div style="padding-top: 35px">
@@ -41,23 +26,8 @@
       </div>
       <h4>保修情况</h4>
       <div class="like-table-item">
-        <div class="table-item">
-          接单部门 <span>{{ form.a7 }}</span>
-        </div>
-        <div class="table-item">
-          接单人    <span>{{ form.a8 }}</span>
-        </div>
-        <div class="table-item">
-          联系电话 <span>{{ form.a9 }}</span>
-        </div>
-        <div class="table-item">
-          维修结果 <span>{{ form.a10 }}</span>
-        </div>
-        <div class="table-item">
-          接单时间 <span>{{ form.a11 }}</span>
-        </div>
-        <div class="table-item">
-          维修时间 <span>{{ form.a12 }}</span>
+        <div v-for="item in tabItem2" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <div style="padding-top: 35px">
@@ -120,6 +90,44 @@ export default {
       score: 0,
       radio: null,
       iconClasses: ['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3'],
+      tabItem: [{
+        name: '维修单号',
+        value: '123456789'
+      }, {
+        name: '申请时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '接单时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '保修主题',
+        value: '质量保修'
+      }, {
+        name: '保修类型',
+        value: '设备保修'
+      }, {
+        name: '保修设备名称',
+        value: 'MI001'
+      }],
+      tabItem2: [{
+        name: '接单部门',
+        value: '综合部'
+      }, {
+        name: '接单人',
+        value: '维修人1'
+      }, {
+        name: '联系电话',
+        value: '13800138000'
+      }, {
+        name: '维修结果',
+        value: '已修复'
+      }, {
+        name: '接单时间',
+        value: '2022-01-01 10:00'
+      }, {
+        name: '维修时间',
+        value: '2022-01-01 10:00'
+      }],
       form: {
         a1: '123456789',
         a2: '2022-01-01 10:00',

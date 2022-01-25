@@ -6,7 +6,7 @@
     </div>
     <div class="top-header">
       <div v-for="(item, index) in agencyData" :key="index">
-        <div style="display: flex" @click="todoData">
+        <div style="display: flex;cursor: pointer" @click="todoData">
           <img :src="item.src" alt="">
           <h4>{{ item.title }}</h4>
         </div>
@@ -26,7 +26,7 @@
         <img :src="item.src" alt="" style="width: 120px; height: 60px;margin: 20px 12px 20px 0">
         <div style="display: flex; padding-left: 140px;position: absolute; top: 0;justify-content: space-between; width: 100%;">
           <div>
-            <h4 @click="toDetail">{{ item.title }}</h4>
+            <h4 style="cursor: pointer" @click="toDetail">{{ item.title }}</h4>
             <p style="color: #999;font-size: 14px">{{ item.desc }}</p>
           </div>
           <div style="font-size: 12px; position: absolute; top: 28px; right: 10px">

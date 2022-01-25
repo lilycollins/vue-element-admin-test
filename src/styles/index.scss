@@ -205,14 +205,19 @@ aside {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-bottom: 24px;
         .table-item {
             width: 50%;
             padding: 12px;
             font-size: 14px;
-            color: #999;
-            span {
+            display: flex;
+            justify-content: left;
+            .table-item-lable {
+                color: #999;
+                width: 150px;
+            }
+            .table-item-value {
                 color: #333;
-                padding-left: 100px;
             }
         }
     }

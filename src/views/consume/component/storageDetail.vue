@@ -29,13 +29,9 @@
         <el-button type="success" :disabled="selected.length == 0" @click="deleteIt">导出</el-button>
       </div>
     </div>
-
-    <div class="like-table-item" style="padding: 12px 0">
-      <div class="table-item">
-        耗材名称 <span>{{ form.a1 }}</span>
-      </div>
-      <div class="table-item">
-        当前库存 <span>{{ form.a2 }}</span>
+    <div class="like-table-item">
+      <div v-for="item in tabItem" :key="item.name" class="table-item">
+        <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
       </div>
     </div>
 
@@ -106,9 +102,16 @@ export default {
       form: {
         pageIndex: 1,
         pageSize: 20,
-        a1: '得力A4 70g打印纸',
-        a2: '100'
+        a1: '',
+        a2: ''
       },
+      tabItem: [{
+        name: '耗材名称',
+        value: '得力A4 70g打印纸'
+      }, {
+        name: '当前库存',
+        value: '100'
+      }],
       formInline: {
         user: ''
       },

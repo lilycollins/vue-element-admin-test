@@ -55,27 +55,8 @@
       center
     >
       <div class="like-table-item">
-        <div class="table-item">
-          维修单号 <span>{{ dialogForm.a1 }}</span>
-        </div>
-        <div class="table-item" />
-        <div class="table-item">
-          申请部门 <span>{{ dialogForm.a2 }}</span>
-        </div>
-        <div class="table-item">
-          申请人 <span>{{ dialogForm.a3 }}</span>
-        </div>
-        <div class="table-item">
-          保修主题 <span>{{ dialogForm.a4 }}</span>
-        </div>
-        <div class="table-item">
-          保修类型 <span>{{ dialogForm.a5 }}</span>
-        </div>
-        <div class="table-item">
-          保修设备名称 <span>{{ dialogForm.a6 }}</span>
-        </div>
-        <div class="table-item">
-          保修时间 <span>{{ dialogForm.a7 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-form
@@ -202,14 +183,30 @@ export default {
       selected: [],
       centerDialogVisible: false,
       dialogForm: {
-        a1: '123456789',
-        a2: '行政部',
-        a3: '米小宝',
-        a4: '质量保修',
-        a5: '设备保修',
-        a6: 'MI001',
-        a7: '2022-01-01 10:00'
+        fixNo: ''
       },
+      tabItem: [{
+        name: '维修单号',
+        value: '123456789'
+      }, {
+        name: '申请部门',
+        value: '行政部'
+      }, {
+        name: '申请人',
+        value: '米小宝'
+      }, {
+        name: '保修主题',
+        value: '质量保修'
+      }, {
+        name: '保修类型',
+        value: '设备保修'
+      }, {
+        name: '保修设备名称',
+        value: 'MI001'
+      }, {
+        name: '保修时间',
+        value: '2022-01-01 10:00'
+      }],
       listObj: {},
       fileList: []
     }

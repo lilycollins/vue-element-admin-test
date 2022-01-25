@@ -6,17 +6,8 @@
         耗材申请 - 出库单详情
       </div>
       <div class="like-table-item">
-        <div class="table-item">
-          出库单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          入库人 <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          入库时间 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          备注 <span>{{ form.a4 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-table
@@ -67,12 +58,19 @@ export default {
       }],
       textarea: '',
       selected: [],
-      form: {
-        a1: 'P12345678',
-        a2: '库管1',
-        a3: '2022-01-01 10:00',
-        a4: ''
-      }
+      tabItem: [{
+        name: '出库单号',
+        value: 'P12345678'
+      }, {
+        name: '入库人',
+        value: '库管1'
+      }, {
+        name: '入库时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '备注',
+        value: ''
+      }]
     }
   },
   computed: {

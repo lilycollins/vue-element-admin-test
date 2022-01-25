@@ -6,35 +6,8 @@
         耗材盘点 - 盘点单详情
       </div>
       <div class="like-table-item">
-        <div class="table-item">
-          盘点单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          发起人 <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          发起时间 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          执行时间 <span>{{ form.a4 }}</span>
-        </div>
-        <div class="table-item">
-          盘点人 <span>{{ form.a5 }}</span>
-        </div>
-        <div class="table-item">
-          盘点时间 <span>{{ form.a6 }}</span>
-        </div>
-        <div class="table-item">
-          耗材款数 <span>{{ form.a7 }}</span>
-        </div>
-        <div class="table-item">
-          盘点数量 <span>{{ form.a8 }}</span>
-        </div>
-        <div class="table-item">
-          盘点差异 <span>{{ form.a9 }}</span>
-        </div>
-        <div class="table-item" style="margin-bottom: 35px">
-          备注 <span>{{ form.a10 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-table
@@ -71,24 +44,6 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
       tableData2: [{
         a1: '1234567890123',
         a2: '得力A4 70g打印纸',
@@ -147,30 +102,40 @@ export default {
       }],
       textarea: '',
       selected: [],
-      form: {
-        a1: 'P12345678',
-        a2: '库管1',
-        a3: '2022-01-01 10:00:00',
-        a4: '2022-01-01 10:00:00',
-        a5: '库管1',
-        a6: '2022-01-01 10:00:00',
-        a7: '100',
-        a8: '10000',
-        a9: '0',
-        a10: ''
-      }
+      tabItem: [{
+        name: '盘点单号',
+        value: 'P12345678'
+      }, {
+        name: '发起人',
+        value: '库管1'
+      }, {
+        name: '发起时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '执行时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '盘点人',
+        value: '库管1'
+      }, {
+        name: '盘点时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '耗材款数',
+        value: '100'
+      }, {
+        name: '盘点数量',
+        value: '10000'
+      }, {
+        name: '盘点差异',
+        value: '0'
+      }, {
+        name: '备注',
+        value: ''
+      }]
     }
   },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
-    }
-  },
+
   methods: {
     back() {
       this.$router.go(-1)

@@ -6,50 +6,8 @@
         耗材申请 - 申请单详情
       </div>
       <div class="like-table-item">
-        <div class="table-item">
-          申请单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          出库单号 <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          状态 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          申请部门 <span>{{ form.a4 }}</span>
-        </div>
-        <div class="table-item">
-          申请人 <span>{{ form.a5 }}</span>
-        </div>
-        <div class="table-item">
-          申请时间<span>{{ form.a6 }}</span>
-        </div>
-        <div class="table-item">
-          使用时间<span>{{ form.a7 }}</span>
-        </div>
-        <div class="table-item">
-          申请理由<span>{{ form.a8 }}</span>
-        </div>
-        <div class="table-item">
-          审核人<span>{{ form.a9 }}</span>
-        </div>
-        <div class="table-item">
-          审核时间<span>{{ form.a10 }}</span>
-        </div>
-        <div class="table-item">
-          审核建议<span>{{ form.a11 }}</span>
-        </div>
-        <div class="table-item">
-          出库人<span>{{ form.a12 }}</span>
-        </div>
-        <div class="table-item">
-          出库时间<span>{{ form.a13 }}</span>
-        </div>
-        <div class="table-item">
-          签收人<span>{{ form.a14 }}</span>
-        </div>
-        <div class="table-item">
-          签收时间<span>{{ form.a15 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-table
@@ -122,23 +80,52 @@ export default {
       }],
       textarea: '',
       selected: [],
-      form: {
-        a1: '12345678',
-        a2: '',
-        a3: '确认中',
-        a4: '行政部',
-        a5: '米小宝',
-        a6: '2022-01-01 10:00:00',
-        a7: '2020-01-01',
-        a8: '已用完，需申请',
-        a9: '',
-        a10: '',
-        a11: '',
-        a12: '',
-        a13: '',
-        a14: '',
-        a15: ''
-      }
+      tabItem: [{
+        name: '申请单号',
+        value: '12345678'
+      }, {
+        name: '出库单号',
+        value: ''
+      }, {
+        name: '状态',
+        value: '确认中'
+      }, {
+        name: '申请部门',
+        value: '行政部'
+      }, {
+        name: '申请人',
+        value: '米小宝'
+      }, {
+        name: '申请时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '使用时间',
+        value: '2020-01-01'
+      }, {
+        name: '申请理由',
+        value: '已用完，需申请'
+      }, {
+        name: '审核人',
+        value: ''
+      }, {
+        name: '审核时间',
+        value: ''
+      }, {
+        name: '审核建议',
+        value: ''
+      }, {
+        name: '出库人',
+        value: ''
+      }, {
+        name: '出库时间',
+        value: ''
+      }, {
+        name: '签收人',
+        value: ''
+      }, {
+        name: '签收时间',
+        value: ''
+      }]
     }
   },
   methods: {

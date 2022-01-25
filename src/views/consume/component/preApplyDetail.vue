@@ -8,44 +8,8 @@
 
       <h4>基本信息</h4>
       <div class="like-table-item">
-        <div class="table-item">
-          申请单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          出库单号 <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          状态 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          申请部门 <span>{{ form.a4 }}</span>
-        </div>
-        <div class="table-item">
-          申请人 <span>{{ form.a5 }}</span>
-        </div>
-        <div class="table-item">
-          申请时间<span>{{ form.a6 }}</span>
-        </div>
-        <div class="table-item">
-          使用时间<span>{{ form.a7 }}</span>
-        </div>
-        <div class="table-item">
-          申请理由<span>{{ form.a8 }}</span>
-        </div>
-        <div class="table-item">
-          审核人<span>{{ form.a9 }}</span>
-        </div>
-        <div class="table-item">
-          审核时间<span>{{ form.a10 }}</span>
-        </div>
-        <div class="table-item">
-          审核建议<span>{{ form.a11 }}</span>
-        </div>
-        <div class="table-item">
-          出库人<span>{{ form.a12 }}</span>
-        </div>
-        <div class="table-item">
-          出库时间<span>{{ form.a13 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-table
@@ -102,24 +66,6 @@ export default {
   data() {
     return {
       type: this.$route.params.type,
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
       tableData2: [{
         a1: '1234567890123',
         a2: '得力A4 70g打印纸',
@@ -130,22 +76,46 @@ export default {
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
-      selected: [],
-      form: {
-        a1: '12345678',
-        a2: 'W12345678',
-        a3: '发放中',
-        a4: '行政部',
-        a5: '米小宝',
-        a6: '2022-01-01 10:00:00',
-        a7: '2020-01-01',
-        a8: '已用完，需申请',
-        a9: '米宝',
-        a10: '2022-01-01 10:00:00',
-        a11: '',
-        a12: '米宝',
-        a13: '2022-01-01 10:00:00'
-      }
+      tabItem: [{
+        name: '申请单号',
+        value: '12345678'
+      }, {
+        name: '出库单号',
+        value: 'W12345678'
+      }, {
+        name: '状态',
+        value: '发放中'
+      }, {
+        name: '申请部门',
+        value: '行政部'
+      }, {
+        name: '申请人',
+        value: '米小宝'
+      }, {
+        name: '申请时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '使用时间',
+        value: '2020-01-01'
+      }, {
+        name: '申请理由',
+        value: '已用完，需申请'
+      }, {
+        name: '审核人',
+        value: '米宝'
+      }, {
+        name: '审核时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '审核建议',
+        value: ''
+      }, {
+        name: '出库人',
+        value: '米宝'
+      }, {
+        name: '出库时间',
+        value: '2022-01-01 10:00:00'
+      }]
     }
   },
   methods: {

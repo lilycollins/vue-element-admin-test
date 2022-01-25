@@ -4,32 +4,8 @@
     <div style="width: 90%;margin: 20px auto">
       <div class="sub-title-head"> <div class="l-box" />耗材申请审核  - 审核</div>
       <div class="like-table-item">
-        <div class="table-item">
-          申请单号 <span>{{ form.a1 }}</span>
-        </div>
-        <div class="table-item">
-          状态    <span>{{ form.a2 }}</span>
-        </div>
-        <div class="table-item">
-          申请部门 <span>{{ form.a3 }}</span>
-        </div>
-        <div class="table-item">
-          申请人 <span>{{ form.a4 }}</span>
-        </div>
-        <div class="table-item">
-          申请时间 <span>{{ form.a5 }}</span>
-        </div>
-        <div class="table-item">
-          使用时间 <span>{{ form.a6 }}</span>
-        </div>
-        <div class="table-item">
-          申请理由 <span>{{ form.a7 }}</span>
-        </div>
-        <div class="table-item">
-          审核人 <span>{{ form.a8 }}</span>
-        </div>
-        <div class="table-item">
-          审核时间 <span>{{ form.a9 }}</span>
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
         </div>
       </div>
       <el-table
@@ -108,18 +84,34 @@
 export default {
   data() {
     return {
-      form: {
-        a1: '123456',
-        a2: '审核中',
-        a3: '行政部',
-        a4: '米小宝',
-        a5: '2022-01-01 10:00:00',
-        a6: '2020-05-06',
-        a7: '已用完，需申请',
-        a8: '',
-        a9: '',
-        a10: ''
-      },
+      tabItem: [{
+        name: '申请单号',
+        value: '123456'
+      }, {
+        name: '状态',
+        value: '审核中'
+      }, {
+        name: '申请部门',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '申请人',
+        value: '米小宝'
+      }, {
+        name: '申请时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '使用时间',
+        value: '2020-05-06'
+      }, {
+        name: '申请理由',
+        value: '已用完，需申请'
+      }, {
+        name: '审核人',
+        value: ''
+      }, {
+        name: '审核时间',
+        value: ''
+      }],
       tableData2: [{
         a1: '123456795452',
         a2: '得力A4 70g打印纸',
