@@ -18,7 +18,7 @@
           <el-radio-button label="4">按供应商汇总</el-radio-button>
         </el-radio-group>
       </div>
-      <div style="display: flex; justify-content: space-between">
+      <div class="head-select-btn mw1000">
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="">
             <el-date-picker
@@ -47,7 +47,7 @@
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table class="mw1000" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination
       v-show="total >= 0"

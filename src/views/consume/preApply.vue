@@ -4,7 +4,7 @@
       <div class="l-box" />
       耗材预申请
     </div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw1100">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部状态">
@@ -36,19 +36,19 @@
           <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
-    </div>
-    <div class="tag-warp">
-      <el-button plain>刷新</el-button>
-      <el-button type="primary" @click="addIt">耗材申请</el-button>
-      <el-button
-        type="danger"
-        :disabled="selected.length == 0"
-        @click="deleteIt"
-      >删除</el-button>
+      <div class="tag-warp">
+        <el-button plain>刷新</el-button>
+        <el-button type="primary" @click="addIt">耗材申请</el-button>
+        <el-button
+          type="danger"
+          :disabled="selected.length == 0"
+          @click="deleteIt"
+        >删除</el-button>
+      </div>
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table class="mw1100" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination
       v-show="total >= 0"

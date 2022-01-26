@@ -1,7 +1,7 @@
 <template>
   <div class="main-content">
     <div class="sub-title-head"> <div class="l-box" />消防安全信息发布</div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw1200">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部类型">
@@ -22,18 +22,18 @@
           <el-input v-model="formInline.user" prefix-icon="el-icon-search" placeholder="搜索" />
         </el-form-item>
         <el-form-item>
-          <el-button plain @click="onSubmit">查询</el-button>
+          <el-button class="search-btn" plain @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
-    </div>
-    <div class="tag-warp">
-      <el-button plain>刷新</el-button>
-      <el-button type="primary" @click="addIt">信息发布</el-button>
-      <el-button type="danger" :disabled="selected.length == 0" @click="deleteIt">删除</el-button>
+      <div class="tag-warp">
+        <el-button plain>刷新</el-button>
+        <el-button type="primary" @click="addIt">信息发布</el-button>
+        <el-button type="danger" :disabled="selected.length == 0" @click="deleteIt">删除</el-button>
+      </div>
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table class="mw1200" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination v-show="total>=0" :total="total" :page.sync="form.pageIndex" :limit.sync="form.pageSize" @pagination="getList" />
   </div></template>

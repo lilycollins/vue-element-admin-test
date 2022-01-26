@@ -4,7 +4,7 @@
       <div class="l-box" />
       耗材库存查询
     </div>
-    <div style="display: flex; justify-content: space-between; margin: 0 20px">
+    <div class="head-select-btn mw700" style="margin: 0 20px">
       <el-form
         :inline="true"
         :model="formInline"
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw700">
       <div style="flex: 1; padding: 20px">
         <div
           style="

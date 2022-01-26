@@ -4,7 +4,7 @@
       <div class="l-box" />
       耗材申请
     </div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn" style="min-width: 1230px">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部部门">
@@ -45,13 +45,13 @@
           <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
-    </div>
-    <div class="tag-warp">
-      <el-button plain>刷新</el-button>
+      <div class="tag-warp">
+        <el-button plain>刷新</el-button>
+      </div>
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table style="min-width: 1230px" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination
       v-show="total >= 0"

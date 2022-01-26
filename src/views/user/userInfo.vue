@@ -1,14 +1,14 @@
 <template>
   <div class="main-content">
     <div class="sub-title-head"> <div class="l-box" />用户信息</div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw700">
       <div>
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="">
             <el-input v-model="formInline.user" prefix-icon="el-icon-search" placeholder="搜索用户姓名或部门" />
           </el-form-item>
           <el-form-item>
-            <el-button plain @click="onSubmit">查询</el-button>
+            <el-button class="search-btn" plain @click="onSubmit">查询</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -20,7 +20,7 @@
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table :tb="tb" class="mw700" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination v-show="total>=0" :total="total" :page.sync="form.pageIndex" :limit.sync="form.pageSize" @pagination="getList" />
   </div>

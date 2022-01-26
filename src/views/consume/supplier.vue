@@ -4,7 +4,7 @@
       <div class="l-box" />
       供应商管理
     </div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw700">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-input
@@ -29,7 +29,7 @@
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table class="mw700" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination
       v-show="total >= 0"

@@ -4,7 +4,7 @@
       <div class="l-box" />
       耗材盘点修正
     </div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw1000">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-date-picker
@@ -27,14 +27,14 @@
           <el-button plain class="search-btn" @click="onSubmit">查询</el-button>
         </el-form-item>
       </el-form>
-    </div>
-    <div class="tag-warp">
-      <el-button plain>刷新</el-button>
-      <el-button type="primary" @click="addIt">创建修正单</el-button>
+      <div class="tag-warp">
+        <el-button plain>刷新</el-button>
+        <el-button type="primary" @click="addIt">创建修正单</el-button>
+      </div>
     </div>
 
     <!-- 表格 -->
-    <my-table :tb="tb" @choose="tbSelect" @editRow="editRow" />
+    <my-table class="mw1000" :tb="tb" @choose="tbSelect" @editRow="editRow" />
     <!-- 分页 -->
     <pagination
       v-show="total >= 0"

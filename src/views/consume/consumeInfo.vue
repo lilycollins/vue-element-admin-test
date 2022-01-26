@@ -4,7 +4,7 @@
       <div class="l-box" />
       耗材信息
     </div>
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw700">
       <div class="tag-warp">
         <el-button plain>刷新</el-button>
         <el-button type="primary" @click="addIt">创建</el-button>
@@ -46,7 +46,7 @@
       </el-form>
     </div>
 
-    <div style="display: flex; justify-content: space-between">
+    <div class="head-select-btn mw700">
       <div
         style="
           flex: 1;

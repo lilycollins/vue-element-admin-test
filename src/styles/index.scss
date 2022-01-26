@@ -187,7 +187,8 @@ aside {
     .tag-warp {
         display: flex;
         justify-content: flex-end;
-        margin-bottom: 16px
+        margin-bottom: 16px;
+        height: 36px;
     }
     .form-item {
         .el-input--medium .el-input__inner {
@@ -268,4 +269,20 @@ aside {
     right: 3px;
     top: 5px;
     height: 48px;
+}
+.head-select-btn {
+    display: flex; 
+    justify-content: space-between;
+}
+.mw700 {
+    min-width: 700px;
+}
+.mw1000 {
+    min-width: 1000px;
+}
+.mw1100 {
+    min-width: 1100px;
+}
+.mw1200 {
+    min-width: 1200px;
 }

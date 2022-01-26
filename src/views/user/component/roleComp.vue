@@ -31,7 +31,7 @@
             :data="data"
             show-checkbox
             node-key="id"
-            default-expand-all="true"
+            :default-expand-all="true"
             :default-checked-keys="checkedArr"
             :props="defaultProps"
           />
