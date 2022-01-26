@@ -286,3 +286,12 @@ aside {
 .mw1200 {
     min-width: 1200px;
 }
+@media (max-width:1024px) {
+    .app-main {
+        min-width: 1660px;
+        overflow: auto!important;
+    }
+    .login-backGround-img-header {
+        min-width: 1200px;
+    }
+  }

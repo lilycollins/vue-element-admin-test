@@ -323,6 +323,7 @@ $cursor: #fff;
     justify-content: center;
 
     .login-backGround-img-content {
+      min-width: 530px;
       z-index: 8;
       width: 680px;
       height: 680px;
