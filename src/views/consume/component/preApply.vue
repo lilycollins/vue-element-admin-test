@@ -137,8 +137,7 @@
           @current-change="handleCurrentChange"
         />
       </div>
-      <el-radio-group v-model="radio">
-        <el-radio :label="1">按表格勾选</el-radio>
+      <el-radio-group v-model="radio" @change="changeRadio">
         <el-radio :label="3">本页全选</el-radio>
         <el-radio :label="6">所有全选</el-radio>
       </el-radio-group>
@@ -436,6 +435,13 @@ export default {
       }).then(() => {
         this.$message.success('操作成功')
       })
+    },
+    changeRadio() {
+      // if(this.radio === 3) {
+        this.tableData.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row, true)
+          })
+      // }
     },
     chooseIt() {
       this.centerDialogVisible = true
