@@ -1,45 +1,15 @@
 <template>
-  <div class="element-main">
+  <div class="element-main main-content">
     <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
         耗材申请审核 - 审核详情
       </div>
-      <el-row>
-        <el-col :span="8">
-          <el-table
-            style="width: 100%"
-            fit
-            highlight-current-row
-            :data="getValues"
-            :show-header="false"
-          >
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-        <el-col :span="8">
-          <el-table style="width: 100%" :data="getValues" :show-header="false">
-            <el-table-column
-              v-for="(item, index) in getHeaders"
-              :key="index"
-              :prop="item"
-            />
-          </el-table>
-        </el-col>
-      </el-row>
+      <div class="like-table-item">
+        <div v-for="item in tabItem" :key="item.name" class="table-item">
+          <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
+        </div>
+      </div>
 
       <el-table :data="tableData2" border style="width: 100%; margin-top: 35px">
         <el-table-column label="耗材图片">
@@ -81,24 +51,34 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
+      tabItem: [{
+        name: '申请单号',
+        value: '123456'
+      }, {
+        name: '状态',
+        value: '审核中'
+      }, {
+        name: '申请部门',
+        value: '行政部'
+      }, {
+        name: '申请人',
+        value: '米小宝'
+      }, {
+        name: '申请时间',
+        value: '2022-01-01 10:00:00'
+      }, {
+        name: '使用时间',
+        value: '2020-05-06'
+      }, {
+        name: '申请理由',
+        value: '已用完，需申请'
+      }, {
+        name: '审核人',
+        value: '领导1'
+      }, {
+        name: '审核时间',
+        value: '2022-01-01 10:00:00'
+      }],
       tableData: [
         {
           date: '2016-05-02',
@@ -114,16 +94,6 @@ export default {
         img: require('../../../assets/img/default.svg')
       }],
       textarea: ''
-    }
-  },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
     }
   },
   methods: {

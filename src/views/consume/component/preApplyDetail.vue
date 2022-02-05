@@ -35,7 +35,7 @@
       </el-table>
 
       <h4>申请进度</h4>
-      <el-steps v-if="type === 'detail'" :active="2" style="padding: 55x 0">
+      <el-steps v-if="type !== 'detail'" :active="2" style="padding: 55x 0">
         <el-step title="提交申请" icon="el-icon-success" />
         <el-step title="确认中" icon="el-icon-success" />
         <el-step title="采购出库" icon="el-icon-success" />

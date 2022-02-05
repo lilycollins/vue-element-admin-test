@@ -92,7 +92,7 @@ export default {
         value: '审核中'
       }, {
         name: '申请部门',
-        value: '2022-01-01 10:00:00'
+        value: '行政部'
       }, {
         name: '申请人',
         value: '米小宝'

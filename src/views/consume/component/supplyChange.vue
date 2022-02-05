@@ -39,7 +39,7 @@
           <el-input v-model="ruleForm.a4" />
         </el-form-item>
       </el-form>
-      <h4>产品信息</h4>
+      <!-- <h4>产品信息</h4>
       <div class="tag-warp" style="margin: 25px 0 25px 0">
         <el-button type="primary" @click="chooseIt">选择耗材</el-button>
         <el-button
@@ -79,7 +79,7 @@
             >删除</el-button>
           </template>
         </el-table-column>
-      </el-table>
+      </el-table> -->
 
       <div style="padding-top: 35px">
         <el-button @click="back">取消</el-button>
