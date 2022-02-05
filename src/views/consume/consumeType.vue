@@ -29,7 +29,7 @@
         <div style="position: absolute; bottom: 10px; left: 30px">
           <el-input
             v-model.trim="item.search"
-            style="width: 214px"
+            style="width: 200px"
             prefix-icon="el-icon-search"
             :placeholder="`请输入新的${item.name}`"
           />
@@ -61,7 +61,7 @@
         <div style="position: absolute; bottom: 10px; left: 30px">
           <el-input
             v-model.trim="item.search"
-            style="width: 214px"
+            style="width: 200px"
             prefix-icon="el-icon-search"
             :placeholder="`请输入新的${item.name}`"
           />
@@ -91,7 +91,7 @@
         <div style="position: absolute; bottom: 10px; left: 30px">
           <el-input
             v-model.trim="item.search"
-            style="width: 214px"
+            style="width: 200px"
             prefix-icon="el-icon-search"
             :placeholder="`请输入新的${item.name}`"
           />
@@ -227,10 +227,11 @@ export default {
   padding: 20px 105px;
 }
 .top-card-box {
-  min-height: 600px;
+  min-height: calc(100vh - 240px);
   max-height: 800px;
-  width: 350px;
-  min-width: 350px;
+  /* width: 350px; */
+  min-width: 320px;
+  max-width: 400px;
   overflow-y: auto;
   border: 1px solid #adadad;
   position: relative;

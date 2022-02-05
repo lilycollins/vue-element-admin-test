@@ -16,7 +16,7 @@
         </el-button>
         <div style="margin-left: 10px">
           <el-dropdown>
-            <el-button type="info" style="height: 41px">
+            <el-button type="info">
               全部供应商<i class="el-icon-arrow-down el-icon--right" />
             </el-button>
             <el-dropdown-menu slot="dropdown">
@@ -69,45 +69,15 @@
         <div>
           <el-row class="tac">
             <el-col>
-              <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
-              >
-                <el-submenu index="1">
-                  <template slot="title">
-                    <div style="padding-left: 20px !important">
-                      <!-- <i class="el-icon-location" /> -->
-                      <span>一级类型</span>
-                    </div>
-                  </template>
-                  <el-menu-item-group>
-                    <template slot="title">分组一</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                  </el-menu-item-group>
-                  <el-submenu index="1-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="2">
-                  <!-- <i class="el-icon-menu" /> -->
-                  <span slot="title">二级类型</span>
-                </el-menu-item>
-                <el-menu-item index="3" disabled>
-                  <!-- <i class="el-icon-document" /> -->
-                  <span slot="title">三级类型</span>
-                </el-menu-item>
-                <el-menu-item index="4">
-                  <!-- <i class="el-icon-setting" /> -->
-                  <span slot="title">四级类型</span>
-                </el-menu-item>
-              </el-menu>
+              <el-tree
+                ref="tree"
+                class="filter-tree"
+                :data="data"
+                :props="defaultProps"
+                default-expand-all
+                :filter-node-method="filterNode"
+              />
+
             </el-col>
           </el-row>
         </div>
@@ -221,7 +191,46 @@ export default {
         ]
       },
       total: 0,
-      selected: []
+      selected: [],
+      data: [{
+          id: 1,
+          label: '一级耗材类型',
+          children: [{
+            id: 4,
+            label: '二级 1-1',
+            children: [{
+              id: 9,
+              label: '三级 1-1-1'
+            }, {
+              id: 10,
+              label: '三级 1-1-2'
+            }]
+          }]
+        }, {
+          id: 2,
+          label: '二级耗材类型',
+          children: [{
+            id: 5,
+            label: '二级 2-1'
+          }, {
+            id: 6,
+            label: '二级 2-2'
+          }]
+        }, {
+          id: 3,
+          label: '三级耗材类型',
+          children: [{
+            id: 7,
+            label: '二级 3-1'
+          }, {
+            id: 8,
+            label: '二级 3-2'
+          }]
+        }],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
     }
   },
   created() {
