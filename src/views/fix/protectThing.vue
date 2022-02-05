@@ -2,13 +2,13 @@
   <div class="main-content">
     <div class="sub-title-head">
       <div class="l-box" />
-      保修事件
+      报修事件
     </div>
     <div class="head-select-btn mw1100">
       <el-form :inline="true" :model="formInline" class="demo-form-inline">
         <el-form-item label="">
           <el-select v-model="formInline.type" placeholder="全部状态">
-            <el-option key="1" label="保修派单" value="1" />
+            <el-option key="1" label="报修派单" value="1" />
             <el-option key="2" label="保维接单" value="2" />
             <el-option key="3" label="进行维修" value="3" />
             <el-option key="4" label="维修结果" value="4" />
@@ -61,29 +61,29 @@ const field = [
   {
     id: 2,
     type: 0,
-    label: '保修单号',
+    label: '报修单号',
     key: 'a1'
   },
   {
     id: 3,
     type: 0,
-    label: '保修主题',
+    label: '报修主题',
     key: 'a2',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
-    label: '保修类型',
+    label: '报修类型',
     key: 'a3'
   }, {
     id: 5,
     type: 0,
-    label: '保修设备名称',
+    label: '报修设备名称',
     key: 'a4'
   }, {
     type: 0,
-    label: '保修情况描述',
+    label: '报修情况描述',
     key: 'a5'
   }, {
     type: 0,
@@ -141,50 +141,50 @@ export default {
     getList() {
       this.tb.data = [{
         a1: '123456789',
-        a2: '质量保修',
-        a3: '设备保修',
+        a2: '质量报修',
+        a3: '设备报修',
         a4: 'MI001',
         a5: '突然坏了',
-        a6: '保修派单'
+        a6: '报修派单'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI001',
         a5: '系统崩盘',
-        a6: '保修接单'
+        a6: '报修接单'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI003',
         a5: '系统崩盘',
         a6: '进行维修'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI001',
         a5: '系统崩盘',
         a6: '已修复'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI001',
         a5: '突然坏了',
         a6: '待解决'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI001',
         a5: '系统崩盘',
         a6: '未修复'
       }, {
         a1: '123456789',
-        a2: '质量保修',
-        a3: '系统保修',
+        a2: '质量报修',
+        a3: '系统报修',
         a4: 'MI001',
         a5: '突然坏了',
         a6: '已完成'

@@ -1,11 +1,11 @@
 <template>
   <div class="main-content">
-    <div class="sub-title-head"> <div class="l-box" />{{ '保修申请' }}</div>
+    <div class="sub-title-head"> <div class="l-box" />{{ '报修申请' }}</div>
     <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="130px" class="form-item">
-      <el-form-item label="保修主题" prop="name">
+      <el-form-item label="报修主题" prop="name">
         <el-input v-model="ruleForm.name" />
       </el-form-item>
-      <el-form-item label="保修类型" prop="a1">
+      <el-form-item label="报修类型" prop="a1">
         <div class="check-box" style="width: 80%">
           <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
           <div style="margin: 15px 0;" />
@@ -14,10 +14,10 @@
           </el-checkbox-group>
         </div>
       </el-form-item>
-      <el-form-item label="保修设备名称" prop="a2">
+      <el-form-item label="报修设备名称" prop="a2">
         <el-input v-model="ruleForm.a2" />
       </el-form-item>
-      <el-form-item label="保修情况描述" prop="a4">
+      <el-form-item label="报修情况描述" prop="a4">
         <el-input
           v-model="ruleForm.a2"
           style="width: 80%"

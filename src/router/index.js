@@ -211,7 +211,7 @@ export const constantRoutes = [{
                 component: () =>
                     import ('@/views/fix/protectThing.vue'),
                 name: 'protectThing',
-                meta: { title: '保修事件' }
+                meta: { title: '报修事件' }
             },
             {
                 path: 'addProtect/:type',

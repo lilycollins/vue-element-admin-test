@@ -9,7 +9,7 @@
         </div>
       </div>
       <div style="padding-top: 35px">
-        <p>保修情况描述</p>
+        <p>报修情况描述</p>
         <el-input
           v-model="textarea"
           style="width: 80%"
@@ -24,7 +24,7 @@
         <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
         <img src="../../../assets/img/default.svg" style="width: 200px;padding: 12px" alt="">
       </div>
-      <h4>保修情况</h4>
+      <h4>报修情况</h4>
       <div class="like-table-item">
         <div v-for="item in tabItem2" :key="item.name" class="table-item">
           <div class="table-item-lable">{{ item.name }}</div> <span class="table-item-value">{{ item.value }}</span>
@@ -49,7 +49,7 @@
 
       <h4>维修点评</h4>
       <div class="fix-div">
-        <p style="padding-right: 100px"><span style="color: red">*</span>保修完成度</p>
+        <p style="padding-right: 100px"><span style="color: red">*</span>报修完成度</p>
         <el-radio-group v-model="radio" style="line-height: 60px">
           <el-radio :label="3">维修完成</el-radio>
           <el-radio :label="6">维修未完成</el-radio>
@@ -100,13 +100,13 @@ export default {
         name: '接单时间',
         value: '2022-01-01 10:00:00'
       }, {
-        name: '保修主题',
-        value: '质量保修'
+        name: '报修主题',
+        value: '质量报修'
       }, {
-        name: '保修类型',
-        value: '设备保修'
+        name: '报修类型',
+        value: '设备报修'
       }, {
-        name: '保修设备名称',
+        name: '报修设备名称',
         value: 'MI001'
       }],
       tabItem2: [{
@@ -132,8 +132,8 @@ export default {
         a1: '123456789',
         a2: '2022-01-01 10:00',
         a3: '2022-01-01 10:00',
-        a4: '质量保修',
-        a5: '设备保修',
+        a4: '质量报修',
+        a5: '设备报修',
         a6: 'MI001',
         a7: '综合部',
         a8: '维修人1',

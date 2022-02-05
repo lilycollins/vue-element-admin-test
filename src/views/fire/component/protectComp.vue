@@ -78,7 +78,7 @@ export default {
         a6: [{ required: true, message: '不能为空', trigger: 'change' }],
         a7: [{ required: true, message: '不能为空', trigger: 'change' }]
       },
-      checkAll: true,
+      checkAll: false,
       cities: cityOptions,
       subOptions: subOptions,
       filterObj: {},

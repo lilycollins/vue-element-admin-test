@@ -154,10 +154,10 @@ export default {
         }]
       }, {
         id: 3,
-        label: '保修管理',
+        label: '报修管理',
         children: [{
           id: 57,
-          label: '保修事件'
+          label: '报修事件'
         }, {
           id: 81204,
           label: '维修事件'

@@ -26,7 +26,7 @@
           <el-input
             v-model="formInline.user"
             prefix-icon="el-icon-search"
-            placeholder="搜索保修单号"
+            placeholder="搜索报修单号"
           />
         </el-form-item>
         <el-form-item>
@@ -49,7 +49,7 @@
       @pagination="getList"
     />
     <el-dialog
-      title="保修详情"
+      title="报修详情"
       :visible.sync="centerDialogVisible"
       width="800px"
       center
@@ -66,7 +66,7 @@
         class="form-item"
       >
         <el-form-item
-          label="保修情况描述"
+          label="报修情况描述"
           prop="fixNo"
           style="padding-top: 24px"
         >
@@ -107,33 +107,33 @@ import pagination from '@/components/Pagination'
 const field = [
   {
     type: 0,
-    label: '保修单号',
+    label: '报修单号',
     key: 'a1'
   },
   {
     type: 0,
-    label: '保修部门',
+    label: '报修部门',
     key: 'a2',
     showOverflow: true
   },
   {
     type: 0,
-    label: '保修人',
+    label: '报修人',
     key: 'a3'
   },
   {
     type: 0,
-    label: '保修主题',
+    label: '报修主题',
     key: 'a4'
   },
   {
     type: 0,
-    label: '保修类型',
+    label: '报修类型',
     key: 'a5'
   },
   {
     type: 0,
-    label: '保修设备名称',
+    label: '报修设备名称',
     key: 'a6'
   },
   {
@@ -143,7 +143,7 @@ const field = [
   },
   {
     type: 0,
-    label: '保修时间',
+    label: '报修时间',
     key: 'a8'
   }
 ]
@@ -195,16 +195,16 @@ export default {
         name: '申请人',
         value: '米小宝'
       }, {
-        name: '保修主题',
-        value: '质量保修'
+        name: '报修主题',
+        value: '质量报修'
       }, {
-        name: '保修类型',
-        value: '设备保修'
+        name: '报修类型',
+        value: '设备报修'
       }, {
-        name: '保修设备名称',
+        name: '报修设备名称',
         value: 'MI001'
       }, {
-        name: '保修时间',
+        name: '报修时间',
         value: '2022-01-01 10:00'
       }],
       listObj: {},
@@ -224,8 +224,8 @@ export default {
           a1: '123456789',
           a2: '行政部',
           a3: '米小宝',
-          a4: '质量保修',
-          a5: '设备保修',
+          a4: '质量报修',
+          a5: '设备报修',
           a6: 'MI001',
           a7: '待接单',
           a8: '2022-01-01 10:00'
@@ -234,8 +234,8 @@ export default {
           a1: '123456789',
           a2: '行政部',
           a3: '米小宝',
-          a4: '质量保修',
-          a5: '设备保修',
+          a4: '质量报修',
+          a5: '设备报修',
           a6: 'MI002',
           a7: '待接单',
           a8: '2022-01-01 10:00'
@@ -243,8 +243,8 @@ export default {
           a1: '123456789',
           a2: '行政部',
           a3: '米小宝',
-          a4: '质量保修',
-          a5: '设备保修',
+          a4: '质量报修',
+          a5: '设备报修',
           a6: 'MI003',
           a7: '待接单',
           a8: '2022-01-01 10:00'

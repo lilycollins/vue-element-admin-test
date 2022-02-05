@@ -62,25 +62,25 @@ const field = [
   {
     id: 2,
     type: 0,
-    label: '保修单号',
+    label: '报修单号',
     key: 'a2'
   },
   {
     id: 3,
     type: 0,
-    label: '保修主题',
+    label: '报修主题',
     key: 'a3',
     showOverflow: true
   },
   {
     id: 4,
     type: 0,
-    label: '保修类型',
+    label: '报修类型',
     key: 'a4'
   }, {
     id: 5,
     type: 0,
-    label: '保修设备名称',
+    label: '报修设备名称',
     key: 'a4'
   }]
 export default {
