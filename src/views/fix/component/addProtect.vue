@@ -5,6 +5,14 @@
       <el-form-item label="报修主题" prop="name">
         <el-input v-model="ruleForm.name" />
       </el-form-item>
+      <el-form-item label="预约维修日期" prop="date">
+
+        <el-date-picker
+          v-model="ruleForm.date"
+          type="date"
+          placeholder="选择日期"
+        />
+      </el-form-item>
       <el-form-item label="报修类型" prop="a1">
         <div class="check-box" style="width: 80%">
           <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
@@ -58,6 +66,7 @@ export default {
       type: this.$route.params.type,
       ruleForm: {
         name: '',
+        date: '',
         a1: '',
         a2: '',
         a3: '',
@@ -76,6 +85,7 @@ export default {
     }
   },
   created() {
+    this.ruleForm.date = new Date()
     if (this.type === 'edit') {
       this.ruleForm = {
         name: '全国消防安全检查',

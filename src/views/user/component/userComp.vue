@@ -28,6 +28,9 @@
       <el-form-item label="年龄" prop="a3">
         <el-input v-model="ruleForm.a3" />
       </el-form-item>
+      <el-form-item label="手机号" prop="a8">
+        <el-input v-model="ruleForm.a8" />
+      </el-form-item>
       <el-form-item label="身份证号码" prop="a4">
         <el-input v-model="ruleForm.a4" />
       </el-form-item>
@@ -84,6 +87,7 @@ export default {
         a5: '',
         a6: '',
         a7: '',
+        a8: '',
         a1: ''
       },
       rules: {
@@ -93,7 +97,8 @@ export default {
         a4: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a5: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a6: [{ required: true, message: '不能为空', trigger: 'change' }],
-        a7: [{ required: true, message: '不能为空', trigger: 'change' }]
+        a7: [{ required: true, message: '不能为空', trigger: 'change' }],
+        a8: [{ required: true, message: '不能为空', trigger: 'blur' }]
       },
       checkAll: false,
       cities: cityOptions,
@@ -142,7 +147,8 @@ export default {
         a4: '441241199001124512',
         a5: '673535677@163.com',
         a6: 'Chengdu',
-        a7: '1'
+        a7: '1',
+        a8: '13800138000'
       }
     }
   },
