@@ -3,7 +3,7 @@
     <div style="width: 90%; margin: 20px auto">
       <div class="sub-title-head">
         <div class="l-box" />
-        耗材入库 - 创建出库单
+        耗材出库 - 创建出库单
       </div>
       <div>
         <p>出库单号</p>
@@ -37,9 +37,7 @@
         @selection-change="handleSelectionChange"
       >
         <el-table-column type="selection" width="55" />
-        <el-table-column prop="name" label="申请单号" />
-        <el-table-column prop="name" label="申请部门" />
-        <el-table-column prop="name" label="申请人" />
+        <el-table-column prop="a0" label="申请单号" />
         <el-table-column label="耗材图片">
           <template slot-scope="scope">
             <div slot="reference" class="name-wrapper">
@@ -47,12 +45,12 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="耗材编号" />
-        <el-table-column prop="address" label="耗材名称" />
-        <el-table-column prop="address" label="耗材类型" />
-        <el-table-column prop="address" label="单位" />
-        <el-table-column prop="address" label="当前库存" />
-        <el-table-column prop="address" label="出库数量" />
+        <el-table-column prop="a1" label="耗材编号" />
+        <el-table-column prop="a2" label="耗材名称" />
+        <el-table-column prop="a3" label="耗材类型" />
+        <el-table-column prop="a4" label="单位" />
+        <el-table-column prop="a5" label="当前库存" />
+        <el-table-column prop="a6" label="出库数量" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -115,8 +113,8 @@
           <template slot-scope="scope">{{ scope.row.a1 }}</template>
         </el-table-column>
         <el-table-column prop="a2" label="耗材名称" width="120" />
-        <el-table-column prop="a3" label="单位" />
-        <el-table-column prop="a4" label="耗材类型" />
+        <el-table-column prop="a3" label="耗材类型" />
+        <el-table-column prop="a4" label="单位" />
       </el-table>
       <div style="text-align: right; padding: 15px 0">
         <el-pagination
@@ -137,7 +135,7 @@
         <el-button @click="centerDialogVisible = false">取 消</el-button>
         <el-button
           type="primary"
-          @click="centerDialogVisible = false"
+          @click="addTableItem"
         >确 定</el-button>
       </span>
     </el-dialog>
@@ -167,9 +165,13 @@ export default {
         }
       ],
       tableData2: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '1518 弄',
+        a0: 'a123455',
+        a1: '1234567890123',
+        a2: '得力A4 70g打印纸',
+        a3: '办公用品',
+        a4: '包',
+        a5: '10',
+        a6: '10',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
@@ -379,32 +381,32 @@ export default {
       tableData: [{
         a1: '1234567890123',
         a2: '得力A4 70g打印纸',
-        a3: '包',
-        a4: '办公用品',
+        a3: '办公用品',
+        a4: '包',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
-        a3: '包',
-        a4: '办公用品',
+        a3: '办公用品',
+        a4: '包',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
-        a3: '包',
-        a4: '办公用品',
+        a3: '办公用品',
+        a4: '包',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
-        a3: '包',
-        a4: '办公用品',
+        a3: '办公用品',
+        a4: '包',
         img: require('../../../assets/img/default.svg')
       }, {
-       a1: '1234567890123',
+        a1: '1234567890123',
         a2: '得力A4 70g打印纸',
-        a3: '包',
-        a4: '办公用品',
+        a3: '办公用品',
+        a4: '包',
         img: require('../../../assets/img/default.svg')
       }],
       multipleSelection: [],
@@ -435,15 +437,24 @@ export default {
         this.$message.success('操作成功')
       })
     },
-    hangeRadio() {
+    changeRadio() {
       // if(this.radio === 3) {
         this.tableData.forEach(row => {
             this.$refs.multipleTable.toggleRowSelection(row, true)
           })
       // }
     },
+    addTableItem() {
+      this.tableData2 = this.tableData2.concat(this.selected)
+      // 交互效果需要直接这样写，后续根据后台数据返回相应调整
+      this.tableData.splice(0, this.selected.length)
+      this.centerDialogVisible = false
+    },
     chooseIt() {
       this.centerDialogVisible = true
+      this.selected.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row, false)
+          })
       this.total = this.tableData.length
     },
     handleSizeChange(val) {
