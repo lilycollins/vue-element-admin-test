@@ -520,6 +520,18 @@ export const constantRoutes = [{
             name: 'lead',
             meta: { title: '领导驾驶舱', icon: 'lock', noCache: true }
         }]
+    },
+    {
+        path: '/haikang',
+        component: Layout,
+        redirect: '/haikang/index',
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/haikang/index'),
+            name: 'haikang',
+            meta: { title: '海康AR', icon: 'guide', noCache: true }
+        }]
     }
 ]
 
