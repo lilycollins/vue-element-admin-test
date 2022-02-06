@@ -183,6 +183,7 @@ aside {
 }
 
 .main-content {
+    overflow: auto;
     padding: 24px;
     .tag-warp {
         display: flex;

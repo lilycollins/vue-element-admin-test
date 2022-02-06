@@ -59,12 +59,14 @@ export const constantRoutes = [{
             {
                 path: 'message',
                 name: 'message',
+                meta: { title: '信息发布' },
                 component: () =>
                     import ('@/views/dashboard/component/message'),
                 hidden: true
             },
             {
                 path: 'todo',
+                meta: { title: '待办事宜' },
                 name: 'todo',
                 component: () =>
                     import ('@/views/dashboard/component/todo'),
@@ -91,6 +93,7 @@ export const constantRoutes = [{
             {
                 path: 'addChange/:type',
                 name: 'addChange',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/user/component/organComp'),
                 hidden: true
@@ -105,6 +108,7 @@ export const constantRoutes = [{
             {
                 path: 'roleChange/:type',
                 name: 'roleChange',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/user/component/roleComp'),
                 hidden: true
@@ -119,6 +123,7 @@ export const constantRoutes = [{
             {
                 path: 'userChange/:type',
                 name: 'userChange',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/user/component/userComp'),
                 hidden: true
@@ -156,6 +161,7 @@ export const constantRoutes = [{
             {
                 path: 'checkPlan/:type',
                 name: 'checkPlan',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/fire/component/checkComp'),
                 hidden: true
@@ -170,6 +176,7 @@ export const constantRoutes = [{
             {
                 path: 'checkProtect/:type',
                 name: 'checkProtect',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/fire/component/protectComp'),
                 hidden: true
@@ -191,6 +198,7 @@ export const constantRoutes = [{
             {
                 path: 'pubMessage/:type',
                 name: 'pubMessage',
+                meta: { title: '信息发布' },
                 component: () =>
                     import ('@/views/fire/component/pubMessage'),
                 hidden: true
@@ -216,6 +224,7 @@ export const constantRoutes = [{
             {
                 path: 'addProtect/:type',
                 name: 'addProtect',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/fix/component/addProtect'),
                 hidden: true
@@ -223,6 +232,7 @@ export const constantRoutes = [{
             {
                 path: 'protectDetail',
                 name: 'protectDetail',
+                meta: { title: '报修详情' },
                 component: () =>
                     import ('@/views/fix/component/protectDetail'),
                 hidden: true
@@ -230,6 +240,7 @@ export const constantRoutes = [{
             {
                 path: 'protectScore',
                 name: 'protectScore',
+                meta: { title: '维修点评' },
                 component: () =>
                     import ('@/views/fix/component/protectScore'),
                 hidden: true
@@ -269,6 +280,7 @@ export const constantRoutes = [{
             {
                 path: 'preAdd/:type',
                 name: 'preAdd',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/consume/component/preApply'),
                 hidden: true
@@ -276,6 +288,7 @@ export const constantRoutes = [{
             {
                 path: 'preDetail',
                 name: 'preDetail',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/consume/component/preApplyDetail'),
                 hidden: true
@@ -304,6 +317,7 @@ export const constantRoutes = [{
             {
                 path: 'messageChange/:type',
                 name: 'messageChange',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/consume/component/messageChange'),
                 hidden: true
@@ -318,6 +332,7 @@ export const constantRoutes = [{
             {
                 path: 'supplyChange/:type',
                 name: 'supplyChange',
+                meta: { title: '' },
                 component: () =>
                     import ('@/views/consume/component/supplyChange'),
                 hidden: true
@@ -332,6 +347,7 @@ export const constantRoutes = [{
             {
                 path: 'applyDetail',
                 name: 'applyDetail',
+                meta: { title: '耗材申请详情' },
                 component: () =>
                     import ('@/views/consume/component/applyDetail'),
                 hidden: true
@@ -346,6 +362,7 @@ export const constantRoutes = [{
             {
                 path: 'storageDetail',
                 name: 'storageDetail',
+                meta: { title: '耗材库存查询详情' },
                 component: () =>
                     import ('@/views/consume/component/storageDetail'),
                 hidden: true
@@ -360,6 +377,7 @@ export const constantRoutes = [{
             {
                 path: 'instoreChange',
                 name: 'instoreChange',
+                meta: { title: '耗材入库-创建入库单' },
                 component: () =>
                     import ('@/views/consume/component/instoreChange'),
                 hidden: true
@@ -367,6 +385,7 @@ export const constantRoutes = [{
             {
                 path: 'instoreDetail',
                 name: 'instoreDetail',
+                meta: { title: '耗材入库-入库单详情' },
                 component: () =>
                     import ('@/views/consume/component/instoreDetail'),
                 hidden: true
@@ -381,6 +400,7 @@ export const constantRoutes = [{
             {
                 path: 'outstoreChange',
                 name: 'outstoreChange',
+                meta: { title: '耗材出库-创建出库单' },
                 component: () =>
                     import ('@/views/consume/component/outstoreChange'),
                 hidden: true
@@ -388,6 +408,7 @@ export const constantRoutes = [{
             {
                 path: 'outstoreDetail',
                 name: 'outstoreDetail',
+                meta: { title: '耗材出库-出库单详情' },
                 component: () =>
                     import ('@/views/consume/component/outstoreDetail'),
                 hidden: true
@@ -402,6 +423,7 @@ export const constantRoutes = [{
             {
                 path: 'inventoryStart',
                 name: 'inventoryStart',
+                meta: { title: '耗材盘点-开始盘点' },
                 component: () =>
                     import ('@/views/consume/component/inventoryStart'),
                 hidden: true
@@ -409,12 +431,14 @@ export const constantRoutes = [{
             {
                 path: 'inventoryPlan',
                 name: 'inventoryPlan',
+                meta: { title: '耗材盘点-创建计划单' },
                 component: () =>
                     import ('@/views/consume/component/inventoryPlan'),
                 hidden: true
             }, {
                 path: 'inventoryDetail',
                 name: 'inventoryDetail',
+                meta: { title: '耗材盘点-盘点详情' },
                 component: () =>
                     import ('@/views/consume/component/inventoryDetail'),
                 hidden: true
@@ -429,6 +453,7 @@ export const constantRoutes = [{
             {
                 path: 'addInven',
                 name: 'addInven',
+                meta: { title: '耗材盘点修正-创建修正单' },
                 component: () =>
                     import ('@/views/consume/component/addInven'),
                 hidden: true
@@ -436,6 +461,7 @@ export const constantRoutes = [{
             {
                 path: 'fixInvenDetail',
                 name: 'fixInvenDetail',
+                meta: { title: '耗材盘点修正-修正单详情' },
                 component: () =>
                     import ('@/views/consume/component/fixInvenDetail'),
                 hidden: true
@@ -464,6 +490,7 @@ export const constantRoutes = [{
             {
                 path: 'auditDetail',
                 name: 'auditDetail',
+                meta: { title: '耗材申请审核-详情' },
                 component: () =>
                     import ('@/views/consume/component/auditDetail'),
                 hidden: true
