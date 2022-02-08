@@ -8,13 +8,19 @@
       <div>
         <p>入库单号</p>
         <el-input
-          v-model="textarea"
+          v-model="a1"
           style="width: 350px"
           placeholder="请输入修正单号"
         />
+        <p>预申请单号</p>
+        <el-input
+          v-model="a2"
+          style="width: 350px"
+          placeholder="请输入耗材预申请单号"
+        />
         <p>供应商</p>
         <el-select
-          v-model="textarea"
+          v-model="a3"
           style="width: 350px"
           filterable
           placeholder="请选择供应商"
@@ -184,6 +190,10 @@ export default {
         a7: '500.00',
         img: require('../../../assets/img/default.svg')
       }],
+      a1: '',
+      a2: '',
+      a3: '',
+      a4: '',
       textarea: '',
       selected: [],
       centerDialogVisible: false,

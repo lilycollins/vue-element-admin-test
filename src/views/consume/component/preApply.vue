@@ -22,6 +22,18 @@
             placeholder="选择日期"
           />
         </el-form-item>
+        <el-form-item label="使用时间" prop="a3">
+          <el-date-picker
+            v-model="ruleForm.a3"
+            type="date"
+            placeholder="选择日期"
+          />
+        </el-form-item>
+        <el-form-item label="审核人" prop="a4">
+          <el-select v-model="ruleForm.a4" placeholder="">
+            <el-option key="1" label="米小宝" value="1" />
+          </el-select>
+        </el-form-item>
         <el-form-item label="申请理由" prop="a2">
           <el-input
             v-model="ruleForm.a2"
@@ -160,7 +172,9 @@ export default {
       ruleForm: {
         name: '',
         a2: '',
-        a1: ''
+        a1: '',
+        a3: '',
+        a4: ''
       },
       rules: {
         a1: [{ required: true, message: '不能为空', trigger: 'blur' }]
@@ -418,7 +432,9 @@ export default {
       this.ruleForm = {
         name: '01',
         a1: '2022-01-12',
-        a2: '已用完，需要申请'
+        a2: '已用完，需要申请',
+        a3: '2022-01-12',
+        a4: '1'
       }
     }
   },

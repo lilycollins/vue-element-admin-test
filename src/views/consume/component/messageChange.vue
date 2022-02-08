@@ -28,6 +28,9 @@
       <el-form-item label="单位" prop="a3">
         <el-input v-model="ruleForm.a3" />
       </el-form-item>
+      <el-form-item label="耗材单价" prop="a8">
+        <el-input v-model="ruleForm.a3" />
+      </el-form-item>
       <el-form-item label="质保时间" prop="a4">
         <el-input v-model="ruleForm.a4" />
       </el-form-item>
@@ -79,7 +82,7 @@ export default {
         a3: '',
         a4: '',
         a5: '',
-        a6: '', a7: ''
+        a6: '', a7: '', a8: ''
       },
       listObj: {},
       fileList: [],
@@ -90,7 +93,8 @@ export default {
         a4: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a5: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a6: [{ required: true, message: '不能为空', trigger: 'blur' }],
-        a7: [{ required: true, message: '不能为空', trigger: 'blur' }]
+        a7: [{ required: true, message: '不能为空', trigger: 'blur' }],
+        a8: [{ required: true, message: '不能为空', trigger: 'blur' }]
       }
     }
   },

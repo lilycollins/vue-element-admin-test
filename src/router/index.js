@@ -145,7 +145,7 @@ export const constantRoutes = [{
     {
         path: '/fire',
         component: Layout,
-        redirect: '/fire/complex-table',
+        redirect: '/fire/deviceCheck',
         name: 'fire',
         meta: {
             title: '消防管理',
@@ -264,7 +264,7 @@ export const constantRoutes = [{
     {
         path: '/consume',
         component: Layout,
-        redirect: '/consume/complex-table',
+        redirect: '/consume/preApply/:type',
         name: 'consume',
         meta: {
             title: '耗材管理',
