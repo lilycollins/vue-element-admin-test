@@ -5,7 +5,7 @@
         <div class="l-box" />
         耗材盘点修正 - 创建修正单
       </div>
-      <div style="padding-top: 35px">
+      <div>
         <p>修正单号</p>
         <el-input
           v-model="textarea"
@@ -49,7 +49,11 @@
         <el-table-column prop="a3" label="耗材类型" />
         <el-table-column prop="a4" label="单位" />
         <el-table-column prop="a5" label="上次盘点数量" />
-        <el-table-column prop="a6" label="修正数量" />
+        <el-table-column prop="a6" align="center" label="修正数量">
+          <template slot-scope="scope">
+            <el-input v-model="scope.row.a6" />
+          </template>
+        </el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -169,7 +173,7 @@ export default {
         a3: '办公用品',
         a4: '包',
         a5: '10',
-        a6: '10',
+        a6: '',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',

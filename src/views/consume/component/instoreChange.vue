@@ -64,8 +64,16 @@
         <el-table-column prop="a2" label="耗材名称" />
         <el-table-column prop="a3" label="耗材类型" />
         <el-table-column prop="a4" label="单位" />
-        <el-table-column prop="a5" label="入库单价" />
-        <el-table-column prop="a6" label="入库数量" />
+        <el-table-column prop="a5" align="center" label="入库单价">
+          <template slot-scope="scope">
+            <el-input v-model="scope.row.a5" @keyup.native="countMoney" />
+          </template>
+        </el-table-column>
+        <el-table-column prop="a6" align="center" label="入库数量">
+          <template slot-scope="scope">
+            <el-input v-model="scope.row.a6" @keyup.native="countMoney" />
+          </template>
+        </el-table-column>
         <el-table-column prop="a7" label="小计" />
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
@@ -162,24 +170,6 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
       tableData2: [{
         a1: '1234567890123',
         a2: '得力A4 70g打印纸',
@@ -187,7 +177,7 @@ export default {
         a4: '包',
         a5: '10.00',
         a6: '10',
-        a7: '500.00',
+        a7: '100.00',
         img: require('../../../assets/img/default.svg')
       }],
       a1: '',
@@ -433,16 +423,6 @@ export default {
       radio: null
     }
   },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
-    }
-  },
   methods: {
     back() {
       this.$router.go(-1)
@@ -483,7 +463,10 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
     },
-    onSubmit() { }
+    onSubmit() { },
+    countMoney() {
+      console.log('小计金额计算')
+    }
   }
 }
 </script>

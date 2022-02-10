@@ -54,7 +54,11 @@
         <el-table-column prop="a2" label="耗材名称" />
         <el-table-column prop="a3" label="耗材类型" />
         <el-table-column prop="a4" label="单位" />
-        <el-table-column prop="a5" label="盘点数量" />
+        <el-table-column prop="a5" align="center" label="盘点数量">
+          <template slot-scope="scope">
+            <el-input v-model="scope.row.a5" />
+          </template>
+        </el-table-column>
       </el-table>
 
       <div style="padding-top: 35px">
@@ -146,14 +150,14 @@ export default {
         a2: '得力A4 70g打印纸',
         a3: '办公用品',
         a4: '包',
-        a5: '10',
+        a5: '',
         img: require('../../../assets/img/default.svg')
       }, {
         a1: '1234567890123',
         a2: '得力A4 70g打印纸',
         a3: '办公用品',
         a4: '包',
-        a5: '10',
+        a5: '',
         img: require('../../../assets/img/default.svg')
       }],
       time: '2022-01-01 10:00',

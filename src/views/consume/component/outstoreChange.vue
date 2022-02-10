@@ -50,7 +50,11 @@
         <el-table-column prop="a3" label="耗材类型" />
         <el-table-column prop="a4" label="单位" />
         <el-table-column prop="a5" label="当前库存" />
-        <el-table-column prop="a6" label="出库数量" />
+        <el-table-column prop="a6" align="center" label="出库数量">
+          <template slot-scope="scope">
+            <el-input v-model="scope.row.a6" />
+          </template>
+        </el-table-column>
         <el-table-column fixed="right" label="操作" width="100">
           <template slot-scope="scope">
             <el-button
@@ -146,24 +150,6 @@
 export default {
   data() {
     return {
-      headers: [
-        {
-          prop: 'date',
-          label: '申请单号'
-        },
-        {
-          prop: 'name',
-          label: '申请部门'
-        },
-        {
-          prop: 'address',
-          label: '使用时间'
-        },
-        {
-          prop: 'people',
-          label: '审核人'
-        }
-      ],
       tableData2: [{
         a0: 'a123455',
         a1: '1234567890123',
@@ -171,7 +157,7 @@ export default {
         a3: '办公用品',
         a4: '包',
         a5: '10',
-        a6: '10',
+        a6: '',
         img: require('../../../assets/img/default.svg')
       }],
       textarea: '',
@@ -411,16 +397,6 @@ export default {
       }],
       multipleSelection: [],
       radio: null
-    }
-  },
-  computed: {
-    getHeaders() {
-      return this.tableData.reduce((pre, cur, index) => pre.concat(`value${index}`), ['title'])
-    },
-    getValues() {
-      return this.headers.map(item => {
-        return this.tableData.reduce((pre, cur, index) => Object.assign(pre, { ['value' + index]: cur[item.prop] }), { 'title': item.label })
-      })
     }
   },
   methods: {

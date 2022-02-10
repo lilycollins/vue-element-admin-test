@@ -281,6 +281,7 @@ export default {
       this.form.pageSize = val
       this.getList()
     },
+    filterNode() {},
     handleCurrentChange(val) {
       this.form.pageIndex = val
       this.getList()

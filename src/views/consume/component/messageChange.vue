@@ -19,11 +19,12 @@
         <el-input v-model="ruleForm.a1" />
       </el-form-item>
       <el-form-item label="耗材类型" prop="a2">
-        <el-select v-model="ruleForm.a2" placeholder="全部类型">
-          <el-option key="1" label="一级耗材类型" value="1" />
-          <el-option key="2" label="二级耗材类型" value="2" />
-          <el-option key="3" label="三级耗材类型" value="3" />
-        </el-select>
+        <el-cascader
+          v-model="ruleForm.a2"
+          :options="options"
+          :show-all-levels="false"
+          :props="{ expandTrigger: 'hover' }"
+        />
       </el-form-item>
       <el-form-item label="单位" prop="a3">
         <el-input v-model="ruleForm.a3" />
@@ -78,7 +79,7 @@ export default {
       ruleForm: {
         name: '',
         a1: '',
-        a2: '',
+        a2: [],
         a3: '',
         a4: '',
         a5: '',
@@ -88,14 +89,79 @@ export default {
       fileList: [],
       rules: {
         a1: [{ required: true, message: '不能为空', trigger: 'blur' }],
-        a2: [{ required: true, message: '不能为空', trigger: 'blur' }],
+        a2: [{ required: true, message: '不能为空', trigger: 'change' }],
         a3: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a4: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a5: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a6: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a7: [{ required: true, message: '不能为空', trigger: 'blur' }],
         a8: [{ required: true, message: '不能为空', trigger: 'blur' }]
-      }
+      },
+       options: [{
+          value: 'zhinan',
+          label: '一级耗材类型',
+          children: [{
+            value: 'shejiyuanze',
+            label: '二级耗材类型',
+            children: [{
+              value: 'yizhi',
+              label: '三级耗材类型'
+            }]
+          }]
+        }, {
+          value: 'ziyuan',
+          label: '一级耗材类型',
+          children: [{
+            value: 'axure',
+            label: '二级 2-1',
+            children: [{
+              value: 'yizhi',
+              label: '三级 2-1'
+            }, {
+              value: 'bangong',
+              label: '办公用品'
+            }]
+          }, {
+            value: 'sketch',
+            label: '二级 2-2',
+            children: [{
+              value: 'yizhi',
+              label: '三级  2-2'
+            }]
+          }, {
+            value: 'jiaohu',
+            label: '二级 2-3',
+            children: [{
+              value: 'yizhi',
+              label: '三级 2-3'
+            }]
+          }]
+        }, {
+          value: 'ziyuan',
+          label: '一级耗材类型',
+          children: [{
+            value: 'axure',
+            label: '二级 3-1',
+            children: [{
+              value: 'yizhi',
+              label: '三级 3-1'
+            }]
+          }, {
+            value: 'sketch',
+            label: '二级 3-2',
+            children: [{
+              value: 'yizhi',
+              label: '三级  3-2'
+            }]
+          }, {
+            value: 'jiaohu',
+            label: '二级 3-3',
+            children: [{
+              value: 'yizhi',
+              label: '三级 3-3'
+            }]
+          }]
+        }]
     }
   },
   created() {
@@ -103,7 +169,7 @@ export default {
       this.ruleForm = {
         name: '12345678',
         a1: '得力A4 70g打印纸',
-        a2: '办公用品',
+        a2: ['ziyuan', 'axure', 'bangong'],
         a3: '包',
         a4: '12个月',
         a5: '米宝供应商',
@@ -128,6 +194,7 @@ export default {
       })
     },
     resetForm(formName) {
+      console.log(111, this.ruleForm)
       this.$refs[formName].resetFields()
       this.$router.go(-1)
     },
